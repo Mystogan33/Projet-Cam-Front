@@ -38,20 +38,27 @@ export class PageConnexion {
 
     var body = JSON.stringify({identifier: this.identifier , password: this.password})
 
-    this.serv.Connexion(body)
-              .then(data => {
-                console.log(data);
-                this.reponse = data;
-                this.reponseUser = this.reponse.user;
-                this.reponseToken = this.reponse.token;
-                localStorage.setItem("token",this.reponseToken);
-                this.showAlertConnexion();
-                this.navCtrl.push(HomePage);
-              } , error => {
-                this.showAlertError();
-              });
+    this.serv.Connexion(body).subscribe(
 
-    }
+      data => {
+
+      this.reponse = data;
+      this.reponseUser = this.reponse.user;
+      this.reponseToken = this.reponse.token;
+      localStorage.setItem("token",this.reponseToken);
+      this.showAlertConnexion();
+      this.navCtrl.push(HomePage);
+
+      },
+      err => {
+
+      this.showAlertError();
+
+    },
+      () => console.log("connexion complete")
+    );
+
+  }
 
   showAlertConnexion() {
     let alert = this.alertCtrl.create({
@@ -135,16 +142,19 @@ export class PageConnexion {
 
     console.log(body);
 
-    this.serv.Inscription(body)
-              .then(data => {
+    this.serv.Inscription(body).subscribe(
+              data => {
                 console.log(data);
                 this.reponse = data;
                 this.reponseUser = this.reponse.user;
                 this.reponseToken = this.reponse.token;
                 localStorage.setItem('token',this.reponseToken);
-              } , error => {
+              },
+              err => {
                 this.showAlertError();
-              });
+              },
+              () => console.log('Inscription complete')
+            );
          }
 
 }
