@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { NavController } from 'ionic-angular';
+import { NavController , AlertController} from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -8,8 +8,36 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
-    
+  constructor(public navCtrl: NavController , public alertCtrl : AlertController) {
+
+  }
+
+  logOut()
+  {
+    this.confirmLogOut();
+  }
+
+  confirmLogOut(){
+    let confirm = this.alertCtrl.create({
+
+      title : 'Vous partez ? :(',
+      message : 'Vous souhaitez vous déconnecter ? ',
+      buttons : [
+        {
+          text : 'Oui',
+          handler : () => {
+            console.log("Déconnexion");
+          }
+        },
+        {
+          text : 'Non',
+          handler : () => {
+
+          }
+        }
+      ]
+    });
+    confirm.present();
   }
 
 }
