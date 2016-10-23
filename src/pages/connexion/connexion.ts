@@ -47,6 +47,8 @@ export class PageConnexion {
                 localStorage.setItem("token",this.reponseToken);
                 this.showAlertConnexion();
                 this.navCtrl.push(HomePage);
+              } , error => {
+                this.showAlertError();
               });
 
     }
@@ -59,6 +61,15 @@ export class PageConnexion {
                 "Vous vous appelez " + this.reponseUser.firstName + " " + this.reponseUser.lastName +
                 "Vous avez l'identifiant " + this.reponseUser.id +
                 "Et votre token de connexion est le : "+this.reponseToken,
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
+  showAlertError() {
+    let alert = this.alertCtrl.create({
+      title: 'Oups :\'(',
+      message : "Il semblerait qu'une erreur se soit produite",
       buttons: ['OK']
     });
     alert.present();
@@ -131,9 +142,9 @@ export class PageConnexion {
                 this.reponseUser = this.reponse.user;
                 this.reponseToken = this.reponse.token;
                 localStorage.setItem('token',this.reponseToken);
+              } , error => {
+                this.showAlertError();
               });
-
-
-
          }
+
 }

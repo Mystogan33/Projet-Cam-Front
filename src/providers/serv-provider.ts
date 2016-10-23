@@ -27,7 +27,9 @@ export class ServProvider {
     .subscribe(data => {
       this.data = data;
       resolve(this.data);
-      });
+    },error => {
+      
+    });
     });
 
   }
@@ -48,7 +50,9 @@ export class ServProvider {
     .subscribe(data => {
       this.data = data;
       resolve(this.data);
-      });
+    },error => {
+
+    });
     });
 
   }
