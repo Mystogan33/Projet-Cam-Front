@@ -1,14 +1,19 @@
 import { Component } from '@angular/core';
-
+import { ServProvider } from '../../providers/serv-provider';
 import { NavController , AlertController} from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
+  providers : [ServProvider]
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController , public alertCtrl : AlertController) {
+  constructor(public navCtrl: NavController , public serv : ServProvider , public alertCtrl : AlertController) {
+
+    this.navCtrl = navCtrl;
+    this.serv = serv;
+    this.alertCtrl = alertCtrl;
 
   }
 

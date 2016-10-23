@@ -8,7 +8,7 @@ import { PageConnexion } from '../pages/connexion/connexion';
   declarations: [
     MyApp,
     HomePage,
-    PageConnexion,
+    PageConnexion
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -17,7 +17,7 @@ import { PageConnexion } from '../pages/connexion/connexion';
   entryComponents: [
     MyApp,
     HomePage,
-    PageConnexion,
+    PageConnexion
   ],
   providers: []
 })

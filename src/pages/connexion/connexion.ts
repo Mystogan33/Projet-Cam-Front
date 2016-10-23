@@ -4,6 +4,8 @@ import { NavController , AlertController } from 'ionic-angular';
 
 import {ServProvider} from '../../providers/serv-provider';
 
+import {HomePage} from '../home/home';
+
 @Component({
   selector: 'page-connexion',
   templateUrl: 'connexion.html',
@@ -13,7 +15,12 @@ import {ServProvider} from '../../providers/serv-provider';
 export class PageConnexion {
 
   identifier : any;
+
+  username : any;
   password : any;
+  mail : any;
+  lastname : any;
+  firstname : any;
 
   reponse : any;
   reponseUser : any;
@@ -37,12 +44,14 @@ export class PageConnexion {
                 this.reponse = data;
                 this.reponseUser = this.reponse.user;
                 this.reponseToken = this.reponse.token;
-                this.showAlert();
+                localStorage.setItem("token",this.reponseToken);
+                this.showAlertConnexion();
+                this.navCtrl.push(HomePage);
               });
 
     }
 
-  showAlert() {
+  showAlertConnexion() {
     let alert = this.alertCtrl.create({
       title: 'Connexion établie !',
       message : "Bienvenue " + this.reponseUser.username+" !" +
@@ -55,4 +64,76 @@ export class PageConnexion {
     alert.present();
   }
 
+  showAlertInscription()
+  {
+    let prompt = this.alertCtrl.create({
+
+      title: 'Inscription',
+      message : 'Veuillez remplir les champs suivant afin de vous inscrire',
+      inputs: [
+        {
+          name : 'username',
+          placeholder : 'Username',
+        },
+        {
+          name : 'password',
+          type: 'password',
+          placeholder : 'Mot de passe'
+
+        },
+        {
+          name : 'email',
+          placeholder : 'Mail',
+        },
+        {
+          name : 'firstname',
+          placeholder : 'Prénom'
+        },
+        {
+          name : 'lastname',
+          placeholder : 'Nom'
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+
+          }
+        },
+        {
+          text : 'S\'inscrire',
+          handler: data => {
+            this.username = data.username;
+            this.password = data.password;
+            this.mail = data.email;
+            this.firstname = data.firstname;
+            this.lastname = data.lastname;
+
+            this.inscription();
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
+
+  inscription(){
+
+    var body = JSON.stringify({username: this.username , password: this.password , email: this.mail , firstName: this.firstname , lastName: this.lastname});
+
+    console.log(body);
+
+    this.serv.Inscription(body)
+              .then(data => {
+                console.log(data);
+                this.reponse = data;
+                this.reponseUser = this.reponse.user;
+                this.reponseToken = this.reponse.token;
+                localStorage.setItem('token',this.reponseToken);
+              });
+
+
+
+         }
 }
