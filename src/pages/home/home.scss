@@ -4,4 +4,9 @@ page-home {
   text-align: center;
   }
 
+  ion-card.camera ion-card-header {
+  color: map-get($colors, secondary);
+}
+
+
 }

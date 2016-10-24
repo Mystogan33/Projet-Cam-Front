@@ -9,7 +9,7 @@ import { PageConnexion } from '../pages/connexion/connexion';
   template: `<ion-nav [root]="rootPage"></ion-nav>`
 })
 export class MyApp {
-  rootPage = HomePage;
+  rootPage : any = HomePage;
 
   constructor(platform: Platform) {
     platform.ready().then(() => {

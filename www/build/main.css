@@ -21114,6 +21114,10 @@ page-home ion-navbar {
   text-align: center;
 }
 
+page-home ion-card.camera ion-card-header {
+  color: #32db64;
+}
+
 page-modal-inscription ion-navbar {
   text-align: center;
 }
