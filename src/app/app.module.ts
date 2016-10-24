@@ -3,12 +3,14 @@ import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { PageConnexion } from '../pages/connexion/connexion';
+import { ModalInscription } from '../pages/modal-inscription/modal-inscription';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    PageConnexion
+    PageConnexion,
+    ModalInscription
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -17,7 +19,8 @@ import { PageConnexion } from '../pages/connexion/connexion';
   entryComponents: [
     MyApp,
     HomePage,
-    PageConnexion
+    PageConnexion,
+    ModalInscription
   ],
   providers: []
 })

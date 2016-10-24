@@ -81214,6 +81214,45 @@ var HomePage = (function () {
     return HomePage;
 }());
 
+var __decorate$111 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata$5 = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+/*
+  Generated class for the ModalInscription page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+*/
+var ModalInscription = (function () {
+    function ModalInscription(navCtrl, viewCtrl) {
+        this.navCtrl = navCtrl;
+        this.viewCtrl = viewCtrl;
+    }
+    ModalInscription.prototype.ionViewDidLoad = function () {
+        console.log('Page d\'inscription');
+    };
+    ModalInscription.prototype.dismissCancel = function () {
+        this.navCtrl.pop();
+    };
+    ModalInscription.prototype.dismiss = function () {
+        var data = JSON.stringify({ username: this.username, password: this.password, email: this.mail, firstName: this.firstname, lastName: this.lastname });
+        this.viewCtrl.dismiss(data);
+    };
+    ModalInscription = __decorate$111([
+        Component({
+            selector: 'page-modal-inscription',template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\modal-inscription\modal-inscription.html"*/'<ion-header>\n\n  <ion-navbar full color="secondary">\n\n    <ion-title>Inscription</ion-title>\n\n    <ion-buttons left>\n\n      <button ion-button icon-only (click)="dismissCancel()"><ion-icon name="arrow-back"></ion-icon></button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <ion-list no-lines>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Nom d\'utilisateur</ion-label>\n\n        <ion-input [(ngModel)]="username" type="text"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Mot de Passe</ion-label>\n\n        <ion-input [(ngModel)]="password" type="password"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Adresse e-Mail</ion-label>\n\n        <ion-input [(ngModel)]="mail" type="mail"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Prénom</ion-label>\n\n        <ion-textarea [(ngModel)]="firstname"></ion-textarea>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Nom</ion-label>\n\n        <ion-input [(ngModel)]="lastname" type="text"></ion-input>\n\n      </ion-item>\n\n\n\n    </ion-list>\n\n\n\n    <button ion-button full color="secondary" (click)="dismiss()">S\'inscrire</button>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\modal-inscription\modal-inscription.html"*/
+        }), 
+        __metadata$5('design:paramtypes', [NavController, ViewController])
+    ], ModalInscription);
+    return ModalInscription;
+}());
+
 var __decorate$108 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -81224,39 +81263,24 @@ var __metadata$2 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var PageConnexion = (function () {
-    function PageConnexion(navCtrl, serv, alertCtrl) {
+    function PageConnexion(navCtrl, serv, alertCtrl, modalCtrl) {
         this.navCtrl = navCtrl;
         this.serv = serv;
         this.alertCtrl = alertCtrl;
-        this.navCtrl = navCtrl;
-        this.serv = serv;
-        this.alertCtrl = alertCtrl;
+        this.modalCtrl = modalCtrl;
     }
     PageConnexion.prototype.connexion = function () {
         var _this = this;
-        var body = JSON.stringify({ identifier: this.identifier, password: this.password });
-        this.serv.Connexion(body).subscribe(function (data) {
+        this.bodyRequest = JSON.stringify({ identifier: this.identifier, password: this.password });
+        this.serv.Connexion(this.bodyRequest).subscribe(function (data) {
             _this.reponse = data;
             _this.reponseUser = _this.reponse.user;
             _this.reponseToken = _this.reponse.token;
             localStorage.setItem("token", _this.reponseToken);
-            _this.showAlertConnexion();
             _this.navCtrl.push(HomePage);
         }, function (err) {
             _this.showAlertError();
         }, function () { return console.log("connexion complete"); });
-    };
-    PageConnexion.prototype.showAlertConnexion = function () {
-        var alert = this.alertCtrl.create({
-            title: 'Connexion établie !',
-            message: "Bienvenue " + this.reponseUser.username + " !" +
-                "Votre email est : " + this.reponseUser.email +
-                "Vous vous appelez " + this.reponseUser.firstName + " " + this.reponseUser.lastName +
-                "Vous avez l'identifiant " + this.reponseUser.id +
-                "Et votre token de connexion est le : " + this.reponseToken,
-            buttons: ['OK']
-        });
-        alert.present();
     };
     PageConnexion.prototype.showAlertError = function () {
         var alert = this.alertCtrl.create({
@@ -81266,75 +81290,43 @@ var PageConnexion = (function () {
         });
         alert.present();
     };
-    PageConnexion.prototype.showAlertInscription = function () {
-        var _this = this;
-        var prompt = this.alertCtrl.create({
+    PageConnexion.prototype.showAlertSuccessInscription = function () {
+        var alert = this.alertCtrl.create({
             title: 'Inscription',
-            message: 'Veuillez remplir les champs suivant afin de vous inscrire',
-            inputs: [
-                {
-                    name: 'username',
-                    placeholder: 'Username',
-                },
-                {
-                    name: 'password',
-                    type: 'password',
-                    placeholder: 'Mot de passe'
-                },
-                {
-                    name: 'email',
-                    placeholder: 'Mail',
-                },
-                {
-                    name: 'firstname',
-                    placeholder: 'Prénom'
-                },
-                {
-                    name: 'lastname',
-                    placeholder: 'Nom'
-                },
-            ],
-            buttons: [
-                {
-                    text: 'Cancel',
-                    handler: function (data) {
-                    }
-                },
-                {
-                    text: 'S\'inscrire',
-                    handler: function (data) {
-                        _this.username = data.username;
-                        _this.password = data.password;
-                        _this.mail = data.email;
-                        _this.firstname = data.firstname;
-                        _this.lastname = data.lastname;
-                        _this.inscription();
-                    }
-                }
-            ]
+            message: "Inscription validé !",
+            buttons: ['OK']
         });
-        prompt.present();
+        alert.present();
+    };
+    PageConnexion.prototype.showModalInscription = function () {
+        var _this = this;
+        var modal = this.modalCtrl.create(ModalInscription);
+        modal.onDidDismiss(function (data) {
+            _this.bodyRequest = data;
+            _this.inscription();
+        });
+        modal.present();
     };
     PageConnexion.prototype.inscription = function () {
         var _this = this;
-        var body = JSON.stringify({ username: this.username, password: this.password, email: this.mail, firstName: this.firstname, lastName: this.lastname });
-        console.log(body);
-        this.serv.Inscription(body).subscribe(function (data) {
+        console.log(this.bodyRequest);
+        this.serv.Inscription(this.bodyRequest).subscribe(function (data) {
             console.log(data);
             _this.reponse = data;
             _this.reponseUser = _this.reponse.user;
             _this.reponseToken = _this.reponse.token;
             localStorage.setItem('token', _this.reponseToken);
+            _this.showAlertSuccessInscription();
         }, function (err) {
             _this.showAlertError();
         }, function () { return console.log('Inscription complete'); });
     };
     PageConnexion = __decorate$108([
         Component({
-            selector: 'page-connexion',template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\connexion\connexion.html"*/'<ion-header>\n\n  <ion-navbar full color = "secondary">\n\n    <ion-title>\n\n      Authentification\n\n    </ion-title>\n\n    <ion-buttons end>\n\n    <button ion-button icon-only (click)="showAlertInscription()"><ion-icon name="log-in"></ion-icon></button>\n\n  </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n  <ion-list no-lines>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Nom d\'utilisateur ou email</ion-label>\n\n        <ion-input [(ngModel)]="identifier" type="text"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Mot de Passe</ion-label>\n\n        <ion-input [(ngModel)]="password" type="password"></ion-input>\n\n      </ion-item>\n\n\n\n    </ion-list>\n\n\n\n    <button ion-button full color="secondary" (click)="connexion()">Connexion</button>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\connexion\connexion.html"*/,
+            selector: 'page-connexion',template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\connexion\connexion.html"*/'<ion-header>\n\n  <ion-navbar full color = "secondary">\n\n    <ion-title>\n\n      Authentification\n\n    </ion-title>\n\n    <ion-buttons end>\n\n    <button ion-button icon-only (click)="showModalInscription()"><ion-icon name="person-add"></ion-icon></button>\n\n  </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n  <ion-list no-lines>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Nom d\'utilisateur ou email</ion-label>\n\n        <ion-input [(ngModel)]="identifier" type="text"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Mot de Passe</ion-label>\n\n        <ion-input [(ngModel)]="password" type="password"></ion-input>\n\n      </ion-item>\n\n\n\n    </ion-list>\n\n\n\n    <button ion-button full color="secondary" (click)="connexion()">Connexion</button>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\connexion\connexion.html"*/,
             providers: [ServProvider]
         }), 
-        __metadata$2('design:paramtypes', [NavController, ServProvider, AlertController])
+        __metadata$2('design:paramtypes', [NavController, ServProvider, AlertController, ModalController])
     ], PageConnexion);
     return PageConnexion;
 }());
@@ -81384,7 +81376,8 @@ var AppModule = (function () {
             declarations: [
                 MyApp,
                 HomePage,
-                PageConnexion
+                PageConnexion,
+                ModalInscription
             ],
             imports: [
                 IonicModule.forRoot(MyApp)
@@ -81393,7 +81386,8 @@ var AppModule = (function () {
             entryComponents: [
                 MyApp,
                 HomePage,
-                PageConnexion
+                PageConnexion,
+                ModalInscription
             ],
             providers: []
         }), 

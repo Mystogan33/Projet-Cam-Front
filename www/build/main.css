@@ -21113,3 +21113,11 @@ page-connexion ion-navbar {
 page-home ion-navbar {
   text-align: center;
 }
+
+page-modal-inscription ion-navbar {
+  text-align: center;
+}
+
+page-modal-inscription ion-title {
+  text-align: center;
+}

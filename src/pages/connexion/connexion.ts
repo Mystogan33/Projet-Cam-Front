@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 
-import { NavController , AlertController } from 'ionic-angular';
+import { NavController , AlertController , ModalController } from 'ionic-angular';
 
 import {ServProvider} from '../../providers/serv-provider';
 
 import {HomePage} from '../home/home';
+
+import {ModalInscription} from '../modal-inscription/modal-inscription';
+
 
 @Component({
   selector: 'page-connexion',
@@ -15,30 +18,24 @@ import {HomePage} from '../home/home';
 export class PageConnexion {
 
   identifier : any;
-
-  username : any;
   password : any;
-  mail : any;
-  lastname : any;
-  firstname : any;
+
+  bodyRequest : any;
 
   reponse : any;
   reponseUser : any;
   reponseToken : any;
 
-  constructor(public navCtrl: NavController , public serv : ServProvider , public alertCtrl : AlertController) {
+  constructor(public navCtrl: NavController , public serv : ServProvider , public alertCtrl : AlertController , public modalCtrl: ModalController) {
 
-        this.navCtrl = navCtrl;
-        this.serv = serv;
-        this.alertCtrl = alertCtrl;
 
   }
 
   connexion(){
 
-    var body = JSON.stringify({identifier: this.identifier , password: this.password})
+    this.bodyRequest = JSON.stringify({identifier: this.identifier , password: this.password})
 
-    this.serv.Connexion(body).subscribe(
+    this.serv.Connexion(this.bodyRequest).subscribe(
 
       data => {
 
@@ -46,7 +43,6 @@ export class PageConnexion {
       this.reponseUser = this.reponse.user;
       this.reponseToken = this.reponse.token;
       localStorage.setItem("token",this.reponseToken);
-      this.showAlertConnexion();
       this.navCtrl.push(HomePage);
 
       },
@@ -60,19 +56,6 @@ export class PageConnexion {
 
   }
 
-  showAlertConnexion() {
-    let alert = this.alertCtrl.create({
-      title: 'Connexion établie !',
-      message : "Bienvenue " + this.reponseUser.username+" !" +
-                "Votre email est : " + this.reponseUser.email +
-                "Vous vous appelez " + this.reponseUser.firstName + " " + this.reponseUser.lastName +
-                "Vous avez l'identifiant " + this.reponseUser.id +
-                "Et votre token de connexion est le : "+this.reponseToken,
-      buttons: ['OK']
-    });
-    alert.present();
-  }
-
   showAlertError() {
     let alert = this.alertCtrl.create({
       title: 'Oups :\'(',
@@ -82,73 +65,40 @@ export class PageConnexion {
     alert.present();
   }
 
-  showAlertInscription()
-  {
-    let prompt = this.alertCtrl.create({
-
+  showAlertSuccessInscription() {
+    let alert = this.alertCtrl.create({
       title: 'Inscription',
-      message : 'Veuillez remplir les champs suivant afin de vous inscrire',
-      inputs: [
-        {
-          name : 'username',
-          placeholder : 'Username',
-        },
-        {
-          name : 'password',
-          type: 'password',
-          placeholder : 'Mot de passe'
-
-        },
-        {
-          name : 'email',
-          placeholder : 'Mail',
-        },
-        {
-          name : 'firstname',
-          placeholder : 'Prénom'
-        },
-        {
-          name : 'lastname',
-          placeholder : 'Nom'
-        },
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          handler: data => {
-
-          }
-        },
-        {
-          text : 'S\'inscrire',
-          handler: data => {
-            this.username = data.username;
-            this.password = data.password;
-            this.mail = data.email;
-            this.firstname = data.firstname;
-            this.lastname = data.lastname;
-
-            this.inscription();
-          }
-        }
-      ]
+      message : "Inscription validé !",
+      buttons: ['OK']
     });
-    prompt.present();
+    alert.present();
+  }
+
+  showModalInscription()
+  {
+    let modal = this.modalCtrl.create(ModalInscription);
+
+    modal.onDidDismiss(data => {
+                        this.bodyRequest = data;
+                        this.inscription();
+                      });
+
+    modal.present();
+
   }
 
   inscription(){
 
-    var body = JSON.stringify({username: this.username , password: this.password , email: this.mail , firstName: this.firstname , lastName: this.lastname});
+    console.log(this.bodyRequest);
 
-    console.log(body);
-
-    this.serv.Inscription(body).subscribe(
+    this.serv.Inscription(this.bodyRequest).subscribe(
               data => {
                 console.log(data);
                 this.reponse = data;
                 this.reponseUser = this.reponse.user;
                 this.reponseToken = this.reponse.token;
                 localStorage.setItem('token',this.reponseToken);
+                this.showAlertSuccessInscription();
               },
               err => {
                 this.showAlertError();
@@ -156,5 +106,4 @@ export class PageConnexion {
               () => console.log('Inscription complete')
             );
          }
-
 }
