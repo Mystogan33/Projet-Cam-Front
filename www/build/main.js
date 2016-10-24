@@ -81055,7 +81055,7 @@ var Page1 = (function () {
     }
     Page1 = __decorate$108([
         Component({
-            selector: 'page-page1',template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\page1\page1.html"*/'<ion-header>\n  <ion-navbar color="secondary">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title><b>Informations utilisateur</b></ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h3><b>Utilisateur</b> : {{username}}</h3>\n  <h3><b>Adresse Mail</b> : {{email}}</h3>\n  <h3><b>Prénom</b> : {{firstName}}</h3>\n  <h3><b>Nom</b> : {{lastName}}</h3>\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\page1\page1.html"*/
+            selector: 'page-page1',template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\page1\page1.html"*/'<ion-header>\n  <ion-navbar color="secondary">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title><b>Informations utilisateur</b></ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)="logOut()"><ion-icon name="log-out"></ion-icon></button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h3><b>Utilisateur</b> : {{username}}</h3>\n  <h3><b>Adresse Mail</b> : {{email}}</h3>\n  <h3><b>Prénom</b> : {{firstName}}</h3>\n  <h3><b>Nom</b> : {{lastName}}</h3>\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\page1\page1.html"*/
         }), 
         __metadata$2('design:paramtypes', [NavController])
     ], Page1);
@@ -81096,7 +81096,7 @@ var Page2 = (function () {
     };
     Page2 = __decorate$109([
         Component({
-            selector: 'page-page2',template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\page2\page2.html"*/'<ion-header>\n  <ion-navbar color="secondary">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title><b>Liste des caméras</b></ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n      <ion-icon [name]="item.icon" item-left></ion-icon>\n      {{item.title}}\n      <div class="item-note" item-right>\n        {{item.note}}\n      </div>\n    </button>\n  </ion-list>\n  <div *ngIf="selectedItem" padding>\n    You navigated here from <b>{{selectedItem.title}}</b>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\page2\page2.html"*/
+            selector: 'page-page2',template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\page2\page2.html"*/'<ion-header>\n  <ion-navbar color="secondary">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title><b>Liste des caméras</b></ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)="logOut()"><ion-icon name="log-out"></ion-icon></button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n      <ion-icon [name]="item.icon" item-left></ion-icon>\n      {{item.title}}\n      <div class="item-note" item-right>\n        {{item.note}}\n      </div>\n    </button>\n  </ion-list>\n  <div *ngIf="selectedItem" padding>\n    You navigated here from <b>{{selectedItem.title}}</b>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\page2\page2.html"*/
         }), 
         __metadata$3('design:paramtypes', [NavController, NavParams])
     ], Page2);
@@ -81386,6 +81386,10 @@ var HomePage = (function () {
                     handler: function () {
                         console.log("Déconnexion");
                         window.localStorage.removeItem("Token");
+                        window.localStorage.removeItem("username");
+                        window.localStorage.removeItem("email");
+                        window.localStorage.removeItem("firstName");
+                        window.localStorage.removeItem("lastName");
                         _this.isConnected();
                     }
                 },
