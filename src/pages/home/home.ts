@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ServProvider } from '../../providers/serv-provider';
-import { NavController , AlertController} from 'ionic-angular';
+import { NavController , AlertController , ModalController , MenuController} from 'ionic-angular';
+import { PageConnexion } from '../connexion/connexion';
 
 @Component({
   selector: 'page-home',
@@ -9,12 +10,17 @@ import { NavController , AlertController} from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController , public serv : ServProvider , public alertCtrl : AlertController) {
+  constructor(public navCtrl: NavController , public modalCtrl : ModalController , public serv : ServProvider , public alertCtrl : AlertController) {
 
-    this.navCtrl = navCtrl;
-    this.serv = serv;
-    this.alertCtrl = alertCtrl;
-
+    if(window.localStorage.getItem("token") !== undefined )
+    {
+        let modal = this.modalCtrl.create(PageConnexion);
+        modal.present();
+    }
+    else
+    {
+      
+    }
   }
 
   logOut()
@@ -32,6 +38,7 @@ export class HomePage {
           text : 'Oui',
           handler : () => {
             console.log("Déconnexion");
+            window.localStorage.removeItem("token");
           }
         },
         {

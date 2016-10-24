@@ -81163,57 +81163,6 @@ var ServProvider = (function () {
     return ServProvider;
 }());
 
-var __decorate$110 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata$4 = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var HomePage = (function () {
-    function HomePage(navCtrl, serv, alertCtrl) {
-        this.navCtrl = navCtrl;
-        this.serv = serv;
-        this.alertCtrl = alertCtrl;
-        this.navCtrl = navCtrl;
-        this.serv = serv;
-        this.alertCtrl = alertCtrl;
-    }
-    HomePage.prototype.logOut = function () {
-        this.confirmLogOut();
-    };
-    HomePage.prototype.confirmLogOut = function () {
-        var confirm = this.alertCtrl.create({
-            title: 'Vous partez ? :(',
-            message: 'Vous souhaitez vous déconnecter ? ',
-            buttons: [
-                {
-                    text: 'Oui',
-                    handler: function () {
-                        console.log("Déconnexion");
-                    }
-                },
-                {
-                    text: 'Non',
-                    handler: function () {
-                    }
-                }
-            ]
-        });
-        confirm.present();
-    };
-    HomePage = __decorate$110([
-        Component({
-            selector: 'page-home',template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar full color = "secondary">\n\n    <ion-title>\n\n      Page principale\n\n    </ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="logOut()"><ion-icon name="log-out"></ion-icon></button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n<ion-card>\n\n  <ion-card-header>\n\n    Caméras\n\n  </ion-card-header>\n\n\n\n  <ion-card-content>\n\n    Vous ne possédez pas de caméras pour l\'instant :)\n\n  </ion-card-content>\n\n</ion-card>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\home\home.html"*/,
-            providers: [ServProvider]
-        }), 
-        __metadata$4('design:paramtypes', [NavController, ServProvider, AlertController])
-    ], HomePage);
-    return HomePage;
-}());
-
 var __decorate$111 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -81253,13 +81202,13 @@ var ModalInscription = (function () {
     return ModalInscription;
 }());
 
-var __decorate$108 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+var __decorate$110 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata$2 = (undefined && undefined.__metadata) || function (k, v) {
+var __metadata$4 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var PageConnexion = (function () {
@@ -81276,11 +81225,11 @@ var PageConnexion = (function () {
             _this.reponse = data;
             _this.reponseUser = _this.reponse.user;
             _this.reponseToken = _this.reponse.token;
-            localStorage.setItem("token", _this.reponseToken);
-            _this.navCtrl.push(HomePage);
+            window.localStorage.setItem("token", _this.reponseToken);
+            _this.navCtrl.pop();
         }, function (err) {
             _this.showAlertError();
-        }, function () { return console.log("connexion complete"); });
+        }, function () { return console.log(window.localStorage.getItem("token")); });
     };
     PageConnexion.prototype.showAlertError = function () {
         var alert = this.alertCtrl.create({
@@ -81315,20 +81264,76 @@ var PageConnexion = (function () {
             _this.reponse = data;
             _this.reponseUser = _this.reponse.user;
             _this.reponseToken = _this.reponse.token;
-            localStorage.setItem('token', _this.reponseToken);
+            window.localStorage.setItem("token", _this.reponseToken);
             _this.showAlertSuccessInscription();
         }, function (err) {
             _this.showAlertError();
-        }, function () { return console.log('Inscription complete'); });
+        }, function () { return console.log(window.localStorage.getItem("token")); });
     };
-    PageConnexion = __decorate$108([
+    PageConnexion = __decorate$110([
         Component({
-            selector: 'page-connexion',template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\connexion\connexion.html"*/'<ion-header>\n\n  <ion-navbar full color = "secondary">\n\n    <ion-title>\n\n      Authentification\n\n    </ion-title>\n\n    <ion-buttons end>\n\n    <button ion-button icon-only (click)="showModalInscription()"><ion-icon name="person-add"></ion-icon></button>\n\n  </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n  <ion-list no-lines>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Nom d\'utilisateur ou email</ion-label>\n\n        <ion-input [(ngModel)]="identifier" type="text"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Mot de Passe</ion-label>\n\n        <ion-input [(ngModel)]="password" type="password"></ion-input>\n\n      </ion-item>\n\n\n\n    </ion-list>\n\n\n\n    <button ion-button full color="secondary" (click)="connexion()">Connexion</button>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\connexion\connexion.html"*/,
+            selector: 'page-connexion',template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\connexion\connexion.html"*/'<ion-header>\n\n  <ion-navbar full color = "secondary">\n\n    <ion-title>\n\n      Connexion\n\n    </ion-title>\n\n    <ion-buttons end>\n\n    <button ion-button icon-only (click)="showModalInscription()"><ion-icon name="person-add"></ion-icon></button>\n\n  </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content  class="login-background" padding>\n\n\n\n  <ion-list no-lines>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Nom d\'utilisateur ou email</ion-label>\n\n        <ion-input [(ngModel)]="identifier" type="text"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Mot de Passe</ion-label>\n\n        <ion-input [(ngModel)]="password" type="password"></ion-input>\n\n      </ion-item>\n\n\n\n    </ion-list>\n\n\n\n    <button ion-button full color="secondary" (click)="connexion()">Connexion</button>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\connexion\connexion.html"*/,
             providers: [ServProvider]
         }), 
-        __metadata$2('design:paramtypes', [NavController, ServProvider, AlertController, ModalController])
+        __metadata$4('design:paramtypes', [NavController, ServProvider, AlertController, ModalController])
     ], PageConnexion);
     return PageConnexion;
+}());
+
+var __decorate$108 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata$2 = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var HomePage = (function () {
+    function HomePage(navCtrl, modalCtrl, serv, alertCtrl) {
+        this.navCtrl = navCtrl;
+        this.modalCtrl = modalCtrl;
+        this.serv = serv;
+        this.alertCtrl = alertCtrl;
+        if (window.localStorage.getItem("token") !== undefined) {
+            var modal = this.modalCtrl.create(PageConnexion);
+            modal.present();
+        }
+        else {
+        }
+    }
+    HomePage.prototype.logOut = function () {
+        this.confirmLogOut();
+    };
+    HomePage.prototype.confirmLogOut = function () {
+        var confirm = this.alertCtrl.create({
+            title: 'Vous partez ? :(',
+            message: 'Vous souhaitez vous déconnecter ? ',
+            buttons: [
+                {
+                    text: 'Oui',
+                    handler: function () {
+                        console.log("Déconnexion");
+                        window.localStorage.removeItem("token");
+                    }
+                },
+                {
+                    text: 'Non',
+                    handler: function () {
+                    }
+                }
+            ]
+        });
+        confirm.present();
+    };
+    HomePage = __decorate$108([
+        Component({
+            selector: 'page-home',template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar full color = "secondary">\n\n    <ion-title>\n\n      Page principale\n\n    </ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="logOut()"><ion-icon name="log-out"></ion-icon></button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n<ion-card>\n\n  <ion-card-header>\n\n    Caméras\n\n  </ion-card-header>\n\n\n\n  <ion-card-content>\n\n    Vous ne possédez pas de caméras pour l\'instant :)\n\n  </ion-card-content>\n\n</ion-card>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\home\home.html"*/,
+            providers: [ServProvider]
+        }), 
+        __metadata$2('design:paramtypes', [NavController, ModalController, ServProvider, AlertController])
+    ], HomePage);
+    return HomePage;
 }());
 
 var __decorate$1 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
@@ -81342,7 +81347,7 @@ var __metadata$1 = (undefined && undefined.__metadata) || function (k, v) {
 };
 var MyApp = (function () {
     function MyApp(platform) {
-        this.rootPage = PageConnexion;
+        this.rootPage = HomePage;
         platform.ready().then(function () {
             // Okay, so the platform is ready and our plugins are available.
             // Here you can do any higher level native things you might need.

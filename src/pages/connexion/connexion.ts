@@ -42,8 +42,9 @@ export class PageConnexion {
       this.reponse = data;
       this.reponseUser = this.reponse.user;
       this.reponseToken = this.reponse.token;
-      localStorage.setItem("token",this.reponseToken);
-      this.navCtrl.push(HomePage);
+      window.localStorage.setItem("token",this.reponseToken);
+
+      this.navCtrl.pop();
 
       },
       err => {
@@ -51,7 +52,7 @@ export class PageConnexion {
       this.showAlertError();
 
     },
-      () => console.log("connexion complete")
+      () => console.log(window.localStorage.getItem("token"))
     );
 
   }
@@ -97,13 +98,13 @@ export class PageConnexion {
                 this.reponse = data;
                 this.reponseUser = this.reponse.user;
                 this.reponseToken = this.reponse.token;
-                localStorage.setItem('token',this.reponseToken);
+                window.localStorage.setItem("token",this.reponseToken);
                 this.showAlertSuccessInscription();
               },
               err => {
                 this.showAlertError();
               },
-              () => console.log('Inscription complete')
+              () => console.log(window.localStorage.getItem("token"))
             );
          }
 }
