@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ServProvider } from '../../providers/serv-provider';
-import { NavController , AlertController , ModalController , MenuController} from 'ionic-angular';
+import { NavController , AlertController , ModalController} from 'ionic-angular';
 import { PageConnexion } from '../connexion/connexion';
 
 @Component({
@@ -12,20 +12,24 @@ export class HomePage {
 
   constructor(public navCtrl: NavController , public modalCtrl : ModalController , public serv : ServProvider , public alertCtrl : AlertController) {
 
-    if(window.localStorage.getItem("token") !== undefined )
-    {
-        let modal = this.modalCtrl.create(PageConnexion);
-        modal.present();
-    }
-    else
-    {
-      
-    }
+    this.isConnected();
+
   }
 
   logOut()
   {
     this.confirmLogOut();
+
+  }
+
+  isConnected()
+  {
+    if(window.localStorage.getItem("token") !== undefined )
+    {
+        let modal = this.modalCtrl.create(PageConnexion);
+        modal.present();
+    }
+
   }
 
   confirmLogOut(){
@@ -39,6 +43,7 @@ export class HomePage {
           handler : () => {
             console.log("Déconnexion");
             window.localStorage.removeItem("token");
+            this.isConnected();
           }
         },
         {

@@ -81295,17 +81295,19 @@ var HomePage = (function () {
         this.modalCtrl = modalCtrl;
         this.serv = serv;
         this.alertCtrl = alertCtrl;
-        if (window.localStorage.getItem("token") !== undefined) {
-            var modal = this.modalCtrl.create(PageConnexion);
-            modal.present();
-        }
-        else {
-        }
+        this.isConnected();
     }
     HomePage.prototype.logOut = function () {
         this.confirmLogOut();
     };
+    HomePage.prototype.isConnected = function () {
+        if (window.localStorage.getItem("token") !== undefined) {
+            var modal = this.modalCtrl.create(PageConnexion);
+            modal.present();
+        }
+    };
     HomePage.prototype.confirmLogOut = function () {
+        var _this = this;
         var confirm = this.alertCtrl.create({
             title: 'Vous partez ? :(',
             message: 'Vous souhaitez vous déconnecter ? ',
@@ -81315,6 +81317,7 @@ var HomePage = (function () {
                     handler: function () {
                         console.log("Déconnexion");
                         window.localStorage.removeItem("token");
+                        _this.isConnected();
                     }
                 },
                 {
