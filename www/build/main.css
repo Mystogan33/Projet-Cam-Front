@@ -21125,3 +21125,11 @@ page-modal-inscription ion-navbar {
 page-modal-inscription ion-title {
   text-align: center;
 }
+
+page-page1 ion-navbar {
+  text-align: center;
+}
+
+page-page2 ion-navbar {
+  text-align: center;
+}

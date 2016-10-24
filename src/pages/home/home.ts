@@ -24,10 +24,15 @@ export class HomePage {
 
   isConnected()
   {
-    if(window.localStorage.getItem("token") !== undefined )
+    if(window.localStorage.getItem("Token")== null)
     {
-        let modal = this.modalCtrl.create(PageConnexion);
-        modal.present();
+      let modal = this.modalCtrl.create(PageConnexion);
+
+      modal.present();
+    }
+    else
+    {
+
     }
 
   }
@@ -42,7 +47,7 @@ export class HomePage {
           text : 'Oui',
           handler : () => {
             console.log("Déconnexion");
-            window.localStorage.removeItem("token");
+            window.localStorage.removeItem("Token");
             this.isConnected();
           }
         },

@@ -1,8 +1,9 @@
 <ion-header>
-  <ion-navbar full color = "secondary">
-    <ion-title>
-      Page principale
-    </ion-title>
+  <ion-navbar color="secondary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title><b>Page d'Accueuil</b></ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="logOut()"><ion-icon name="log-out"></ion-icon></button>
     </ion-buttons>
@@ -10,44 +11,5 @@
 </ion-header>
 
 <ion-content>
-
-  <ion-card class="camera">
-  <ion-card-header>
-    Liste des caméras :
-  </ion-card-header>
-
-  <ion-list>
-    <button ion-item>
-      <ion-icon name="camera" item-left></ion-icon>
-      Caméra 1
-    </button>
-
-    <button ion-item>
-      <ion-icon name="camera" item-left></ion-icon>
-      Caméra 2
-    </button>
-
-    <button ion-item>
-      <ion-icon name="camera" item-left></ion-icon>
-      Caméra 3
-    </button>
-
-    <button ion-item>
-      <ion-icon name="camera" item-left></ion-icon>
-      Caméra 4
-    </button>
-
-    <button ion-item>
-      <ion-icon name="camera" item-left></ion-icon>
-      Caméra 5
-    </button>
-
-    <button ion-item>
-      <ion-icon name="camera" item-left></ion-icon>
-      Caméra 6
-    </button>
-
-  </ion-list>
-</ion-card>
 
 </ion-content>

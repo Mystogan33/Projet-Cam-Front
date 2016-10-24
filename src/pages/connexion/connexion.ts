@@ -23,8 +23,6 @@ export class PageConnexion {
   bodyRequest : any;
 
   reponse : any;
-  reponseUser : any;
-  reponseToken : any;
 
   constructor(public navCtrl: NavController , public serv : ServProvider , public alertCtrl : AlertController , public modalCtrl: ModalController) {
 
@@ -40,9 +38,11 @@ export class PageConnexion {
       data => {
 
       this.reponse = data;
-      this.reponseUser = this.reponse.user;
-      this.reponseToken = this.reponse.token;
-      window.localStorage.setItem("token",this.reponseToken);
+      window.localStorage.setItem("Token",this.reponse.token);
+      window.localStorage.setItem("username",this.reponse.user.username);
+      window.localStorage.setItem("email",this.reponse.user.email);
+      window.localStorage.setItem("firstName",this.reponse.user.firstName);
+      window.localStorage.setItem("lastName",this.reponse.user.lastName);
 
       this.navCtrl.pop();
 
@@ -52,7 +52,7 @@ export class PageConnexion {
       this.showAlertError();
 
     },
-      () => console.log(window.localStorage.getItem("token"))
+      () => console.log(this.reponse.user.firstName + this.reponse.user.lastName)
     );
 
   }
@@ -96,15 +96,13 @@ export class PageConnexion {
               data => {
                 console.log(data);
                 this.reponse = data;
-                this.reponseUser = this.reponse.user;
-                this.reponseToken = this.reponse.token;
-                window.localStorage.setItem("token",this.reponseToken);
+                window.localStorage.setItem("Token",this.reponse.token);
                 this.showAlertSuccessInscription();
               },
               err => {
                 this.showAlertError();
               },
-              () => console.log(window.localStorage.getItem("token"))
+              () => console.log("Inscription réussie")
             );
          }
 }
