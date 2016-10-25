@@ -27,37 +27,20 @@
 <ion-content>
   <ion-list>
 
-    <ion-item>
-      <ion-icon name="ios-person" item-left></ion-icon>
-      Utilisateur :
-      <div class="item-note" item-right>
-        {{username}}
-      </div>
-    </ion-item>
+  <ion-item-sliding *ngFor="let item of items">
 
     <ion-item>
-      <ion-icon name="mail" item-left></ion-icon>
-      Email :
-      <div class="item-note" item-right>
-        {{email}}
-      </div>
+    <ion-icon name="{{item.icon}}" item-left></ion-icon>
+    <b>{{item.title}}</b> : {{item.content}}
     </ion-item>
 
-    <ion-item>
-      <ion-icon name="information" item-left></ion-icon>
-      Prénom :
-      <div class="item-note" item-right>
-        {{firstName}}
-      </div>
-    </ion-item>
-
-    <ion-item>
-      <ion-icon name="information" item-left></ion-icon>
-      Nom :
-      <div class="item-note" item-right>
-        {{lastName}}
-      </div>
-    </ion-item>
+    <ion-item-options>
+      <button (click)="modifierUser()">
+        <ion-icon name="ios-create"></ion-icon>
+          <b>Modifier</b>
+      </button>
+    </ion-item-options>
+  </ion-item-sliding>
 
   </ion-list>
 </ion-content>

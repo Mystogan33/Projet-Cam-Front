@@ -17,9 +17,18 @@ export class Page1 {
   firstName: any;
   lastName : any;
 
+  items: any;
+
   constructor(public navCtrl: NavController , public modalCtrl : ModalController) {
 
     this.isConnected();
+
+    this.items = [
+        {title: 'Utilisateur' , content : this.username , icon : "ios-person"},
+        {title: 'Email' , content : this.email , icon : "mail"},
+        {title: 'Prénom' , content : this.firstName , icon : "information"},
+        {title: 'Nom' , content : this.lastName , icon : "information"},
+    ];
 
   }
 
