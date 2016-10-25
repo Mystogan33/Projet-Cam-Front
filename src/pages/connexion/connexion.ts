@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { NavController , AlertController , ModalController } from 'ionic-angular';
+import { NavController , AlertController , ModalController , ViewController } from 'ionic-angular';
 
 import {ServProvider} from '../../providers/serv-provider';
 
@@ -24,7 +24,7 @@ export class PageConnexion {
 
   reponse : any;
 
-  constructor(public navCtrl: NavController , public serv : ServProvider , public alertCtrl : AlertController , public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController , public viewCtrl : ViewController , public serv : ServProvider , public alertCtrl : AlertController , public modalCtrl: ModalController) {
 
 
   }
@@ -44,7 +44,7 @@ export class PageConnexion {
       window.localStorage.setItem("firstName",this.reponse.user.firstName);
       window.localStorage.setItem("lastName",this.reponse.user.lastName);
 
-      this.navCtrl.pop();
+      this.viewCtrl.dismiss();
 
       },
       err => {

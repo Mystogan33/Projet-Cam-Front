@@ -81036,73 +81036,6 @@ setTimeout(function () {
     }
 }, DEVICE_READY_TIMEOUT);
 
-var __decorate$108 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata$2 = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var Page1 = (function () {
-    function Page1(navCtrl) {
-        this.navCtrl = navCtrl;
-        this.username = window.localStorage.getItem("username");
-        this.email = window.localStorage.getItem("email");
-        this.firstName = window.localStorage.getItem("firstName");
-        this.lastName = window.localStorage.getItem("lastName");
-    }
-    Page1 = __decorate$108([
-        Component({
-            selector: 'page-page1',template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\page1\page1.html"*/'<ion-header>\n  <ion-navbar color="secondary">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title><b>Informations utilisateur</b></ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)="logOut()"><ion-icon name="log-out"></ion-icon></button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h3><b>Utilisateur</b> : {{username}}</h3>\n  <h3><b>Adresse Mail</b> : {{email}}</h3>\n  <h3><b>Prénom</b> : {{firstName}}</h3>\n  <h3><b>Nom</b> : {{lastName}}</h3>\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\page1\page1.html"*/
-        }), 
-        __metadata$2('design:paramtypes', [NavController])
-    ], Page1);
-    return Page1;
-}());
-
-var __decorate$109 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata$3 = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var Page2 = (function () {
-    function Page2(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        // If we navigated to this page, we will have an item available as a nav param
-        this.selectedItem = navParams.get('item');
-        // Let's populate this page with some filler content for funzies
-        this.icons = ['camera'];
-        this.items = [];
-        for (var i = 1; i < 11; i++) {
-            this.items.push({
-                title: 'Caméra ' + i,
-                note: 'This is camera#' + i,
-                icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-            });
-        }
-    }
-    Page2.prototype.itemTapped = function (event, item) {
-        // That's right, we're pushing to ourselves!
-        this.navCtrl.push(Page2, {
-            item: item
-        });
-    };
-    Page2 = __decorate$109([
-        Component({
-            selector: 'page-page2',template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\page2\page2.html"*/'<ion-header>\n  <ion-navbar color="secondary">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title><b>Liste des caméras</b></ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)="logOut()"><ion-icon name="log-out"></ion-icon></button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n      <ion-icon [name]="item.icon" item-left></ion-icon>\n      {{item.title}}\n      <div class="item-note" item-right>\n        {{item.note}}\n      </div>\n    </button>\n  </ion-list>\n  <div *ngIf="selectedItem" padding>\n    You navigated here from <b>{{selectedItem.title}}</b>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\page2\page2.html"*/
-        }), 
-        __metadata$3('design:paramtypes', [NavController, NavParams])
-    ], Page2);
-    return Page2;
-}());
-
 var __extends$140 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -81198,13 +81131,13 @@ var Observable_1$4 = Observable_1$1;
 var map_1 = map_1$1;
 Observable_1$4.Observable.prototype.map = map_1.map;
 
-var __decorate$111 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+var __decorate$110 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata$5 = (undefined && undefined.__metadata) || function (k, v) {
+var __metadata$4 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var ServProvider = (function () {
@@ -81223,20 +81156,20 @@ var ServProvider = (function () {
         return this.http.post('http://localhost:1337/auth/signin', body, options)
             .map(function (res) { return res.json(); });
     };
-    ServProvider = __decorate$111([
+    ServProvider = __decorate$110([
         Injectable(), 
-        __metadata$5('design:paramtypes', [Http])
+        __metadata$4('design:paramtypes', [Http])
     ], ServProvider);
     return ServProvider;
 }());
 
-var __decorate$113 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+var __decorate$111 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata$7 = (undefined && undefined.__metadata) || function (k, v) {
+var __metadata$5 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 /*
@@ -81260,27 +81193,28 @@ var ModalInscription = (function () {
         var data = JSON.stringify({ username: this.username, password: this.password, email: this.mail, firstName: this.firstname, lastName: this.lastname });
         this.viewCtrl.dismiss(data);
     };
-    ModalInscription = __decorate$113([
+    ModalInscription = __decorate$111([
         Component({
             selector: 'page-modal-inscription',template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\modal-inscription\modal-inscription.html"*/'<ion-header>\n\n  <ion-navbar full color="secondary">\n\n    <ion-title>Inscription</ion-title>\n\n    <ion-buttons left>\n\n      <button ion-button icon-only (click)="dismissCancel()"><ion-icon name="arrow-back"></ion-icon></button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <ion-list no-lines>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Nom d\'utilisateur</ion-label>\n\n        <ion-input [(ngModel)]="username" type="text"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Mot de Passe</ion-label>\n\n        <ion-input [(ngModel)]="password" type="password"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Adresse e-Mail</ion-label>\n\n        <ion-input [(ngModel)]="mail" type="mail"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Prénom</ion-label>\n\n        <ion-textarea [(ngModel)]="firstname"></ion-textarea>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Nom</ion-label>\n\n        <ion-input [(ngModel)]="lastname" type="text"></ion-input>\n\n      </ion-item>\n\n\n\n    </ion-list>\n\n\n\n    <button ion-button full color="secondary" (click)="dismiss()">S\'inscrire</button>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\modal-inscription\modal-inscription.html"*/
         }), 
-        __metadata$7('design:paramtypes', [NavController, ViewController])
+        __metadata$5('design:paramtypes', [NavController, ViewController])
     ], ModalInscription);
     return ModalInscription;
 }());
 
-var __decorate$112 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+var __decorate$109 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata$6 = (undefined && undefined.__metadata) || function (k, v) {
+var __metadata$3 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var PageConnexion = (function () {
-    function PageConnexion(navCtrl, serv, alertCtrl, modalCtrl) {
+    function PageConnexion(navCtrl, viewCtrl, serv, alertCtrl, modalCtrl) {
         this.navCtrl = navCtrl;
+        this.viewCtrl = viewCtrl;
         this.serv = serv;
         this.alertCtrl = alertCtrl;
         this.modalCtrl = modalCtrl;
@@ -81295,7 +81229,7 @@ var PageConnexion = (function () {
             window.localStorage.setItem("email", _this.reponse.user.email);
             window.localStorage.setItem("firstName", _this.reponse.user.firstName);
             window.localStorage.setItem("lastName", _this.reponse.user.lastName);
-            _this.navCtrl.pop();
+            _this.viewCtrl.dismiss();
         }, function (err) {
             _this.showAlertError();
         }, function () { return console.log(_this.reponse.user.firstName + _this.reponse.user.lastName); });
@@ -81337,79 +81271,206 @@ var PageConnexion = (function () {
             _this.showAlertError();
         }, function () { return console.log("Inscription réussie"); });
     };
-    PageConnexion = __decorate$112([
+    PageConnexion = __decorate$109([
         Component({
             selector: 'page-connexion',template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\connexion\connexion.html"*/'<ion-header>\n\n  <ion-navbar full color = "secondary">\n\n    <ion-title>\n\n      Connexion\n\n    </ion-title>\n\n    <ion-buttons end>\n\n    <button ion-button icon-only (click)="showModalInscription()"><ion-icon name="person-add"></ion-icon></button>\n\n  </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content  class="login-background" padding>\n\n\n\n  <ion-list no-lines>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Nom d\'utilisateur ou email</ion-label>\n\n        <ion-input [(ngModel)]="identifier" type="text"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Mot de Passe</ion-label>\n\n        <ion-input [(ngModel)]="password" type="password"></ion-input>\n\n      </ion-item>\n\n\n\n    </ion-list>\n\n\n\n    <button ion-button full color="secondary" (click)="connexion()">Connexion</button>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\connexion\connexion.html"*/,
             providers: [ServProvider]
         }), 
-        __metadata$6('design:paramtypes', [NavController, ServProvider, AlertController, ModalController])
+        __metadata$3('design:paramtypes', [NavController, ViewController, ServProvider, AlertController, ModalController])
     ], PageConnexion);
     return PageConnexion;
 }());
 
-var __decorate$110 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+var __decorate$112 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata$4 = (undefined && undefined.__metadata) || function (k, v) {
+var __metadata$6 = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var ModalDeconnexion = (function () {
+    function ModalDeconnexion(navCtrl, modalCtrl) {
+        this.navCtrl = navCtrl;
+        this.modalCtrl = modalCtrl;
+    }
+    ModalDeconnexion.prototype.ionViewDidLoad = function () {
+        console.log('Déconnexion');
+    };
+    ModalDeconnexion.prototype.logOut = function () {
+        console.log("Déconnexion");
+        window.localStorage.removeItem("Token");
+        window.localStorage.removeItem("username");
+        window.localStorage.removeItem("email");
+        window.localStorage.removeItem("firstName");
+        window.localStorage.removeItem("lastName");
+        this.modalCtrl.dismiss();
+    };
+    ModalDeconnexion.prototype.dismissCancel = function () {
+        this.navCtrl.pop();
+    };
+    ModalDeconnexion = __decorate$112([
+        Component({
+            selector: 'page-modal-deconnexion',template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\modal-deconnexion\modal-deconnexion.html"*/'<ion-header>\n\n  <ion-navbar full color="secondary">\n\n    <ion-title>Déconnexion</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n    <p> Vous partez ? :( </p>\n\n\n\n    <ion-buttons>\n\n      <button ion-button full color="secondary" (click)="dismissCancel()">Annuler</button>\n\n      <button ion-button full color="secondary" (click)="logOut()">Déconnexion</button>\n\n    </ion-buttons>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\modal-deconnexion\modal-deconnexion.html"*/
+        }), 
+        __metadata$6('design:paramtypes', [NavController, ViewController])
+    ], ModalDeconnexion);
+    return ModalDeconnexion;
+}());
+
+var __decorate$113 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata$7 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var HomePage = (function () {
-    function HomePage(navCtrl, modalCtrl, serv, alertCtrl) {
+    function HomePage(navCtrl, viewCtrl, modalCtrl, serv, alertCtrl) {
         this.navCtrl = navCtrl;
+        this.viewCtrl = viewCtrl;
         this.modalCtrl = modalCtrl;
         this.serv = serv;
         this.alertCtrl = alertCtrl;
+        this.menuIsHidden = false;
         this.isConnected();
     }
     HomePage.prototype.logOut = function () {
-        this.confirmLogOut();
+        var _this = this;
+        var confirm = this.modalCtrl.create(ModalDeconnexion);
+        confirm.onDidDismiss(function (data) {
+            _this.isConnected();
+        });
+        confirm.present();
     };
     HomePage.prototype.isConnected = function () {
         if (window.localStorage.getItem("Token") == null) {
             var modal = this.modalCtrl.create(PageConnexion);
             modal.present();
         }
-        else {
-        }
     };
-    HomePage.prototype.confirmLogOut = function () {
-        var _this = this;
-        var confirm = this.alertCtrl.create({
-            title: 'Vous partez ? :(',
-            message: 'Vous souhaitez vous déconnecter ? ',
-            buttons: [
-                {
-                    text: 'Oui',
-                    handler: function () {
-                        console.log("Déconnexion");
-                        window.localStorage.removeItem("Token");
-                        window.localStorage.removeItem("username");
-                        window.localStorage.removeItem("email");
-                        window.localStorage.removeItem("firstName");
-                        window.localStorage.removeItem("lastName");
-                        _this.isConnected();
-                    }
-                },
-                {
-                    text: 'Non',
-                    handler: function () {
-                    }
-                }
-            ]
-        });
-        confirm.present();
-    };
-    HomePage = __decorate$110([
+    HomePage = __decorate$113([
         Component({
             selector: 'page-home',template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar color="secondary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title><b>Page d\'Accueuil</b></ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="logOut()"><ion-icon name="log-out"></ion-icon></button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\home\home.html"*/,
             providers: [ServProvider]
         }), 
-        __metadata$4('design:paramtypes', [NavController, ModalController, ServProvider, AlertController])
+        __metadata$7('design:paramtypes', [NavController, ViewController, ModalController, ServProvider, AlertController])
     ], HomePage);
     return HomePage;
+}());
+
+var __decorate$108 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata$2 = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var Page1 = (function () {
+    function Page1(navCtrl, modalCtrl) {
+        this.navCtrl = navCtrl;
+        this.modalCtrl = modalCtrl;
+        this.isConnected();
+    }
+    Page1.prototype.logOut = function () {
+        var _this = this;
+        var confirm = this.modalCtrl.create(ModalDeconnexion);
+        confirm.onDidDismiss(function (data) {
+            _this.isConnected();
+        });
+        confirm.present();
+    };
+    Page1.prototype.isConnected = function () {
+        var _this = this;
+        if (window.localStorage.getItem("Token") == null) {
+            var modal = this.modalCtrl.create(PageConnexion);
+            modal.onDidDismiss(function (data) {
+                _this.navCtrl.setRoot(HomePage);
+            });
+            modal.present();
+        }
+        else {
+            this.username = window.localStorage.getItem("username");
+            this.email = window.localStorage.getItem("email");
+            this.firstName = window.localStorage.getItem("firstName");
+            this.lastName = window.localStorage.getItem("lastName");
+        }
+    };
+    Page1 = __decorate$108([
+        Component({
+            selector: 'page-page1',template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\page1\page1.html"*/'<ion-header>\n  <ion-navbar color="secondary">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title><b>Informations utilisateur</b></ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)="logOut()"><ion-icon name="log-out"></ion-icon></button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h3><b>Utilisateur</b> : {{username}}</h3>\n  <h3><b>Adresse Mail</b> : {{email}}</h3>\n  <h3><b>Prénom</b> : {{firstName}}</h3>\n  <h3><b>Nom</b> : {{lastName}}</h3>\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\page1\page1.html"*/
+        }), 
+        __metadata$2('design:paramtypes', [NavController, ModalController])
+    ], Page1);
+    return Page1;
+}());
+
+var __decorate$114 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata$8 = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var Page2 = (function () {
+    function Page2(navCtrl, navParams, modalCtrl) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.modalCtrl = modalCtrl;
+        this.isConnected();
+    }
+    Page2.prototype.itemTapped = function (event, item) {
+        // That's right, we're pushing to ourselves!
+        this.navCtrl.push(Page2, {
+            item: item
+        });
+    };
+    Page2.prototype.logOut = function () {
+        var _this = this;
+        var confirm = this.modalCtrl.create(ModalDeconnexion);
+        confirm.onDidDismiss(function (data) {
+            _this.isConnected();
+        });
+        confirm.present();
+    };
+    Page2.prototype.isConnected = function () {
+        var _this = this;
+        if (window.localStorage.getItem("Token") == null) {
+            var modal = this.modalCtrl.create(PageConnexion);
+            modal.onDidDismiss(function (data) {
+                _this.navCtrl.setRoot(HomePage);
+            });
+            modal.present();
+        }
+        else {
+            // If we navigated to this page, we will have an item available as a nav param
+            this.selectedItem = this.navParams.get('item');
+            // Let's populate this page with some filler content for funzies
+            this.icons = ['camera'];
+            this.items = [];
+            for (var i = 1; i < 11; i++) {
+                this.items.push({
+                    title: 'Caméra ' + i,
+                    note: 'This is camera#' + i,
+                    icon: this.icons[Math.floor(Math.random() * this.icons.length)]
+                });
+            }
+        }
+    };
+    Page2 = __decorate$114([
+        Component({
+            selector: 'page-page2',template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\page2\page2.html"*/'<ion-header>\n  <ion-navbar color="secondary">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title><b>Liste des caméras</b></ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)="logOut()"><ion-icon name="log-out"></ion-icon></button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n      <ion-icon [name]="item.icon" item-left></ion-icon>\n      {{item.title}}\n      <div class="item-note" item-right>\n        {{item.note}}\n      </div>\n    </button>\n  </ion-list>\n  <div *ngIf="selectedItem" padding>\n    You navigated here from <b>{{selectedItem.title}}</b>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\page2\page2.html"*/
+        }), 
+        __metadata$8('design:paramtypes', [NavController, NavParams, ModalController])
+    ], Page2);
+    return Page2;
 }());
 
 var __decorate$1 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
@@ -81478,7 +81539,8 @@ var AppModule = (function () {
                 Page2,
                 HomePage,
                 PageConnexion,
-                ModalInscription
+                ModalInscription,
+                ModalDeconnexion
             ],
             imports: [
                 IonicModule.forRoot(MyApp)
@@ -81490,7 +81552,8 @@ var AppModule = (function () {
                 Page2,
                 HomePage,
                 PageConnexion,
-                ModalInscription
+                ModalInscription,
+                ModalDeconnexion
             ],
             providers: []
         }), 

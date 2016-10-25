@@ -21118,6 +21118,10 @@ page-home ion-card.camera ion-card-header {
   color: #32db64;
 }
 
+page-modal-deconnexion ion-navbar {
+  text-align: center;
+}
+
 page-modal-inscription ion-navbar {
   text-align: center;
 }

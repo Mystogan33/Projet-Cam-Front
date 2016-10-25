@@ -6,6 +6,7 @@ import { Page2 } from '../pages/page2/page2';
 import { HomePage } from '../pages/home/home';
 import { PageConnexion } from '../pages/connexion/connexion';
 import { ModalInscription } from '../pages/modal-inscription/modal-inscription';
+import { ModalDeconnexion } from '../pages/modal-deconnexion/modal-deconnexion';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ModalInscription } from '../pages/modal-inscription/modal-inscription';
     Page2,
     HomePage,
     PageConnexion,
-    ModalInscription
+    ModalInscription,
+    ModalDeconnexion
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -26,7 +28,8 @@ import { ModalInscription } from '../pages/modal-inscription/modal-inscription';
     Page2,
     HomePage,
     PageConnexion,
-    ModalInscription
+    ModalInscription,
+    ModalDeconnexion
   ],
   providers: []
 })
