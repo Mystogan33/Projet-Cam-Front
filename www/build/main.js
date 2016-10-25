@@ -81195,7 +81195,7 @@ var ModalInscription = (function () {
     };
     ModalInscription = __decorate$111([
         Component({
-            selector: 'page-modal-inscription',template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\modal-inscription\modal-inscription.html"*/'<ion-header>\n\n  <ion-navbar full color="secondary">\n\n    <ion-title>Inscription</ion-title>\n\n    <ion-buttons left>\n\n      <button ion-button icon-only (click)="dismissCancel()"><ion-icon name="arrow-back"></ion-icon></button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <ion-list no-lines>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Nom d\'utilisateur</ion-label>\n\n        <ion-input [(ngModel)]="username" type="text"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Mot de Passe</ion-label>\n\n        <ion-input [(ngModel)]="password" type="password"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Adresse e-Mail</ion-label>\n\n        <ion-input [(ngModel)]="mail" type="mail"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Prénom</ion-label>\n\n        <ion-textarea [(ngModel)]="firstname"></ion-textarea>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Nom</ion-label>\n\n        <ion-input [(ngModel)]="lastname" type="text"></ion-input>\n\n      </ion-item>\n\n\n\n    </ion-list>\n\n\n\n    <button ion-button full color="secondary" (click)="dismiss()">S\'inscrire</button>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\modal-inscription\modal-inscription.html"*/
+            selector: 'page-modal-inscription',template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\modal-inscription\modal-inscription.html"*/'<ion-header>\n\n  <ion-navbar full color="danger">\n\n    <ion-title>Inscription</ion-title>\n\n    <ion-buttons left>\n\n      <button ion-button icon-only (click)="dismissCancel()"><ion-icon name="arrow-back"></ion-icon></button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <ion-list no-lines>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Nom d\'utilisateur</ion-label>\n\n        <ion-input [(ngModel)]="username" type="text"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Mot de Passe</ion-label>\n\n        <ion-input [(ngModel)]="password" type="password"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Adresse e-Mail</ion-label>\n\n        <ion-input [(ngModel)]="mail" type="mail"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Prénom</ion-label>\n\n        <ion-textarea [(ngModel)]="firstname"></ion-textarea>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Nom</ion-label>\n\n        <ion-input [(ngModel)]="lastname" type="text"></ion-input>\n\n      </ion-item>\n\n\n\n    </ion-list>\n\n\n\n    <button ion-button full color="danger" (click)="dismiss()">S\'inscrire</button>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\modal-inscription\modal-inscription.html"*/
         }), 
         __metadata$5('design:paramtypes', [NavController, ViewController])
     ], ModalInscription);
@@ -81273,7 +81273,7 @@ var PageConnexion = (function () {
     };
     PageConnexion = __decorate$109([
         Component({
-            selector: 'page-connexion',template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\connexion\connexion.html"*/'<ion-header>\n\n  <ion-navbar full color = "secondary">\n\n    <ion-title>\n\n      Connexion\n\n    </ion-title>\n\n    <ion-buttons end>\n\n    <button ion-button icon-only (click)="showModalInscription()"><ion-icon name="person-add"></ion-icon></button>\n\n  </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content  class="login-background" padding>\n\n\n\n  <ion-list no-lines>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Nom d\'utilisateur ou email</ion-label>\n\n        <ion-input [(ngModel)]="identifier" type="text"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Mot de Passe</ion-label>\n\n        <ion-input [(ngModel)]="password" type="password"></ion-input>\n\n      </ion-item>\n\n\n\n    </ion-list>\n\n\n\n    <button ion-button full color="secondary" (click)="connexion()">Connexion</button>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\connexion\connexion.html"*/,
+            selector: 'page-connexion',template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\connexion\connexion.html"*/'<ion-header>\n\n  <ion-navbar full color = "danger">\n\n    <ion-title>\n\n      Connexion\n\n    </ion-title>\n\n    <ion-buttons end>\n\n    <button ion-button icon-only (click)="showModalInscription()"><ion-icon name="person-add"></ion-icon></button>\n\n  </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content  class="login-background" padding>\n\n\n\n  <ion-list no-lines>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Nom d\'utilisateur ou email</ion-label>\n\n        <ion-input [(ngModel)]="identifier" type="text"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Mot de Passe</ion-label>\n\n        <ion-input [(ngModel)]="password" type="password"></ion-input>\n\n      </ion-item>\n\n\n\n    </ion-list>\n\n\n\n    <button ion-button full color="danger" (click)="connexion()">Connexion</button>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\connexion\connexion.html"*/,
             providers: [ServProvider]
         }), 
         __metadata$3('design:paramtypes', [NavController, ViewController, ServProvider, AlertController, ModalController])
@@ -81312,7 +81312,7 @@ var ModalDeconnexion = (function () {
     };
     ModalDeconnexion = __decorate$112([
         Component({
-            selector: 'page-modal-deconnexion',template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\modal-deconnexion\modal-deconnexion.html"*/'<ion-header>\n\n  <ion-navbar full color="secondary">\n\n    <ion-title>Déconnexion</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n    <p> Vous partez ? :( </p>\n\n\n\n    <ion-buttons>\n\n      <button ion-button full color="secondary" (click)="dismissCancel()">Annuler</button>\n\n      <button ion-button full color="secondary" (click)="logOut()">Déconnexion</button>\n\n    </ion-buttons>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\modal-deconnexion\modal-deconnexion.html"*/
+            selector: 'page-modal-deconnexion',template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\modal-deconnexion\modal-deconnexion.html"*/'<ion-header>\n\n  <ion-navbar full color="danger">\n\n    <ion-title>Déconnexion</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n    <p> Vous partez ? :( </p>\n\n\n\n    <ion-buttons>\n\n\n\n      <button ion-button full color="danger" (click)="logOut()">Déconnexion</button>\n\n      <button ion-button full color="danger" (click)="dismissCancel()">Annuler</button>\n\n      \n\n    </ion-buttons>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\modal-deconnexion\modal-deconnexion.html"*/
         }), 
         __metadata$6('design:paramtypes', [NavController, ViewController])
     ], ModalDeconnexion);
@@ -81335,9 +81335,15 @@ var HomePage = (function () {
         this.modalCtrl = modalCtrl;
         this.serv = serv;
         this.alertCtrl = alertCtrl;
-        this.menuIsHidden = false;
         this.isConnected();
+        this.username = window.localStorage.getItem("username");
     }
+    HomePage.prototype.isConnected = function () {
+        if (window.localStorage.getItem("Token") == null) {
+            var modal = this.modalCtrl.create(PageConnexion);
+            modal.present();
+        }
+    };
     HomePage.prototype.logOut = function () {
         var _this = this;
         var confirm = this.modalCtrl.create(ModalDeconnexion);
@@ -81346,15 +81352,11 @@ var HomePage = (function () {
         });
         confirm.present();
     };
-    HomePage.prototype.isConnected = function () {
-        if (window.localStorage.getItem("Token") == null) {
-            var modal = this.modalCtrl.create(PageConnexion);
-            modal.present();
-        }
+    HomePage.prototype.openPopOverUser = function () {
     };
     HomePage = __decorate$113([
         Component({
-            selector: 'page-home',template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar color="secondary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title><b>Page d\'Accueuil</b></ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="logOut()"><ion-icon name="log-out"></ion-icon></button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\home\home.html"*/,
+            selector: 'page-home',template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\home\home.html"*/'<ion-header>\n\n\n\n  <ion-navbar color="danger">\n\n\n\n    <ion-buttons left>\n\n      <button ion-button menuToggle>\n\n        <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n\n\n    <ion-title>\n\n      <b>Page d\'Accueuil</b>\n\n    </ion-title>\n\n\n\n    <ion-buttons right>\n\n      <!--<img class="circle" src="assets/img/avatar.jpg">-->\n\n      <button ion-button icon-only (click)="logOut()">\n\n        <img class="circle" src="assets/img/avatar2.jpg">\n\n      </button>\n\n      <!--<button ion-button icon-only (click)="logOut()">\n\n        <ion-icon name="log-out"></ion-icon>\n\n      </button>-->\n\n    </ion-buttons>\n\n\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content>\n\n    <ion-slides pager>\n\n\n\n      <ion-slide style="">\n\n        <h2>Vue 1</h2>\n\n      </ion-slide>\n\n\n\n      <ion-slide style="">\n\n        <h2>Vue 2</h2>\n\n      </ion-slide>\n\n\n\n      <ion-slide style="">\n\n        <h2>Vue 3</h2>\n\n      </ion-slide>\n\n\n\n    </ion-slides>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\home\home.html"*/,
             providers: [ServProvider]
         }), 
         __metadata$7('design:paramtypes', [NavController, ViewController, ModalController, ServProvider, AlertController])
@@ -81403,7 +81405,7 @@ var Page1 = (function () {
     };
     Page1 = __decorate$108([
         Component({
-            selector: 'page-page1',template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\page1\page1.html"*/'<ion-header>\n  <ion-navbar color="secondary">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title><b>Informations utilisateur</b></ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)="logOut()"><ion-icon name="log-out"></ion-icon></button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h3><b>Utilisateur</b> : {{username}}</h3>\n  <h3><b>Adresse Mail</b> : {{email}}</h3>\n  <h3><b>Prénom</b> : {{firstName}}</h3>\n  <h3><b>Nom</b> : {{lastName}}</h3>\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\page1\page1.html"*/
+            selector: 'page-page1',template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\page1\page1.html"*/'<ion-header>\n  <ion-navbar color="danger">\n\n    <ion-buttons left>\n      <button ion-button menuToggle>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n    </ion-buttons>\n\n    <ion-title>\n      <b>Mon compte</b>\n    </ion-title>\n\n    <ion-buttons right>\n      <!--<img class="circle" src="assets/img/avatar.jpg">-->\n      <button ion-button icon-only (click)="logOut()">\n        <img class="circle" src="assets/img/avatar2.jpg">\n      </button>\n      <!--<button ion-button icon-only (click)="logOut()">\n        <ion-icon name="log-out"></ion-icon>\n      </button>-->\n    </ion-buttons>\n\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n\n    <ion-item>\n      <ion-icon name="ios-person" item-left></ion-icon>\n      Utilisateur :\n      <div class="item-note" item-right>\n        {{username}}\n      </div>\n    </ion-item>\n\n    <ion-item>\n      <ion-icon name="mail" item-left></ion-icon>\n      Email :\n      <div class="item-note" item-right>\n        {{email}}\n      </div>\n    </ion-item>\n\n    <ion-item>\n      <ion-icon name="information" item-left></ion-icon>\n      Prénom :\n      <div class="item-note" item-right>\n        {{firstName}}\n      </div>\n    </ion-item>\n\n    <ion-item>\n      <ion-icon name="information" item-left></ion-icon>\n      Nom :\n      <div class="item-note" item-right>\n        {{lastName}}\n      </div>\n    </ion-item>\n\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\page1\page1.html"*/
         }), 
         __metadata$2('design:paramtypes', [NavController, ModalController])
     ], Page1);
@@ -81425,6 +81427,7 @@ var Page2 = (function () {
         this.navParams = navParams;
         this.modalCtrl = modalCtrl;
         this.isConnected();
+        this.username = window.localStorage.getItem("username");
     }
     Page2.prototype.itemTapped = function (event, item) {
         // That's right, we're pushing to ourselves!
@@ -81466,7 +81469,7 @@ var Page2 = (function () {
     };
     Page2 = __decorate$114([
         Component({
-            selector: 'page-page2',template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\page2\page2.html"*/'<ion-header>\n  <ion-navbar color="secondary">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title><b>Liste des caméras</b></ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)="logOut()"><ion-icon name="log-out"></ion-icon></button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n      <ion-icon [name]="item.icon" item-left></ion-icon>\n      {{item.title}}\n      <div class="item-note" item-right>\n        {{item.note}}\n      </div>\n    </button>\n  </ion-list>\n  <div *ngIf="selectedItem" padding>\n    You navigated here from <b>{{selectedItem.title}}</b>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\page2\page2.html"*/
+            selector: 'page-page2',template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\page2\page2.html"*/'<ion-header>\n  <ion-navbar color="danger">\n\n    <ion-buttons left>\n      <button ion-button menuToggle>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n    </ion-buttons>\n\n    <ion-title>\n      <b>Mes caméras</b>\n    </ion-title>\n\n    <ion-buttons right>\n      <!--<img class="circle" src="assets/img/avatar.jpg">-->\n      <button ion-button icon-only (click)="logOut()">\n        <img class="circle" src="assets/img/avatar2.jpg">\n      </button>\n      <!--<button ion-button icon-only (click)="logOut()">\n        <ion-icon name="log-out"></ion-icon>\n      </button>-->\n    </ion-buttons>\n\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n      <ion-icon [name]="item.icon" item-left></ion-icon>\n      {{item.title}}\n      <div class="item-note" item-right>\n        {{item.note}}\n      </div>\n    </button>\n  </ion-list>\n  <div *ngIf="selectedItem" padding>\n    You navigated here from <b>{{selectedItem.title}}</b>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\page2\page2.html"*/
         }), 
         __metadata$8('design:paramtypes', [NavController, NavParams, ModalController])
     ], Page2);
@@ -81512,7 +81515,7 @@ var MyApp = (function () {
         __metadata$1('design:type', Nav)
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate$1([
-        Component({template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\app\app.html"*/'<ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar color="secondary">\n      <ion-title>Menu</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\app\app.html"*/
+        Component({template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\app\app.html"*/'<ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar color="danger">\n      <ion-title>Menu</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\app\app.html"*/
         }), 
         __metadata$1('design:paramtypes', [Platform])
     ], MyApp);
@@ -81540,7 +81543,7 @@ var AppModule = (function () {
                 HomePage,
                 PageConnexion,
                 ModalInscription,
-                ModalDeconnexion
+                ModalDeconnexion,
             ],
             imports: [
                 IonicModule.forRoot(MyApp)
@@ -81553,7 +81556,7 @@ var AppModule = (function () {
                 HomePage,
                 PageConnexion,
                 ModalInscription,
-                ModalDeconnexion
+                ModalDeconnexion,
             ],
             providers: []
         }), 

@@ -1,19 +1,63 @@
 <ion-header>
-  <ion-navbar color="secondary">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title><b>Informations utilisateur</b></ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="logOut()"><ion-icon name="log-out"></ion-icon></button>
+  <ion-navbar color="danger">
+
+    <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
     </ion-buttons>
+
+    <ion-title>
+      <b>Mon compte</b>
+    </ion-title>
+
+    <ion-buttons right>
+      <!--<img class="circle" src="assets/img/avatar.jpg">-->
+      <button ion-button icon-only (click)="logOut()">
+        <img class="circle" src="assets/img/avatar2.jpg">
+      </button>
+      <!--<button ion-button icon-only (click)="logOut()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>-->
+    </ion-buttons>
+
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3><b>Utilisateur</b> : {{username}}</h3>
-  <h3><b>Adresse Mail</b> : {{email}}</h3>
-  <h3><b>Prénom</b> : {{firstName}}</h3>
-  <h3><b>Nom</b> : {{lastName}}</h3>
+<ion-content>
+  <ion-list>
 
+    <ion-item>
+      <ion-icon name="ios-person" item-left></ion-icon>
+      Utilisateur :
+      <div class="item-note" item-right>
+        {{username}}
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="mail" item-left></ion-icon>
+      Email :
+      <div class="item-note" item-right>
+        {{email}}
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="information" item-left></ion-icon>
+      Prénom :
+      <div class="item-note" item-right>
+        {{firstName}}
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="information" item-left></ion-icon>
+      Nom :
+      <div class="item-note" item-right>
+        {{lastName}}
+      </div>
+    </ion-item>
+
+  </ion-list>
 </ion-content>

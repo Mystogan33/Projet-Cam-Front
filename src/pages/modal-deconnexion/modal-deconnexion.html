@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar full color="secondary">
+  <ion-navbar full color="danger">
     <ion-title>Déconnexion</ion-title>
   </ion-navbar>
 </ion-header>
@@ -9,8 +9,10 @@
     <p> Vous partez ? :( </p>
 
     <ion-buttons>
-      <button ion-button full color="secondary" (click)="dismissCancel()">Annuler</button>
-      <button ion-button full color="secondary" (click)="logOut()">Déconnexion</button>
+
+      <button ion-button full color="danger" (click)="logOut()">Déconnexion</button>
+      <button ion-button full color="danger" (click)="dismissCancel()">Annuler</button>
+      
     </ion-buttons>
 
 </ion-content>

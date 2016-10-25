@@ -11,6 +11,9 @@ import { NavController, NavParams , ModalController , AlertController } from 'io
   templateUrl: 'page2.html'
 })
 export class Page2 {
+
+  username : any;
+
   selectedItem: any;
   icons: string[];
   items: Array<{title: string, note: string, icon: string}>;
@@ -18,6 +21,7 @@ export class Page2 {
   constructor(public navCtrl: NavController, public navParams: NavParams , public modalCtrl : ModalController) {
 
     this.isConnected();
+    this.username = window.localStorage.getItem("username");
 
   }
 

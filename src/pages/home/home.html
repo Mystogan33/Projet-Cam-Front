@@ -1,15 +1,45 @@
 <ion-header>
-  <ion-navbar color="secondary">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title><b>Page d'Accueuil</b></ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="logOut()"><ion-icon name="log-out"></ion-icon></button>
+
+  <ion-navbar color="danger">
+
+    <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
     </ion-buttons>
+
+    <ion-title>
+      <b>Page d'Accueuil</b>
+    </ion-title>
+
+    <ion-buttons right>
+      <!--<img class="circle" src="assets/img/avatar.jpg">-->
+      <button ion-button icon-only (click)="logOut()">
+        <img class="circle" src="assets/img/avatar2.jpg">
+      </button>
+      <!--<button ion-button icon-only (click)="logOut()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>-->
+    </ion-buttons>
+
   </ion-navbar>
+
 </ion-header>
 
 <ion-content>
+    <ion-slides pager>
 
+      <ion-slide style="">
+        <h2>Vue 1</h2>
+      </ion-slide>
+
+      <ion-slide style="">
+        <h2>Vue 2</h2>
+      </ion-slide>
+
+      <ion-slide style="">
+        <h2>Vue 3</h2>
+      </ion-slide>
+
+    </ion-slides>
 </ion-content>

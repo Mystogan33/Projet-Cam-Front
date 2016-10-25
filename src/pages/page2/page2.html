@@ -1,12 +1,26 @@
 <ion-header>
-  <ion-navbar color="secondary">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title><b>Liste des caméras</b></ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="logOut()"><ion-icon name="log-out"></ion-icon></button>
+  <ion-navbar color="danger">
+
+    <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
     </ion-buttons>
+
+    <ion-title>
+      <b>Mes caméras</b>
+    </ion-title>
+
+    <ion-buttons right>
+      <!--<img class="circle" src="assets/img/avatar.jpg">-->
+      <button ion-button icon-only (click)="logOut()">
+        <img class="circle" src="assets/img/avatar2.jpg">
+      </button>
+      <!--<button ion-button icon-only (click)="logOut()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>-->
+    </ion-buttons>
+
   </ion-navbar>
 </ion-header>
 

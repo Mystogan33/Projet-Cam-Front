@@ -16,7 +16,7 @@ import { ModalDeconnexion } from '../pages/modal-deconnexion/modal-deconnexion';
     HomePage,
     PageConnexion,
     ModalInscription,
-    ModalDeconnexion
+    ModalDeconnexion,
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -29,7 +29,7 @@ import { ModalDeconnexion } from '../pages/modal-deconnexion/modal-deconnexion';
     HomePage,
     PageConnexion,
     ModalInscription,
-    ModalDeconnexion
+    ModalDeconnexion,
   ],
   providers: []
 })
