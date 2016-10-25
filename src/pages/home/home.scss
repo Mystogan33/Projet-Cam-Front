@@ -4,17 +4,13 @@ page-home {
   text-align: center;
   }
 
-  ion-buttons {
-    order: 10;
+  a:hover {
+  color: CornflowerBlue;
   }
 
-a:hover {
-  color: CornflowerBlue;
-}
+  /* Circle Avatar Styles */
 
-/* Circle Avatar Styles */
-
-.circle {
+  .circle {
 	line-height: 0;		/* remove line-height */
 	margin: 5px;
   border: 2px solid rgba(255,255,255,0.4);
@@ -22,18 +18,16 @@ a:hover {
 	transition: linear 0.25s;
   height: 40px;
   width: 40px;
-}
-.circle img {
-	border-radius: 50%;	/* relative value for
-				   adjustable image size */
-}
-.circle:hover {
+  }
+
+  .circle img {
+	border-radius: 50%;
+  }
+
+  .circle:hover {
 	transition: ease-out 0.2s;
   border: 2px solid rgba(255,255,255,0.8);
   -webkit-transition: ease-out 0.2s;
-}
-a.circle {
-  color: transparent;
-}
+  }
 
 }

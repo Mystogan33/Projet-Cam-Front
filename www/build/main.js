@@ -81329,8 +81329,9 @@ var __metadata$7 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var HomePage = (function () {
-    function HomePage(navCtrl, viewCtrl, modalCtrl, serv, alertCtrl) {
+    function HomePage(navCtrl, navParams, viewCtrl, modalCtrl, serv, alertCtrl) {
         this.navCtrl = navCtrl;
+        this.navParams = navParams;
         this.viewCtrl = viewCtrl;
         this.modalCtrl = modalCtrl;
         this.serv = serv;
@@ -81338,10 +81339,30 @@ var HomePage = (function () {
         this.isConnected();
         this.username = window.localStorage.getItem("username");
     }
+    HomePage.prototype.itemTapped = function (event, item) {
+        // That's right, we're pushing to ourselves!
+        this.navCtrl.push(HomePage, {
+            item: item
+        });
+    };
     HomePage.prototype.isConnected = function () {
         if (window.localStorage.getItem("Token") == null) {
             var modal = this.modalCtrl.create(PageConnexion);
             modal.present();
+        }
+        else {
+            // If we navigated to this page, we will have an item available as a nav param
+            this.selectedItem = this.navParams.get('item');
+            // Let's populate this page with some filler content for funzies
+            this.icons = ['camera'];
+            this.items = [];
+            for (var i = 1; i < 11; i++) {
+                this.items.push({
+                    title: 'Caméra ' + i,
+                    note: 'This is camera#' + i,
+                    icon: this.icons[Math.floor(Math.random() * this.icons.length)]
+                });
+            }
         }
     };
     HomePage.prototype.logOut = function () {
@@ -81352,14 +81373,12 @@ var HomePage = (function () {
         });
         confirm.present();
     };
-    HomePage.prototype.openPopOverUser = function () {
-    };
     HomePage = __decorate$113([
         Component({
-            selector: 'page-home',template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\home\home.html"*/'<ion-header>\n\n\n\n  <ion-navbar color="danger">\n\n\n\n    <ion-buttons left>\n\n      <button ion-button menuToggle>\n\n        <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n\n\n    <ion-title>\n\n      <b>Page d\'Accueil</b>\n\n    </ion-title>\n\n\n\n    <ion-buttons right>\n\n      <!--<img class="circle" src="assets/img/avatar.jpg">-->\n\n      <button ion-button icon-only (click)="logOut()">\n\n        <img class="circle" src="assets/img/avatar2.jpg">\n\n      </button>\n\n      <!--<button ion-button icon-only (click)="logOut()">\n\n        <ion-icon name="log-out"></ion-icon>\n\n      </button>-->\n\n    </ion-buttons>\n\n\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content>\n\n    <ion-slides pager>\n\n\n\n      <ion-slide style="">\n\n        <h1>Vue 1</h1>\n\n      </ion-slide>\n\n\n\n      <ion-slide style="">\n\n        <h2>Vue 2</h2>\n\n      </ion-slide>\n\n\n\n      <ion-slide style="">\n\n        <h2>Vue 3</h2>\n\n      </ion-slide>\n\n\n\n    </ion-slides>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\home\home.html"*/,
+            selector: 'page-home',template:/*ion-inline-start:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\home\home.html"*/'<ion-header>\n\n\n\n  <ion-navbar color="danger">\n\n\n\n    <ion-buttons left>\n\n      <button ion-button menuToggle>\n\n        <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n\n\n    <ion-title>\n\n      <b>Page d\'Accueil</b>\n\n    </ion-title>\n\n\n\n    <ion-buttons right>\n\n      <!--<img class="circle" src="assets/img/avatar.jpg">-->\n\n      <button ion-button icon-only (click)="logOut()">\n\n        <img class="circle" src="assets/img/avatar2.jpg">\n\n      </button>\n\n      <!--<button ion-button icon-only (click)="logOut()">\n\n        <ion-icon name="log-out"></ion-icon>\n\n      </button>-->\n\n    </ion-buttons>\n\n\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content>\n\n\n\n  <ion-list-header>\n\n    <ion-label center color="danger"><h2><b>Mes caméras :</b></h2></ion-label>\n\n  </ion-list-header>\n\n\n\n  <ion-list>\n\n    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n\n      <ion-icon [name]="item.icon" item-left></ion-icon>\n\n      {{item.title}}\n\n      <div class="item-note" item-right>\n\n        {{item.note}}\n\n      </div>\n\n    </button>\n\n  </ion-list>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\mysto\Desktop\Programmation\Ionic2\Applications Camera\Project_Zero\Projet-Cam-Front\src\pages\home\home.html"*/,
             providers: [ServProvider]
         }), 
-        __metadata$7('design:paramtypes', [NavController, ViewController, ModalController, ServProvider, AlertController])
+        __metadata$7('design:paramtypes', [NavController, NavParams, ViewController, ModalController, ServProvider, AlertController])
     ], HomePage);
     return HomePage;
 }());

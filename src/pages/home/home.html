@@ -27,19 +27,19 @@
 </ion-header>
 
 <ion-content>
-    <ion-slides pager>
 
-      <ion-slide style="">
-        <h1>Vue 1</h1>
-      </ion-slide>
+  <ion-list-header>
+    <ion-label center color="danger"><h2><b>Mes caméras :</b></h2></ion-label>
+  </ion-list-header>
 
-      <ion-slide style="">
-        <h2>Vue 2</h2>
-      </ion-slide>
+  <ion-list>
+    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+      <ion-icon [name]="item.icon" item-left></ion-icon>
+      {{item.title}}
+      <div class="item-note" item-right>
+        {{item.note}}
+      </div>
+    </button>
+  </ion-list>
 
-      <ion-slide style="">
-        <h2>Vue 3</h2>
-      </ion-slide>
-
-    </ion-slides>
 </ion-content>
