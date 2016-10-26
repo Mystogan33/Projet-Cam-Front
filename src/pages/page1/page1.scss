@@ -3,6 +3,10 @@ page-page1 {
   ion-navbar {
     text-align: center;
   }
+  
+  ion-content{
+      background-image: url('../assets/img/background.jpg');
+  }
 
   a:hover {
     color: CornflowerBlue;

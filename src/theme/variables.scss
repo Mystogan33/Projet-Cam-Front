@@ -31,7 +31,9 @@ $colors: (
   favorite:   #69BB7B
 );
 
-
+ion-content{
+    background-image: url('../assets/img/background.jpg');
+}
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here

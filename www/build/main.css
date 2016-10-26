@@ -1,4 +1,8 @@
 @charset "UTF-8";
+ion-content {
+  background-image: url("../assets/img/background.jpg");
+}
+
 /*!
   Ionicons, v3.0.0-alpha.3
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
@@ -21106,12 +21110,20 @@ sub {
   }
 }
 
+page-connexion ion-content {
+  background-image: url("../assets/img/background.jpg");
+}
+
 page-connexion ion-navbar {
   text-align: center;
 }
 
 page-home {
   /* Circle Avatar Styles */
+}
+
+page-home ion-content {
+  background-image: url("../assets/img/background.jpg");
 }
 
 page-home ion-navbar {
@@ -21154,8 +21166,23 @@ page-modal-deconnexion ion-navbar {
   text-align: center;
 }
 
+page-modal-deconnexion .item.item-trns {
+  border-color: transparent;
+  background-color: transparent;
+  text-align: center;
+  color: #32db64;
+}
+
+page-modal-deconnexion ion-content {
+  background-image: url("../assets/img/background.jpg");
+}
+
 page-modal-inscription ion-navbar {
   text-align: center;
+}
+
+page-modal-inscription ion-content {
+  background-image: url("../assets/img/background.jpg");
 }
 
 page-modal-inscription ion-title {
@@ -21168,6 +21195,10 @@ page-page1 {
 
 page-page1 ion-navbar {
   text-align: center;
+}
+
+page-page1 ion-content {
+  background-image: url("../assets/img/background.jpg");
 }
 
 page-page1 a:hover {
@@ -21213,6 +21244,17 @@ page-page2 {
 
 page-page2 ion-navbar {
   text-align: center;
+}
+
+page-page2 ion-content {
+  background-image: url("../assets/img/background.jpg");
+}
+
+page-page2 .item.item-trns {
+  border-color: transparent;
+  background-color: transparent;
+  text-align: center;
+  color: #32db64;
 }
 
 page-page2 a:hover {

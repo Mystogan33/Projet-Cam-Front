@@ -1,21 +1,21 @@
 <ion-header>
-  <ion-navbar full color="danger">
+  <ion-navbar full color="secondary">
     <ion-title>Déconnexion</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
-    <ion-item text-center>
-      <ion-icon name="log-out" item-left></ion-icon>
+    <ion-item class="item item-trns">
         <b>Vous partez ? :(</b>
-      <ion-icon name="log-out" item-right></ion-icon>
     </ion-item>
 
     <ion-buttons>
 
-      <button ion-button full color="danger" (click)="logOut()">Déconnexion</button>
-      <button ion-button full color="danger" (click)="dismissCancel()">Annuler</button>
+      <button ion-button full color="secondary" (click)="logOut()"><b>Déconnexion</b></button>
+      <div>
+      <button ion-button full color="secondary" (click)="dismissCancel()"><b>Annuler</b></button>
+      </div>
 
     </ion-buttons>
 
