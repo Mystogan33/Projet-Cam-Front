@@ -4,6 +4,18 @@ page-connexion {
       background-image: url('../assets/img/background.jpg');
   }
 
+  .label.labelConnexion{
+    color: color($colors,secondary);
+  }
+
+  .item.item-trns {
+    border-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
+    text-align: center;
+    color: color($colors,secondary);
+
+  }
+
   ion-navbar {
   text-align: center;
   }

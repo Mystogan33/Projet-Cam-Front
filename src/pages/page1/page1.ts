@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { NavController , NavParams , ModalController} from 'ionic-angular';
+import { NavController , ModalController} from 'ionic-angular';
 
 import {PageConnexion} from '../connexion/connexion';
 import {ModalDeconnexion} from '../modal-deconnexion/modal-deconnexion';

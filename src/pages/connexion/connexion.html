@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar full color = "danger">
+  <ion-navbar full color="secondary">
     <ion-title>
       Connexion
     </ion-title>
@@ -9,22 +9,22 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content  class="login-background" padding>
+<ion-content padding>
 
   <ion-list no-lines>
 
-      <ion-item>
-        <ion-label floating>Nom d'utilisateur ou email</ion-label>
-        <ion-input [(ngModel)]="identifier" type="text"></ion-input>
+      <ion-item class="item item-trns">
+        <ion-label class="label labelConnexion" floating><b>Nom d'utilisateur ou email</b></ion-label>
+        <ion-input [(ngModel)]="identifier" type="text" secondary></ion-input>
       </ion-item>
 
-      <ion-item>
-        <ion-label floating>Mot de Passe</ion-label>
-        <ion-input [(ngModel)]="password" type="password"></ion-input>
+      <ion-item class="item item-trns">
+        <ion-label class="label labelConnexion" floating><b>Mot de Passe</b></ion-label>
+        <ion-input [(ngModel)]="password" type="password" secondary></ion-input>
       </ion-item>
 
     </ion-list>
 
-    <button ion-button full color="danger" (click)="connexion()">Connexion</button>
+    <button ion-button full color="secondary" (click)="connexion()">Connexion</button>
 
 </ion-content>

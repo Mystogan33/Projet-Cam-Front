@@ -4,6 +4,22 @@ page-modal-inscription {
     text-align: center;
   }
 
+  ion-input:focus {
+    color: map-get($colors,secondary);
+  }
+
+  .item.item-trns {
+    	border-color: rgba(0, 0, 0, 0);
+    	background-color: rgba(0, 0, 0, 0);
+      text-align: center;
+      color: color($colors,secondary);
+
+  }
+
+  .label.labelInscription{
+    color: color($colors,secondary);
+  }
+
   ion-content{
       background-image: url('../assets/img/background.jpg');
   }

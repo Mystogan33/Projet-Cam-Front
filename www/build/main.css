@@ -21114,6 +21114,17 @@ page-connexion ion-content {
   background-image: url("../assets/img/background.jpg");
 }
 
+page-connexion .label.labelConnexion {
+  color: #32db64;
+}
+
+page-connexion .item.item-trns {
+  border-color: transparent;
+  background-color: transparent;
+  text-align: center;
+  color: #32db64;
+}
+
 page-connexion ion-navbar {
   text-align: center;
 }
@@ -21179,6 +21190,21 @@ page-modal-deconnexion ion-content {
 
 page-modal-inscription ion-navbar {
   text-align: center;
+}
+
+page-modal-inscription ion-input:focus {
+  color: #32db64;
+}
+
+page-modal-inscription .item.item-trns {
+  border-color: transparent;
+  background-color: transparent;
+  text-align: center;
+  color: #32db64;
+}
+
+page-modal-inscription .label.labelInscription {
+  color: #32db64;
 }
 
 page-modal-inscription ion-content {

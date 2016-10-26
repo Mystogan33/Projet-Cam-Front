@@ -4,8 +4,6 @@ import { NavController , AlertController , ModalController , ViewController } fr
 
 import {ServProvider} from '../../providers/serv-provider';
 
-import {HomePage} from '../home/home';
-
 import {ModalInscription} from '../modal-inscription/modal-inscription';
 
 
@@ -25,7 +23,6 @@ export class PageConnexion {
   reponse : any;
 
   constructor(public navCtrl: NavController , public viewCtrl : ViewController , public serv : ServProvider , public alertCtrl : AlertController , public modalCtrl: ModalController) {
-
 
   }
 
@@ -63,6 +60,7 @@ export class PageConnexion {
       message : "Il semblerait qu'une erreur se soit produite",
       buttons: ['OK']
     });
+    alert.setCssClass(".alertErreur");
     alert.present();
   }
 

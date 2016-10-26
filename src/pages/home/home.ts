@@ -1,9 +1,8 @@
-import { Component , ViewChild, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { ServProvider } from '../../providers/serv-provider';
-import { NavController , AlertController , ModalController , ViewController , PopoverController , NavParams } from 'ionic-angular';
+import { NavController , AlertController , ModalController , ViewController , NavParams } from 'ionic-angular';
 import { PageConnexion } from '../connexion/connexion';
 import { ModalDeconnexion } from '../modal-deconnexion/modal-deconnexion';
-import { UserPopOver } from '../user-pop-over/user-pop-over';
 
 @Component({
   selector: 'page-home',
@@ -40,7 +39,7 @@ export class HomePage {
     }
     else
     {
-      
+
     }
 
     }

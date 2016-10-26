@@ -4,7 +4,7 @@ import {ModalDeconnexion} from '../modal-deconnexion/modal-deconnexion';
 import {PageConnexion} from '../connexion/connexion';
 import {HomePage} from '../home/home';
 
-import { NavController, NavParams , ModalController , AlertController } from 'ionic-angular';
+import { NavController, NavParams , ModalController} from 'ionic-angular';
 
 @Component({
   selector: 'page-page2',
