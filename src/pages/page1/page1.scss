@@ -8,6 +8,11 @@ page-page1 {
     color: CornflowerBlue;
   }
 
+  button[fab].fab-map {
+  top: calc(100% - 35px);
+  z-index: 50;
+  }
+
   /* Circle Avatar Styles */
 
   .circle {

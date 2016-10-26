@@ -1,8 +1,14 @@
 page-home {
 
+
   ion-navbar {
   text-align: center;
   }
+
+  ion-buttons {
+    order: 10;
+  }
+
 
   a:hover {
   color: CornflowerBlue;
@@ -28,6 +34,6 @@ page-home {
 	transition: ease-out 0.2s;
   border: 2px solid rgba(255,255,255,0.8);
   -webkit-transition: ease-out 0.2s;
-  }
+}
 
 }

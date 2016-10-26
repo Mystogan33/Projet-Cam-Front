@@ -16,19 +16,23 @@ export class Page1 {
   email: any;
   firstName: any;
   lastName : any;
+  profil : any;
 
-  items: any;
+  infos : any;
 
   constructor(public navCtrl: NavController , public modalCtrl : ModalController) {
 
     this.isConnected();
 
-    this.items = [
-        {title: 'Utilisateur' , content : this.username , icon : "ios-person"},
-        {title: 'Email' , content : this.email , icon : "mail"},
-        {title: 'Prénom' , content : this.firstName , icon : "information"},
-        {title: 'Nom' , content : this.lastName , icon : "information"},
-    ];
+    this.profil = 'Administrateur';
+
+    this.infos = [
+        {title: 'Prénom' , content : this.firstName , icon: "information-circle" },
+        {title: 'Nom' , content : this.lastName , icon: "information-circle" },
+        {title: 'Mail' , content : this.email , icon: "mail"},
+        {title: 'Profil' , content : this.profil , icon: "contacts"}
+      ];
+
 
   }
 

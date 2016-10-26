@@ -40,20 +40,7 @@ export class HomePage {
     }
     else
     {
-      // If we navigated to this page, we will have an item available as a nav param
-      this.selectedItem = this.navParams.get('item');
-
-      // Let's populate this page with some filler content for funzies
-      this.icons = ['camera'];
-
-      this.items = [];
-      for (let i = 1; i < 11; i++) {
-        this.items.push({
-          title: 'Caméra ' + i,
-          note: 'This is camera#' + i,
-          icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-        });
-      }
+      
     }
 
     }

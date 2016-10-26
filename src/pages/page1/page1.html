@@ -12,35 +12,52 @@
     </ion-title>
 
     <ion-buttons right>
-      <!--<img class="circle" src="assets/img/avatar.jpg">-->
       <button ion-button icon-only (click)="logOut()">
-        <img class="circle" src="assets/img/avatar2.jpg">
-      </button>
-      <!--<button ion-button icon-only (click)="logOut()">
         <ion-icon name="log-out"></ion-icon>
-      </button>-->
+      </button>
     </ion-buttons>
 
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-
-  <ion-item-sliding *ngFor="let item of items">
+<ion-content class="myBackground">
+  <ion-card>
 
     <ion-item>
-    <ion-icon name="{{item.icon}}" item-left></ion-icon>
-    <b>{{item.title}}</b> : {{item.content}}
+      <ion-avatar item-left>
+        <img src="assets/img/avatar2.jpg">
+      </ion-avatar>
+      <h2><b>{{username}}</b></h2>
     </ion-item>
 
-    <ion-item-options>
-      <button (click)="modifierUser()">
-        <ion-icon name="ios-create"></ion-icon>
-          <b>Modifier</b>
-      </button>
-    </ion-item-options>
-  </ion-item-sliding>
+    <div style="position: relative">
+      <img src="assets/img/avatar2.jpg">
+      <ion-fab right top>
+        <button ion-fab class="fab-map">
+          <ion-icon name='brush'></ion-icon>
+        </button>
+      </ion-fab>
+    </div>
 
-  </ion-list>
+    <ion-list>
+
+      <ion-item-sliding *ngFor="let item of infos">
+
+        <ion-item>
+            <ion-icon [name]="item.icon" item-left large></ion-icon>
+            <h2> <b>{{item.title}} :</b> {{item.content}} </h2>
+        </ion-item>
+
+        <ion-item-options side="right">
+          <button ion-button color="secondary" (click)="modifier()">
+             <ion-icon name="brush"></ion-icon>
+               Modifier
+          </button>
+        </ion-item-options>
+
+      </ion-item-sliding>
+
+    </ion-list>
+
+  </ion-card>
 </ion-content>

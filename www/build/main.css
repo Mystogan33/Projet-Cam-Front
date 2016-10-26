@@ -21118,6 +21118,12 @@ page-home ion-navbar {
   text-align: center;
 }
 
+page-home ion-buttons {
+  -webkit-order: 10;
+  -ms-flex-order: 10;
+  order: 10;
+}
+
 page-home a:hover {
   color: CornflowerBlue;
 }
@@ -21166,6 +21172,11 @@ page-page1 ion-navbar {
 
 page-page1 a:hover {
   color: CornflowerBlue;
+}
+
+page-page1 button[fab].fab-map {
+  top: calc(100% - 35px);
+  z-index: 50;
 }
 
 page-page1 .circle {

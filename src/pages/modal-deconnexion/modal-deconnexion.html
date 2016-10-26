@@ -6,13 +6,17 @@
 
 <ion-content padding>
 
-    <p> Vous partez ? :( </p>
+    <ion-item text-center>
+      <ion-icon name="log-out" item-left></ion-icon>
+        <b>Vous partez ? :(</b>
+      <ion-icon name="log-out" item-right></ion-icon>
+    </ion-item>
 
     <ion-buttons>
 
       <button ion-button full color="danger" (click)="logOut()">Déconnexion</button>
       <button ion-button full color="danger" (click)="dismissCancel()">Annuler</button>
-      
+
     </ion-buttons>
 
 </ion-content>
