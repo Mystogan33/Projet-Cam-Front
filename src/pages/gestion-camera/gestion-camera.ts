@@ -1,17 +1,22 @@
 import { Component } from '@angular/core';
-
+import { NavController , NavParams , ModalController } from 'ionic-angular';
+import {ListeUtilisateurCamera} from '../liste-utilisateur-camera/liste-utilisateur-camera';
 import {ModalDeconnexion} from '../modal-deconnexion/modal-deconnexion';
 import {PageConnexion} from '../connexion/connexion';
 import {HomePage} from '../home/home';
-import {Camera} from '../camera/camera';
 
-import { NavController, NavParams , ModalController} from 'ionic-angular';
 
+/*
+  Generated class for the GestionCamera page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+*/
 @Component({
-  selector: 'page-page2',
-  templateUrl: 'page2.html'
+  selector: 'page-gestion-camera',
+  templateUrl: 'gestion-camera.html'
 })
-export class Page2 {
+export class GestionCamera {
 
   username : any;
 
@@ -26,10 +31,10 @@ export class Page2 {
 
   }
 
-  afficherCamera(event, item) {
-
-    this.navCtrl.push(Camera, {
-      item: item
+  itemTapped(event, item) {
+    // That's right, we're pushing to ourselves!
+    this.navCtrl.push(ListeUtilisateurCamera, {
+    camera : item
     });
   }
 
@@ -62,6 +67,8 @@ export class Page2 {
     else
     {
 
+      this.selectedItem = this.navParams.get('item');
+
       // Let's populate this page with some filler content for funzies
       this.icons = ['camera'];
 
@@ -69,11 +76,12 @@ export class Page2 {
       for (let i = 1; i < 11; i++) {
         this.items.push({
           title: 'Caméra ' + i,
-          note: 'Voir la caméra #' + i,
+          note: 'This is camera#' + i,
           icon: this.icons[Math.floor(Math.random() * this.icons.length)]
         });
       }
     }
 
   }
+
 }

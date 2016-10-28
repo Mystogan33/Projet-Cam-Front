@@ -23,7 +23,7 @@
 <ion-content>
   <ion-card>
 
-    <ion-item>
+    <ion-item color="secondary">
       <ion-avatar item-left>
         <img src="assets/img/avatar2.jpg">
       </ion-avatar>
@@ -43,14 +43,14 @@
 
       <ion-item-sliding *ngFor="let item of infos">
 
-        <ion-item>
+        <ion-item color>
             <ion-icon [name]="item.icon" item-left large></ion-icon>
             <h2> <b>{{item.title}} :</b> {{item.content}} </h2>
         </ion-item>
 
         <ion-item-options side="right">
           <button ion-button color="secondary" (click)="modifier()">
-             <ion-icon name="brush"></ion-icon>
+             <ion-icon name="brush" large></ion-icon>
                Modifier
           </button>
         </ion-item-options>

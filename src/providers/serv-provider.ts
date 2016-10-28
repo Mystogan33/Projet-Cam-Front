@@ -14,7 +14,7 @@ export class ServProvider {
 
   Inscription(body): Observable<any> {
 
-    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers});
 
 
@@ -26,7 +26,7 @@ export class ServProvider {
 
   Connexion(body): Observable<any> {
 
-    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({ headers: headers});
 
    return this.http.post('http://localhost:1337/auth/signin', body , options)

@@ -4,6 +4,7 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
+import { GestionCamera } from '../pages/gestion-camera/gestion-camera';
 import { HomePage } from '../pages/home/home';
 
 
@@ -15,16 +16,17 @@ export class MyApp {
 
   rootPage: any = HomePage;
 
-  pages: Array<{title: string, component: any , icon: any}>;
+  pages: Array<{title: string, component: any , icon: any , droit : any}>;
 
   constructor(public platform: Platform) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Accueil', component: HomePage , icon: "md-home" },
-      { title: 'Compte', component: Page1 , icon: "person" },
-      { title: 'Liste des caméras', component: Page2 , icon: "camera" }
+      { title: 'Accueil', component: HomePage , icon: "md-home" , droit : true},
+      { title: 'Mon Compte', component: Page1 , icon: "person"  , droit : true},
+      { title: 'Visualiser une caméra', component: Page2 , icon: "camera" , droit : true},
+      { title: 'Gérer les caméras', component: GestionCamera , icon : "cog" , droit : false }
     ];
 
   }

@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar color="secondary">
+
+    <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>
+      <b>Utilisateurs de {{idCamera.title}}</b>
+    </ion-title>
+
+    <ion-buttons right>
+      <button ion-button icon-only (click)="logOut()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+      <ion-item-sliding *ngFor="let utilisateur of Utilisateurs">
+
+        <ion-item ion-item class="item item-trns">
+          <ion-avatar item-left>
+            <img [src]="utilisateur.image" item-left>
+          </ion-avatar>
+          {{utilisateur.username}}
+        <div class="utilisateur-profil" item-right>
+          {{utilisateur.profil}}
+        </div>
+        </ion-item>
+
+        <ion-item-options side="right">
+          <button ion-button color="danger" (click)="supprimer()" large>
+             <ion-icon name="trash" large></ion-icon>
+          </button>
+        </ion-item-options>
+
+    </ion-item-sliding>
+
+    </ion-list>
+</ion-content>

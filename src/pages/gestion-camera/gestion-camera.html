@@ -8,7 +8,7 @@
     </ion-buttons>
 
     <ion-title>
-      <b>Visualiser une caméra</b>
+      <b>Gérer les caméras</b>
     </ion-title>
 
     <ion-buttons right>
@@ -22,11 +22,11 @@
 
 <ion-content>
   <ion-list>
-    <button ion-item class="item item-trns" *ngFor="let item of items" (click)="afficherCamera($event,item)">
+    <button ion-item class="item item-trns" *ngFor="let item of items" (click)="itemTapped($event, item)">
       <ion-icon [name]="item.icon" item-left></ion-icon>
       {{item.title}}
       <div class="item-note" item-right>
-      {{item.note}}
+        {{item.note}}
       </div>
     </button>
   </ion-list>
