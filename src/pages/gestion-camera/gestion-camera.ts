@@ -76,7 +76,7 @@ export class GestionCamera {
       for (let i = 1; i < 11; i++) {
         this.items.push({
           title: 'Caméra ' + i,
-          note: 'This is camera#' + i,
+          note: 'Gérer la camera#' + i,
           icon: this.icons[Math.floor(Math.random() * this.icons.length)]
         });
       }

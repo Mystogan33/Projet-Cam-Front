@@ -18,6 +18,7 @@ export class ListeUtilisateurCamera {
 
   idCamera : any;
   Utilisateurs: any;
+  InformationCamera : any;
 
   constructor(public navCtrl: NavController , public nav : NavParams , public modalCtrl : ModalController) {
 
@@ -44,7 +45,7 @@ export class ListeUtilisateurCamera {
 
     supprimer()
     {
-      
+
     }
 
     isConnected(){
@@ -62,6 +63,12 @@ export class ListeUtilisateurCamera {
           {username : 'IMikit' , profil : 'Admin' , mail : 'Mickael@ynov.com' , image : 'assets/img/mickael.png'},
           {username : 'Mystogan33' , profil : 'Admin' , mail : 'Valentin.gay@ynov.com' , image : 'assets/img/batman.png' },
           {username : 'LoicProust' , profil : 'Admin' , mail : 'Loic.proust@ynov.com' , image : 'assets/img/loic.jpg' }
+        ];
+
+        this.InformationCamera =  [
+          {title: 'Nom de la caméra' , content : this.idCamera.title , icon: "information-circle" },
+          {title: 'Localisation' , content : 'Salle G6' , icon: "locate" },
+          //{title: 'Accessible par' , content : 'Administrateur' , icon: "contacts"}
         ];
 
       }
