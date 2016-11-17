@@ -30,7 +30,7 @@ export class ModalInscription {
     this.navCtrl.pop();
   }
 
-  dismiss()
+  inscription()
   {
     let data = JSON.stringify({username: this.username , password: this.password , email: this.mail , firstName: this.firstname , lastName: this.lastname});
     this.viewCtrl.dismiss(data);

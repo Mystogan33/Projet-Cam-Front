@@ -81189,13 +81189,13 @@ var ModalInscription = (function () {
     ModalInscription.prototype.dismissCancel = function () {
         this.navCtrl.pop();
     };
-    ModalInscription.prototype.dismiss = function () {
+    ModalInscription.prototype.inscription = function () {
         var data = JSON.stringify({ username: this.username, password: this.password, email: this.mail, firstName: this.firstname, lastName: this.lastname });
         this.viewCtrl.dismiss(data);
     };
     ModalInscription = __decorate$111([
         Component({
-            selector: 'page-modal-inscription',template:/*ion-inline-start:"/Users/sylvain/IOT2/Projet-Cam-Front/src/pages/modal-inscription/modal-inscription.html"*/'<ion-header>\n  <ion-navbar full color="secondary">\n    <ion-title>Inscription</ion-title>\n    <ion-buttons left>\n      <button ion-button icon-only (click)="dismissCancel()"><ion-icon name="arrow-back"></ion-icon></button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-list no-lines>\n\n      <ion-item class="item item-trns">\n        <ion-label class="label labelInscription" floating><b>Nom d\'utilisateur</b></ion-label>\n        <ion-input [(ngModel)]="username" type="text"></ion-input>\n      </ion-item>\n\n      <ion-item class="item item-trns">\n        <ion-label class="label labelInscription" floating><b>Mot de Passe</b></ion-label>\n        <ion-input [(ngModel)]="password" type="password"></ion-input>\n      </ion-item>\n\n      <ion-item class="item item-trns">\n        <ion-label class="label labelInscription" floating><b>Adresse e-Mail</b></ion-label>\n        <ion-input [(ngModel)]="mail" type="mail"></ion-input>\n      </ion-item>\n\n      <ion-item class="item item-trns">\n        <ion-label class="label labelInscription" floating><b>Prénom</b></ion-label>\n        <ion-textarea [(ngModel)]="firstname"></ion-textarea>\n      </ion-item>\n\n      <ion-item class="item item-trns">\n        <ion-label class="label labelInscription" floating><b>Nom</b></ion-label>\n        <ion-input [(ngModel)]="lastname" type="text"></ion-input>\n      </ion-item>\n\n    </ion-list>\n\n    <button ion-button full color="secondary" (click)="dismiss()">S\'inscrire</button>\n\n</ion-content>\n'/*ion-inline-end:"/Users/sylvain/IOT2/Projet-Cam-Front/src/pages/modal-inscription/modal-inscription.html"*/
+            selector: 'page-modal-inscription',template:/*ion-inline-start:"/Users/sylvain/IOT2/Projet-Cam-Front/src/pages/modal-inscription/modal-inscription.html"*/'<ion-header>\n  <ion-navbar full color="secondary">\n    <ion-title>Inscription</ion-title>\n    <ion-buttons left>\n      <button ion-button icon-only (click)="dismissCancel()"><ion-icon name="arrow-back"></ion-icon></button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-list no-lines>\n\n      <ion-item class="item item-trns">\n        <ion-label class="label labelInscription" floating><b>Nom d\'utilisateur</b></ion-label>\n        <ion-input [(ngModel)]="username" type="text"></ion-input>\n      </ion-item>\n\n      <ion-item class="item item-trns">\n        <ion-label class="label labelInscription" floating><b>Mot de Passe</b></ion-label>\n        <ion-input [(ngModel)]="password" type="password"></ion-input>\n      </ion-item>\n\n      <ion-item class="item item-trns">\n        <ion-label class="label labelInscription" floating><b>Adresse e-Mail</b></ion-label>\n        <ion-input [(ngModel)]="mail" type="mail"></ion-input>\n      </ion-item>\n\n      <ion-item class="item item-trns">\n        <ion-label class="label labelInscription" floating><b>Prénom</b></ion-label>\n        <ion-textarea [(ngModel)]="firstname"></ion-textarea>\n      </ion-item>\n\n      <ion-item class="item item-trns">\n        <ion-label class="label labelInscription" floating><b>Nom</b></ion-label>\n        <ion-input [(ngModel)]="lastname" type="text"></ion-input>\n      </ion-item>\n\n    </ion-list>\n\n    <button ion-button full color="secondary" (click)="inscription()">S\'inscrire</button>\n\n</ion-content>\n'/*ion-inline-end:"/Users/sylvain/IOT2/Projet-Cam-Front/src/pages/modal-inscription/modal-inscription.html"*/
         }), 
         __metadata$5('design:paramtypes', [NavController, ViewController])
     ], ModalInscription);
@@ -81231,22 +81231,13 @@ var PageConnexion = (function () {
             window.localStorage.setItem("lastName", _this.reponse.user.lastName);
             _this.viewCtrl.dismiss();
         }, function (err) {
-            _this.showAlertError();
-        }, function () { return console.log(_this.reponse.user.firstName + _this.reponse.user.lastName); });
+            _this.showAlertError("Erreur Connexion");
+        }, function () { return console.log("Connexion établie"); });
     };
-    PageConnexion.prototype.showAlertError = function () {
+    PageConnexion.prototype.showAlertError = function (text) {
         var alert = this.alertCtrl.create({
             title: 'Oups :\'(',
-            message: "Il semblerait qu'une erreur se soit produite",
-            buttons: ['OK']
-        });
-        alert.setCssClass(".alertErreur");
-        alert.present();
-    };
-    PageConnexion.prototype.showAlertSuccessInscription = function () {
-        var alert = this.alertCtrl.create({
-            title: 'Inscription',
-            message: "Inscription validé !",
+            message: text,
             buttons: ['OK']
         });
         alert.present();
@@ -81256,20 +81247,19 @@ var PageConnexion = (function () {
         var modal = this.modalCtrl.create(ModalInscription);
         modal.onDidDismiss(function (data) {
             _this.bodyRequest = data;
+            _this.identifier = JSON.parse(data).username;
+            _this.password = JSON.parse(data).password;
             _this.inscription();
         });
         modal.present();
     };
     PageConnexion.prototype.inscription = function () {
         var _this = this;
-        console.log(this.bodyRequest);
         this.serv.Inscription(this.bodyRequest).subscribe(function (data) {
-            console.log(data);
-            _this.reponse = data;
-            window.localStorage.setItem("Token", _this.reponse.token);
-            _this.showAlertSuccessInscription();
+            window.localStorage.setItem("Token", data.token);
+            _this.connexion();
         }, function (err) {
-            _this.showAlertError();
+            _this.showAlertError("Erreur Inscription");
         }, function () { return console.log("Inscription réussie"); });
     };
     PageConnexion = __decorate$109([
@@ -81337,11 +81327,16 @@ var HomePage = (function () {
         this.modalCtrl = modalCtrl;
         this.serv = serv;
         this.alertCtrl = alertCtrl;
+        //Pour le dév
+        window.localStorage.setItem("Token", "GROSLKWKHFJEKSLJE65772");
+        window.localStorage.setItem("username", "Mystogan33");
+        window.localStorage.setItem("firstName", "Valentin");
+        window.localStorage.setItem("lastName", "GAY");
+        window.localStorage.setItem("email", "Mystogan40@gmail.com");
         this.isConnected();
         this.username = window.localStorage.getItem("username");
     }
     HomePage.prototype.itemTapped = function (event, item) {
-        // That's right, we're pushing to ourselves!
         this.navCtrl.push(HomePage, {
             item: item
         });
@@ -81364,7 +81359,7 @@ var HomePage = (function () {
     };
     HomePage = __decorate$113([
         Component({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/sylvain/IOT2/Projet-Cam-Front/src/pages/home/home.html"*/'<ion-header>\n\n  <ion-navbar color="secondary">\n\n    <ion-buttons left>\n      <button ion-button menuToggle left>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n    </ion-buttons>\n\n      <ion-title>\n        <b>Page d\'Accueil</b>\n      </ion-title>\n\n    <ion-buttons right>\n      <button ion-button icon-only (click)="logOut()">\n        <ion-icon name="log-out"></ion-icon>\n      </button>\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n</ion-content>\n'/*ion-inline-end:"/Users/sylvain/IOT2/Projet-Cam-Front/src/pages/home/home.html"*/,
+            selector: 'page-home',template:/*ion-inline-start:"/Users/sylvain/IOT2/Projet-Cam-Front/src/pages/home/home.html"*/'<ion-header>\n\n  <ion-navbar color="secondary">\n\n    <ion-buttons left>\n      <button ion-button menuToggle left>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n    </ion-buttons>\n\n      <ion-title>\n        <b>Page d\'Accueil</b>\n      </ion-title>\n\n    <ion-buttons right>\n      <button ion-button icon-only (click)="logOut()">\n        <ion-icon name="log-out"></ion-icon>\n      </button>\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n<!-- Home Background -->\n<div class="background">\n  <div class="bubble bubble--10">\n    <div class="bubble-spot"></div>\n  </div>\n  <div class="bubble bubble--70">\n    <div class="bubble-spot"></div>\n  </div>\n  <div class="bubble bubble--20">\n    <div class="bubble-spot"></div>\n  </div>\n  \n  <div class="octopus">\n    <div class="tentacle tentacle-1"></div>\n    <div class="tentacle tentacle-2"></div>\n    <div class="tentacle tentacle-3"></div>\n    <div class="head">\n      <div class="head-spot head-spot-1"></div>\n      <div class="head-spot head-spot-2"></div>\n      <div class="eyes eyes-1">\n        <div class="iris">\n          <div class="pupil">\n            <div class="eyes-spot"></div>\n          </div>\n        </div>\n      </div>\n      <div class="eyes eyes-2">\n        <div class="iris">\n          <div class="pupil">\n            <div class="eyes-spot"></div>\n          </div>\n        </div>\n      </div>\n      <div class="mouth"></div>\n    </div>\n    <div class="octo-bubble">\n      <div class="bubble-spot"></div>\n    </div>\n  </div>\n  \n  \n  <div class="bubble bubble--30">\n    <div class="bubble-spot"></div>\n  </div>\n  <div class="bubble bubble--60">\n    <div class="bubble-spot"></div>\n  </div>\n  <div class="bubble bubble--45">\n    <div class="bubble-spot"></div>\n  </div>\n</div>\n\n\n\n</ion-content>\n'/*ion-inline-end:"/Users/sylvain/IOT2/Projet-Cam-Front/src/pages/home/home.html"*/,
             providers: [ServProvider]
         }), 
         __metadata$7('design:paramtypes', [NavController, NavParams, ViewController, ModalController, ServProvider, AlertController])
@@ -81420,11 +81415,55 @@ var Page1 = (function () {
     };
     Page1 = __decorate$108([
         Component({
-            selector: 'page-page1',template:/*ion-inline-start:"/Users/sylvain/IOT2/Projet-Cam-Front/src/pages/page1/page1.html"*/'<ion-header>\n  <ion-navbar color="secondary">\n\n    <ion-buttons left>\n      <button ion-button menuToggle>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n    </ion-buttons>\n\n    <ion-title>\n      <b>Mon compte</b>\n    </ion-title>\n\n    <ion-buttons right>\n      <button ion-button icon-only (click)="logOut()">\n        <ion-icon name="log-out"></ion-icon>\n      </button>\n    </ion-buttons>\n\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-card>\n\n    <ion-item>\n      <ion-avatar item-left>\n        <img src="assets/img/avatar2.jpg">\n      </ion-avatar>\n      <h2><b>{{username}}</b></h2>\n    </ion-item>\n\n    <div style="position: relative">\n      <img src="assets/img/avatar2.jpg">\n      <ion-fab right top>\n        <button ion-fab class="fab-map">\n          <ion-icon name=\'brush\'></ion-icon>\n        </button>\n      </ion-fab>\n    </div>\n\n    <ion-list>\n\n      <ion-item-sliding *ngFor="let item of infos">\n\n        <ion-item>\n            <ion-icon [name]="item.icon" item-left large></ion-icon>\n            <h2> <b>{{item.title}} :</b> {{item.content}} </h2>\n        </ion-item>\n\n        <ion-item-options side="right">\n          <button ion-button color="secondary" (click)="modifier()">\n             <ion-icon name="brush"></ion-icon>\n               Modifier\n          </button>\n        </ion-item-options>\n\n      </ion-item-sliding>\n\n    </ion-list>\n\n  </ion-card>\n</ion-content>\n'/*ion-inline-end:"/Users/sylvain/IOT2/Projet-Cam-Front/src/pages/page1/page1.html"*/
+            selector: 'page-page1',template:/*ion-inline-start:"/Users/sylvain/IOT2/Projet-Cam-Front/src/pages/page1/page1.html"*/'<ion-header>\n  <ion-navbar color="secondary">\n\n    <ion-buttons left>\n      <button ion-button menuToggle>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n    </ion-buttons>\n\n    <ion-title>\n      <b>Mon compte</b>\n    </ion-title>\n\n    <ion-buttons right>\n      <button ion-button icon-only (click)="logOut()">\n        <ion-icon name="log-out"></ion-icon>\n      </button>\n    </ion-buttons>\n\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-card>\n\n    <ion-item color="secondary">\n      <ion-avatar item-left>\n        <img src="assets/img/avatar2.jpg">\n      </ion-avatar>\n      <h2><b>{{username}}</b></h2>\n    </ion-item>\n\n    <div style="position: relative">\n      <img src="assets/img/avatar2.jpg">\n      <ion-fab right top>\n        <button ion-fab class="fab-map">\n          <ion-icon name=\'brush\'></ion-icon>\n        </button>\n      </ion-fab>\n    </div>\n\n    <ion-list>\n\n      <ion-item-sliding *ngFor="let item of infos">\n\n        <ion-item color>\n            <ion-icon [name]="item.icon" item-left large></ion-icon>\n            <h2> <b>{{item.title}} :</b> {{item.content}} </h2>\n        </ion-item>\n\n        <ion-item-options side="right">\n          <button ion-button color="secondary" (click)="modifier()">\n             <ion-icon name="brush" large></ion-icon>\n               Modifier\n          </button>\n        </ion-item-options>\n\n      </ion-item-sliding>\n\n    </ion-list>\n\n  </ion-card>\n</ion-content>\n'/*ion-inline-end:"/Users/sylvain/IOT2/Projet-Cam-Front/src/pages/page1/page1.html"*/
         }), 
         __metadata$2('design:paramtypes', [NavController, ModalController])
     ], Page1);
     return Page1;
+}());
+
+var __decorate$115 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata$9 = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var Camera$1 = (function () {
+    function Camera(navCtrl, nav, modalCtrl) {
+        this.navCtrl = navCtrl;
+        this.nav = nav;
+        this.modalCtrl = modalCtrl;
+        this.idCamera = this.nav.get('item');
+    }
+    Camera.prototype.ionViewDidLoad = function () {
+        console.log('Page camera');
+    };
+    Camera.prototype.logOut = function () {
+        var _this = this;
+        var confirm = this.modalCtrl.create(ModalDeconnexion);
+        confirm.onDidDismiss(function (data) {
+            _this.isConnected();
+        });
+        confirm.present();
+    };
+    Camera.prototype.isConnected = function () {
+        if (window.localStorage.getItem("Token") == null) {
+            var modal = this.modalCtrl.create(PageConnexion);
+            modal.present();
+        }
+        else {
+        }
+    };
+    Camera = __decorate$115([
+        Component({
+            selector: 'page-camera',template:/*ion-inline-start:"/Users/sylvain/IOT2/Projet-Cam-Front/src/pages/camera/camera.html"*/'<ion-header>\n  <ion-navbar color="secondary">\n\n    <ion-buttons left>\n      <button ion-button menuToggle>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n    </ion-buttons>\n\n    <ion-title>\n      <b>{{idCamera.title}}</b>\n    </ion-title>\n\n    <ion-buttons right>\n      <button ion-button icon-only (click)="logOut()">\n        <ion-icon name="log-out"></ion-icon>\n      </button>\n    </ion-buttons>\n\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content>\n\n      <ion-card>\n\n      <ion-item color="secondary">\n        <ion-avatar item-left>\n          <img src="assets/img/camera.jpg">\n        </ion-avatar>\n        <h2><b>{{idCamera.title}}</b></h2>\n      </ion-item>\n\n      <div style="position: relative">\n        <div class="video-container">\n          <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen="true"></iframe>\n        </div>\n      </div>\n\n        <div class="camera-control-bar">\n\n          <button ion-button icon-left class="button-camera-side" large>\n             Gauche </button>\n\n          <button ion-button class="button-camera-side" large> Center </button>\n\n          <button ion-button icon-right class="button-camera-side" large>\n            Droite</button>\n\n        </div>\n\n    </ion-card>\n</ion-content>\n'/*ion-inline-end:"/Users/sylvain/IOT2/Projet-Cam-Front/src/pages/camera/camera.html"*/
+        }), 
+        __metadata$9('design:paramtypes', [NavController, NavParams, ModalController])
+    ], Camera);
+    return Camera;
 }());
 
 var __decorate$114 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
@@ -81444,9 +81483,8 @@ var Page2 = (function () {
         this.isConnected();
         this.username = window.localStorage.getItem("username");
     }
-    Page2.prototype.itemTapped = function (event, item) {
-        // That's right, we're pushing to ourselves!
-        this.navCtrl.push(Page2, {
+    Page2.prototype.afficherCamera = function (event, item) {
+        this.navCtrl.push(Camera$1, {
             item: item
         });
     };
@@ -81468,15 +81506,13 @@ var Page2 = (function () {
             modal.present();
         }
         else {
-            // If we navigated to this page, we will have an item available as a nav param
-            this.selectedItem = this.navParams.get('item');
             // Let's populate this page with some filler content for funzies
             this.icons = ['camera'];
             this.items = [];
             for (var i = 1; i < 11; i++) {
                 this.items.push({
                     title: 'Caméra ' + i,
-                    note: 'This is camera#' + i,
+                    note: 'Voir la caméra #' + i,
                     icon: this.icons[Math.floor(Math.random() * this.icons.length)]
                 });
             }
@@ -81484,11 +81520,143 @@ var Page2 = (function () {
     };
     Page2 = __decorate$114([
         Component({
-            selector: 'page-page2',template:/*ion-inline-start:"/Users/sylvain/IOT2/Projet-Cam-Front/src/pages/page2/page2.html"*/'<ion-header>\n  <ion-navbar color="secondary">\n\n    <ion-buttons left>\n      <button ion-button menuToggle>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n    </ion-buttons>\n\n    <ion-title>\n      <b>Mes caméras</b>\n    </ion-title>\n\n    <ion-buttons right>\n      <button ion-button icon-only (click)="logOut()">\n        <ion-icon name="log-out"></ion-icon>\n      </button>\n    </ion-buttons>\n\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <button ion-item class="item item-trns" *ngFor="let item of items" (click)="itemTapped($event, item)">\n      <ion-icon [name]="item.icon" item-left></ion-icon>\n      {{item.title}}\n      <div class="item-note" item-right>\n        {{item.note}}\n      </div>\n    </button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/sylvain/IOT2/Projet-Cam-Front/src/pages/page2/page2.html"*/
+            selector: 'page-page2',template:/*ion-inline-start:"/Users/sylvain/IOT2/Projet-Cam-Front/src/pages/page2/page2.html"*/'<ion-header>\n  <ion-navbar color="secondary">\n\n    <ion-buttons left>\n      <button ion-button menuToggle>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n    </ion-buttons>\n\n    <ion-title>\n      <b>Visualiser une caméra</b>\n    </ion-title>\n\n    <ion-buttons right>\n      <button ion-button icon-only (click)="logOut()">\n        <ion-icon name="log-out"></ion-icon>\n      </button>\n    </ion-buttons>\n\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <button ion-item class="item item-trns" *ngFor="let item of items" (click)="afficherCamera($event,item)">\n      <ion-icon [name]="item.icon" item-left></ion-icon>\n      {{item.title}}\n      <div class="item-note" item-right>\n      {{item.note}}\n      </div>\n    </button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/sylvain/IOT2/Projet-Cam-Front/src/pages/page2/page2.html"*/
         }), 
         __metadata$8('design:paramtypes', [NavController, NavParams, ModalController])
     ], Page2);
     return Page2;
+}());
+
+var __decorate$117 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata$11 = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+/*
+  Generated class for the ListeUtilisateurCamera page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+*/
+var ListeUtilisateurCamera = (function () {
+    function ListeUtilisateurCamera(navCtrl, nav, modalCtrl) {
+        this.navCtrl = navCtrl;
+        this.nav = nav;
+        this.modalCtrl = modalCtrl;
+        this.isConnected();
+    }
+    ListeUtilisateurCamera.prototype.ionViewDidLoad = function () {
+        console.log('Hello ListeUtilisateurCamera Page');
+    };
+    ListeUtilisateurCamera.prototype.logOut = function () {
+        var _this = this;
+        var confirm = this.modalCtrl.create(ModalDeconnexion);
+        confirm.onDidDismiss(function (data) {
+            _this.isConnected();
+        });
+        confirm.present();
+    };
+    ListeUtilisateurCamera.prototype.supprimer = function () {
+    };
+    ListeUtilisateurCamera.prototype.isConnected = function () {
+        if (window.localStorage.getItem("Token") == null) {
+            var modal = this.modalCtrl.create(PageConnexion);
+            modal.present();
+        }
+        else {
+            this.idCamera = this.nav.get('camera');
+            this.Utilisateurs = [
+                { username: 'SylvainGarnot', profil: 'Admin', mail: 'Sylvain.garnot@ynov.com', image: 'assets/img/sylvain.jpg' },
+                { username: 'IMikit', profil: 'Admin', mail: 'Mickael@ynov.com', image: 'assets/img/mickael.png' },
+                { username: 'Mystogan33', profil: 'Admin', mail: 'Valentin.gay@ynov.com', image: 'assets/img/batman.png' },
+                { username: 'LoicProust', profil: 'Admin', mail: 'Loic.proust@ynov.com', image: 'assets/img/loic.jpg' }
+            ];
+            this.InformationCamera = [
+                { title: 'Nom de la caméra', content: this.idCamera.title, icon: "information-circle" },
+                { title: 'Localisation', content: 'Salle G6', icon: "locate" },
+            ];
+        }
+    };
+    ListeUtilisateurCamera = __decorate$117([
+        Component({
+            selector: 'page-liste-utilisateur-camera',template:/*ion-inline-start:"/Users/sylvain/IOT2/Projet-Cam-Front/src/pages/liste-utilisateur-camera/liste-utilisateur-camera.html"*/'<ion-header>\n  <ion-navbar color="secondary">\n\n    <ion-buttons left>\n      <button ion-button menuToggle>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n    </ion-buttons>\n\n    <ion-title>\n      <b>Gérer la {{idCamera.title}}</b>\n    </ion-title>\n\n    <ion-buttons right>\n      <button ion-button icon-only (click)="logOut()">\n        <ion-icon name="log-out"></ion-icon>\n      </button>\n    </ion-buttons>\n\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n  <ion-item-group>\n    <ion-item-divider style="background-color: #32db64 ; color: white;">\n      <ion-avatar item-left>\n          <img src="assets/img/camera.jpg">\n      </ion-avatar>Description de la caméra</ion-item-divider>\n\n    <ion-item-sliding *ngFor="let info of InformationCamera">\n\n      <ion-item color>\n          <ion-icon [name]="info.icon" item-left large></ion-icon>\n          <h2> <b>{{info.title}} :</b> {{info.content}} </h2>\n      </ion-item>\n\n      <ion-item-options side="right">\n        <button ion-button color="danger" (click)="modifier()" large>\n          <ion-icon name="brush" large></ion-icon>\n        </button>\n      </ion-item-options>\n\n    </ion-item-sliding>\n  </ion-item-group>\n\n  <ion-item-group>\n    <ion-item-divider style="background-color: #32db64 ; color: white;">\n      <ion-icon name="contacts" item-left large></ion-icon> Liste des utilisateurs de cette caméra</ion-item-divider>\n\n    <ion-item-sliding *ngFor="let utilisateur of Utilisateurs">\n\n      <ion-item ion-item class="item item-trns">\n        <ion-avatar item-left>\n          <img [src]="utilisateur.image" item-left>\n        </ion-avatar>\n        {{utilisateur.username}}\n        <div class="utilisateur-profil" item-right>\n          {{utilisateur.profil}}\n        </div>\n      </ion-item>\n\n      <ion-item-options side="right">\n        <button ion-button color="danger" (click)="supprimer()" large>\n          <ion-icon name="trash" large></ion-icon>\n        </button>\n      </ion-item-options>\n\n    </ion-item-sliding>\n  </ion-item-group>\n\n</ion-content>\n'/*ion-inline-end:"/Users/sylvain/IOT2/Projet-Cam-Front/src/pages/liste-utilisateur-camera/liste-utilisateur-camera.html"*/
+        }), 
+        __metadata$11('design:paramtypes', [NavController, NavParams, ModalController])
+    ], ListeUtilisateurCamera);
+    return ListeUtilisateurCamera;
+}());
+
+var __decorate$116 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata$10 = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+/*
+  Generated class for the GestionCamera page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+*/
+var GestionCamera = (function () {
+    function GestionCamera(navCtrl, navParams, modalCtrl) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.modalCtrl = modalCtrl;
+        this.isConnected();
+        this.username = window.localStorage.getItem("username");
+    }
+    GestionCamera.prototype.itemTapped = function (event, item) {
+        // That's right, we're pushing to ourselves!
+        this.navCtrl.push(ListeUtilisateurCamera, {
+            camera: item
+        });
+    };
+    GestionCamera.prototype.logOut = function () {
+        var _this = this;
+        var confirm = this.modalCtrl.create(ModalDeconnexion);
+        confirm.onDidDismiss(function (data) {
+            _this.isConnected();
+        });
+        confirm.present();
+    };
+    GestionCamera.prototype.isConnected = function () {
+        var _this = this;
+        if (window.localStorage.getItem("Token") == null) {
+            var modal = this.modalCtrl.create(PageConnexion);
+            modal.onDidDismiss(function (data) {
+                _this.navCtrl.setRoot(HomePage);
+            });
+            modal.present();
+        }
+        else {
+            this.selectedItem = this.navParams.get('item');
+            // Let's populate this page with some filler content for funzies
+            this.icons = ['camera'];
+            this.items = [];
+            for (var i = 1; i < 11; i++) {
+                this.items.push({
+                    title: 'Caméra ' + i,
+                    note: 'Gérer la camera#' + i,
+                    icon: this.icons[Math.floor(Math.random() * this.icons.length)]
+                });
+            }
+        }
+    };
+    GestionCamera = __decorate$116([
+        Component({
+            selector: 'page-gestion-camera',template:/*ion-inline-start:"/Users/sylvain/IOT2/Projet-Cam-Front/src/pages/gestion-camera/gestion-camera.html"*/'<ion-header>\n  <ion-navbar color="secondary">\n\n    <ion-buttons left>\n      <button ion-button menuToggle>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n    </ion-buttons>\n\n    <ion-title>\n      <b>Gérer les caméras</b>\n    </ion-title>\n\n    <ion-buttons right>\n      <button ion-button icon-only (click)="logOut()">\n        <ion-icon name="log-out"></ion-icon>\n      </button>\n    </ion-buttons>\n\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <button ion-item class="item item-trns" *ngFor="let item of items" (click)="itemTapped($event, item)">\n      <ion-icon [name]="item.icon" item-left></ion-icon>\n      {{item.title}}\n      <div class="item-note" item-right>\n        {{item.note}}\n      </div>\n    </button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/sylvain/IOT2/Projet-Cam-Front/src/pages/gestion-camera/gestion-camera.html"*/
+        }), 
+        __metadata$10('design:paramtypes', [NavController, NavParams, ModalController])
+    ], GestionCamera);
+    return GestionCamera;
 }());
 
 var __decorate$1 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
@@ -81507,9 +81675,10 @@ var MyApp = (function () {
         this.initializeApp();
         // used for an example of ngFor and navigation
         this.pages = [
-            { title: 'Accueil', component: HomePage, icon: "md-home" },
-            { title: 'Compte', component: Page1, icon: "person" },
-            { title: 'Liste des caméras', component: Page2, icon: "camera" }
+            { title: 'Accueil', component: HomePage, icon: "md-home", droit: true },
+            { title: 'Mon Compte', component: Page1, icon: "person", droit: true },
+            { title: 'Visualiser une caméra', component: Page2, icon: "camera", droit: true },
+            { title: 'Gérer les caméras', component: GestionCamera, icon: "cog", droit: false }
         ];
     }
     MyApp.prototype.initializeApp = function () {
@@ -81530,7 +81699,7 @@ var MyApp = (function () {
         __metadata$1('design:type', Nav)
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate$1([
-        Component({template:/*ion-inline-start:"/Users/sylvain/IOT2/Projet-Cam-Front/src/app/app.html"*/'<ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar color="secondary">\n      <ion-title>Menu</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n\n    <ion-list>\n      <button color="secondary" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        <ion-icon [name]="p.icon" item-left></ion-icon>\n        <b>{{p.title}}</b>\n      </button>\n    </ion-list>\n\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n'/*ion-inline-end:"/Users/sylvain/IOT2/Projet-Cam-Front/src/app/app.html"*/
+        Component({template:/*ion-inline-start:"/Users/sylvain/IOT2/Projet-Cam-Front/src/app/app.html"*/'<ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar color="secondary">\n      <ion-title>Menu</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n\n    <ion-list>\n      <button color="secondary" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        <ion-icon [name]="p.icon" item-left></ion-icon>\n        <b>{{p.title}}</b>\n      </button>\n    </ion-list>\n\n\n\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n'/*ion-inline-end:"/Users/sylvain/IOT2/Projet-Cam-Front/src/app/app.html"*/
         }), 
         __metadata$1('design:paramtypes', [Platform])
     ], MyApp);
@@ -81559,6 +81728,9 @@ var AppModule = (function () {
                 PageConnexion,
                 ModalInscription,
                 ModalDeconnexion,
+                GestionCamera,
+                ListeUtilisateurCamera,
+                Camera$1
             ],
             imports: [
                 IonicModule.forRoot(MyApp)
@@ -81572,6 +81744,9 @@ var AppModule = (function () {
                 PageConnexion,
                 ModalInscription,
                 ModalDeconnexion,
+                GestionCamera,
+                ListeUtilisateurCamera,
+                Camera$1
             ],
             providers: []
         }), 

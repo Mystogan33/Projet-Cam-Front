@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-navbar color="secondary">
+
+    <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>
+      <b>Gérer la {{idCamera.title}}</b>
+    </ion-title>
+
+    <ion-buttons right>
+      <button ion-button icon-only (click)="logOut()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item-group>
+    <ion-item-divider style="background-color: #32db64 ; color: white;">
+      <ion-avatar item-left>
+          <img src="assets/img/camera.jpg">
+      </ion-avatar>Description de la caméra</ion-item-divider>
+
+    <ion-item-sliding *ngFor="let info of InformationCamera">
+
+      <ion-item color>
+          <ion-icon [name]="info.icon" item-left large></ion-icon>
+          <h2> <b>{{info.title}} :</b> {{info.content}} </h2>
+      </ion-item>
+
+      <ion-item-options side="right">
+        <button ion-button color="danger" (click)="modifier()" large>
+          <ion-icon name="brush" large></ion-icon>
+        </button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+  </ion-item-group>
+
+  <ion-item-group>
+    <ion-item-divider style="background-color: #32db64 ; color: white;">
+      <ion-icon name="contacts" item-left large></ion-icon> Liste des utilisateurs de cette caméra</ion-item-divider>
+
+    <ion-item-sliding *ngFor="let utilisateur of Utilisateurs">
+
+      <ion-item ion-item class="item item-trns">
+        <ion-avatar item-left>
+          <img [src]="utilisateur.image" item-left>
+        </ion-avatar>
+        {{utilisateur.username}}
+        <div class="utilisateur-profil" item-right>
+          {{utilisateur.profil}}
+        </div>
+      </ion-item>
+
+      <ion-item-options side="right">
+        <button ion-button color="danger" (click)="supprimer()" large>
+          <ion-icon name="trash" large></ion-icon>
+        </button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+  </ion-item-group>
+
+</ion-content>

@@ -7,6 +7,9 @@ import { HomePage } from '../pages/home/home';
 import { PageConnexion } from '../pages/connexion/connexion';
 import { ModalInscription } from '../pages/modal-inscription/modal-inscription';
 import { ModalDeconnexion } from '../pages/modal-deconnexion/modal-deconnexion';
+import { GestionCamera } from '../pages/gestion-camera/gestion-camera';
+import { ListeUtilisateurCamera }  from '../pages/liste-utilisateur-camera/liste-utilisateur-camera';
+import { Camera } from '../pages/camera/camera';
 
 @NgModule({
   declarations: [
@@ -17,6 +20,9 @@ import { ModalDeconnexion } from '../pages/modal-deconnexion/modal-deconnexion';
     PageConnexion,
     ModalInscription,
     ModalDeconnexion,
+    GestionCamera,
+    ListeUtilisateurCamera,
+    Camera
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -30,6 +36,9 @@ import { ModalDeconnexion } from '../pages/modal-deconnexion/modal-deconnexion';
     PageConnexion,
     ModalInscription,
     ModalDeconnexion,
+    GestionCamera,
+    ListeUtilisateurCamera,
+    Camera
   ],
   providers: []
 })

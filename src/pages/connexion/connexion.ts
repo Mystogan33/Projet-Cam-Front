@@ -24,11 +24,12 @@ export class PageConnexion {
 
   constructor(public navCtrl: NavController , public viewCtrl : ViewController , public serv : ServProvider , public alertCtrl : AlertController , public modalCtrl: ModalController) {
 
+
   }
 
   connexion(){
 
-    this.bodyRequest = JSON.stringify({identifier: this.identifier , password: this.password})
+    this.bodyRequest = JSON.stringify({identifier : this.identifier , password : this.password});
 
     this.serv.Connexion(this.bodyRequest).subscribe(
 
@@ -46,30 +47,21 @@ export class PageConnexion {
       },
       err => {
 
-      this.showAlertError();
+      this.showAlertError("Erreur Connexion");
 
     },
-      () => console.log(this.reponse.user.firstName + this.reponse.user.lastName)
+      () => console.log("Connexion établie")
     );
 
   }
 
-  showAlertError() {
+  showAlertError(text) {
     let alert = this.alertCtrl.create({
       title: 'Oups :\'(',
-      message : "Il semblerait qu'une erreur se soit produite",
+      message : text,
       buttons: ['OK']
     });
-    alert.setCssClass(".alertErreur");
-    alert.present();
-  }
 
-  showAlertSuccessInscription() {
-    let alert = this.alertCtrl.create({
-      title: 'Inscription',
-      message : "Inscription validé !",
-      buttons: ['OK']
-    });
     alert.present();
   }
 
@@ -78,9 +70,13 @@ export class PageConnexion {
     let modal = this.modalCtrl.create(ModalInscription);
 
     modal.onDidDismiss(data => {
-                        this.bodyRequest = data;
-                        this.inscription();
-                      });
+
+        this.bodyRequest = data;
+        this.identifier = JSON.parse(data).username;
+        this.password = JSON.parse(data).password;
+        this.inscription();
+
+    });
 
     modal.present();
 
@@ -88,17 +84,13 @@ export class PageConnexion {
 
   inscription(){
 
-    console.log(this.bodyRequest);
-
     this.serv.Inscription(this.bodyRequest).subscribe(
               data => {
-                console.log(data);
-                this.reponse = data;
-                window.localStorage.setItem("Token",this.reponse.token);
-                this.showAlertSuccessInscription();
+                window.localStorage.setItem("Token",data.token);
+                this.connexion();
               },
               err => {
-                this.showAlertError();
+                this.showAlertError("Erreur Inscription");
               },
               () => console.log("Inscription réussie")
             );

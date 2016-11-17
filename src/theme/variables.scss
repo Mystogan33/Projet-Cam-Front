@@ -24,7 +24,7 @@ $background-color:  #fff;
 
 $colors: (
   primary:    #387ef5,
-  secondary:  #32db64,
+  secondary:  #ff6238,
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222,
@@ -33,6 +33,11 @@ $colors: (
 
 ion-content{
     background-image: url('../assets/img/background.jpg');
+}
+ion-title {
+	b {
+		color: #252725;
+	}
 }
 // App iOS Variables
 // --------------------------------------------------

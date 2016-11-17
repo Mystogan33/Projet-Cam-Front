@@ -19,13 +19,20 @@ export class HomePage {
 
   constructor(public navCtrl: NavController , public navParams : NavParams , public viewCtrl: ViewController , public modalCtrl : ModalController , public serv : ServProvider , public alertCtrl : AlertController){
 
+    //Pour le dév
+    window.localStorage.setItem("Token","GROSLKWKHFJEKSLJE65772");
+    window.localStorage.setItem("username","Mystogan33");
+    window.localStorage.setItem("firstName","Valentin");
+    window.localStorage.setItem("lastName","GAY");
+    window.localStorage.setItem("email","Mystogan40@gmail.com");
+
     this.isConnected();
     this.username = window.localStorage.getItem("username");
 
   }
 
   itemTapped(event, item) {
-    // That's right, we're pushing to ourselves!
+
     this.navCtrl.push(HomePage, {
       item: item
     });

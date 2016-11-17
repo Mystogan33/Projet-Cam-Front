@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar color="secondary">
+
+    <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>
+      <b>{{idCamera.title}}</b>
+    </ion-title>
+
+    <ion-buttons right>
+      <button ion-button icon-only (click)="logOut()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+      <ion-card>
+
+      <ion-item color="secondary">
+        <ion-avatar item-left>
+          <img src="assets/img/camera.jpg">
+        </ion-avatar>
+        <h2><b>{{idCamera.title}}</b></h2>
+      </ion-item>
+
+      <div style="position: relative">
+        <div class="video-container">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen="true"></iframe>
+        </div>
+      </div>
+
+        <div class="camera-control-bar">
+
+          <button ion-button icon-left class="button-camera-side" large>
+             Gauche </button>
+
+          <button ion-button class="button-camera-side" large> Center </button>
+
+          <button ion-button icon-right class="button-camera-side" large>
+            Droite</button>
+
+        </div>
+
+    </ion-card>
+</ion-content>
