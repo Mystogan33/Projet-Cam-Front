@@ -1,11 +1,17 @@
 page-liste-utilisateur-camera {
 
-  ion-content {
-      background-image: url('../assets/img/background.jpg');
-  }
+	ion-content {
+		background-image: url('../assets/img/background.jpg');
+	}
 
-ion-navbar {
-  text-align: center;
-}
+	ion-navbar {
+		text-align: center;
+	}
+
+	ion-item-divider {
+		color: black;
+	    background-color: color($colors,secondary);
+	}
+
 
 }

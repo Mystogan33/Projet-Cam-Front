@@ -23,10 +23,12 @@
 <ion-content>
 
   <ion-item-group>
-    <ion-item-divider style="background-color: #32db64 ; color: white;">
+    <ion-item-divider>
       <ion-avatar item-left>
           <img src="assets/img/camera.jpg">
-      </ion-avatar>Description de la caméra</ion-item-divider>
+      </ion-avatar>
+      Description de la caméra
+    </ion-item-divider>
 
     <ion-item-sliding *ngFor="let info of InformationCamera">
 
@@ -45,7 +47,7 @@
   </ion-item-group>
 
   <ion-item-group>
-    <ion-item-divider style="background-color: #32db64 ; color: white;">
+    <ion-item-divider>
       <ion-icon name="contacts" item-left large></ion-icon> Liste des utilisateurs de cette caméra</ion-item-divider>
 
     <ion-item-sliding *ngFor="let utilisateur of Utilisateurs">

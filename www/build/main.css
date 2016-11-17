@@ -21179,7 +21179,7 @@ page-gestion-camera .item.item-trns {
   border-color: transparent;
   background-color: transparent;
   text-align: center;
-  color: orange;
+  color: #ff6238;
 }
 
 page-home {
@@ -21816,6 +21816,11 @@ page-liste-utilisateur-camera ion-navbar {
   text-align: center;
 }
 
+page-liste-utilisateur-camera ion-item-divider {
+  color: black;
+  background-color: #ff6238;
+}
+
 page-modal-deconnexion ion-navbar {
   text-align: center;
 }
@@ -21923,7 +21928,7 @@ page-page2 .item.item-trns {
   border-color: transparent;
   background-color: transparent;
   text-align: center;
-  color: #32db64;
+  color: #ff6238;
 }
 
 page-page2 a:hover {
