@@ -1,5 +1,5 @@
 {
-  "name": "ionic-hello-world",
+  "name": "projet-cam-front",
   "author": "Ionic Framework",
   "homepage": "http://ionicframework.com/",
   "private": true,
@@ -33,7 +33,6 @@
     "@ionic/app-scripts": "^0.0.36",
     "typescript": "^2.0.3"
   },
-  "description": "HomeVision: An Ionic project",
   "cordovaPlugins": [
     "cordova-plugin-device",
     "cordova-plugin-console",
@@ -42,5 +41,13 @@
     "cordova-plugin-statusbar",
     "ionic-plugin-keyboard"
   ],
-  "cordovaPlatforms": []
+  "cordovaPlatforms": [
+    "ios",
+    {
+      "platform": "ios",
+      "version": "",
+      "locator": "ios"
+    }
+  ],
+  "description": "Projet-Cam-Front: An Ionic project"
 }

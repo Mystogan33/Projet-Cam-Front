@@ -17,3 +17,191 @@
 ion-content {
   
 }
+
+$screen-width:	100vw;
+$screen-height: 100vh;
+
+$cloud-width: 				$screen-width*0.1;
+
+$spaceship-height:			$screen-height*0.15;
+$spaceship-width:			$spaceship-height*0.5;
+$spaceship-scale:			0.35;
+$spaceship-bottom:			$spaceship-width*0.2;
+$wing-width:				$spaceship-width*0.8;
+$wing-height-1:				$wing-width*0.85;
+$wing-height-2:				$wing-height-1*0.5;
+
+$cloud-0-width: 			$spaceship-bottom*2;
+
+
+$keyboard-color-1:			#919191;
+$keyboard-color-2:		 	#333333;
+$cloud-color-1: 			#B71C1C;
+$cloud-color-2: 			#E53935;
+$spaceship-color: 			white;
+$wing-color: 				#2196F3;
+
+
+$animation-speed-0: 10s;
+$animation-speed-1: 8s;
+$animation-speed-2: 4s;
+
+
+@mixin triangle() {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	position: absolute;
+}
+@mixin transform($transforms) {
+           transform: $transforms;
+	     -o-transform: $transforms;
+	    -ms-transform: $transforms;
+	   -moz-transform: $transforms;
+	-webkit-transform: $transforms;
+}
+@mixin translateX($valX) {
+  @include transform(translateX($valX));
+}
+@mixin translateY($valY) {
+  @include transform(translateY($valY));
+}
+@mixin scaleX($val) {
+  @include transform(scaleX($val));
+}
+@mixin keyframes($name) {
+			  @keyframes #{$name} { @content };
+		  @-o-keyframes #{$name} { @content };
+	   @-moz-keyframes #{$name} { @content };
+	@-webkit-keyframes #{$name} { @content }; 
+}
+
+
+@mixin background-gradient($v1, $v2, $v3) {
+	background: 		  linear-gradient($v1, $v2, $v3);
+	background: 	  -o-linear-gradient($v1, $v2, $v3);
+	background: 	-moz-linear-gradient($v1, $v2, $v3);
+	background: -webkit-linear-gradient($v1, $v2, $v3);
+}
+.background {
+	background-color: #00C9B4;
+	@include background-gradient(
+		top,
+		#00C9B4,
+		darken(#00C9B4, 35%));
+	position: absolute;
+	top: 0%; left: 0%;
+	width: 100%; height: 100%;
+}
+
+
+		
+.cloud {
+	position: absolute;
+	border-radius: 50%;
+	bottom: calc(0% - #{$cloud-width*0.5} );
+	width: $cloud-width;
+	height: $cloud-width;
+}
+
+.c-l1l, .c-l2l { right: calc(50% - #{$cloud-width*0.5} ); }
+.c-l1r, .c-l2r { left: calc(50% - #{$cloud-width*0.5} ); }
+
+.c-l1l, .c-l1r { background-color: $cloud-color-1; }
+.c-l2l, .c-l2r { background-color: $cloud-color-2; }
+
+.c-l1l { animation: cloudLeftAnimation1 infinite $animation-speed-1 ease-in; }
+.c-l1r { animation: cloudRightAnimation1 infinite $animation-speed-1 ease-in; }
+.c-l2l { animation: cloudLeftAnimation2 infinite $animation-speed-2 ease-in; }
+.c-l2r { animation: cloudRightAnimation2 infinite $animation-speed-2 ease-in; }
+
+@for $i from 1 through 4 {
+	.c1#{$i} {
+		animation-delay: #{$i*2-2}s;
+	}
+	.c2#{$i} {
+		animation-delay: #{$i}s;
+	}
+}
+
+.spaceship {
+	animation: takeOff infinite $animation-speed-0 ease-in;
+	animation-delay: $animation-speed-2;
+	position: absolute;
+	left: 50%; bottom: 0%;
+	.cloud-0 {
+		background-color: $cloud-color-2;
+		position: absolute;
+		width: $cloud-0-width; height: $screen-height;
+		left: calc(50% - #{$cloud-0-width/2} - 1px); top: calc(0% - 2px);
+	}
+	.part-1, .part-2 {
+		background-color: $spaceship-color;
+		width: $spaceship-width; height: $spaceship-height;
+		position: absolute;
+		bottom: calc(0% + #{$wing-height-2}*0.25 );
+		@include scaleX($spaceship-scale);
+	}
+	.part-1 {
+		border-radius: 0 $spaceship-width $spaceship-width 0;
+		left: calc(50% - #{$spaceship-width}*(1 - #{$spaceship-scale})/2 - 1px);
+	}
+	.part-2 {
+		border-radius: $spaceship-width 0 0 $spaceship-width;
+		right: calc(50% - #{$spaceship-width}*(1 - #{$spaceship-scale})/2 - 1px);
+	}
+	.part-3 {
+		@include triangle();
+		border-width: 0 $spaceship-bottom $spaceship-bottom $spaceship-bottom;
+		border-color: transparent transparent $spaceship-color transparent;
+		left: calc(50% - #{$spaceship-bottom} );
+		bottom: calc(0% + #{$wing-height-2}*0.15 );
+	}
+	.wing-l1 {
+		@include triangle();
+		border-width: 0 0 $wing-height-1 $wing-width;
+		border-color: transparent transparent $wing-color transparent;
+		right: 50%; bottom: calc(0% + #{$wing-height-2} );
+	}
+	.wing-r1 {
+		@include triangle();
+		border-width: $wing-height-1 0 0 $wing-width ;
+		border-color: transparent transparent transparent $wing-color;
+		left: 50%; bottom: calc(0% + #{$wing-height-2} );
+	}
+	.wing-l2 {
+		@include triangle();
+		border-width: $wing-height-2 $wing-width 0 0;
+		border-color: $wing-color transparent transparent transparent;
+		right: 50%; bottom: calc(0% + 1px);
+	}
+	.wing-r2 {
+		@include triangle();
+		border-width: 0 $wing-width $wing-height-2 0;
+		border-color: transparent $wing-color transparent transparent;
+		left: 50%; bottom: calc(0% + 1px);
+	}
+}
+
+
+
+@include keyframes(takeOff) {
+	0%, 65% { bottom: 0%; }
+	15%, 40% { bottom: $screen-height; }
+}
+@include keyframes(cloudLeftAnimation1) {
+	100% {	width: $cloud-width*5; height: $cloud-width*5;
+				@include translateX(-$screen-width*0.55); }
+}
+@include keyframes(cloudRightAnimation1) {
+	100% { 	width: $cloud-width*5; height: $cloud-width*5;
+				@include translateX(+$screen-width*0.55); }
+}
+@include keyframes(cloudLeftAnimation2) {
+	100% {	width: $cloud-width*5; height: $cloud-width*3.5;
+				@include translateX(-$screen-width*0.55); }
+}
+@include keyframes(cloudRightAnimation2) {
+	100% { 	width: $cloud-width*5; height: $cloud-width*3.5;
+				@include translateX(+$screen-width*0.55); }
+}
