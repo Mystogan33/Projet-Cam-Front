@@ -1,0 +1,296 @@
+page-home {
+
+  ion-content{
+      background-image: url('../assets/img/background.jpg');
+  }
+
+  ion-navbar {
+  text-align: center;
+  }
+
+  ion-buttons {
+    order: 10;
+  }
+
+
+  a:hover {
+  color: CornflowerBlue;
+  }
+
+  /* Circle Avatar Styles */
+
+  .circle {
+	line-height: 0;		/* remove line-height */
+	margin: 5px;
+  border: 2px solid rgba(255,255,255,0.4);
+	border-radius: 50%;	/* relative value */
+	transition: linear 0.25s;
+  height: 40px;
+  width: 40px;
+  }
+
+  .circle img {
+	border-radius: 50%;
+  }
+
+  .circle:hover {
+	transition: ease-out 0.2s;
+  border: 2px solid rgba(255,255,255,0.8);
+  -webkit-transition: ease-out 0.2s;
+}
+
+}
+
+
+$background-color:    #2196F3;
+$octo-color:        #ff6238;
+$octo-color-2:      rgba(darken($octo-color,8%),1);
+$octo-color-3:      rgba(darken($octo-color,32%),1);
+$octo-color-4:      rgba(darken($octo-color,40%),1);
+$bubble-color:      rgba(lighten($background-color, 20%), 0.35);
+$bubble-spot-color:     rgba(lighten($bubble-color, 20%), 0.35);
+$bubble-border-color:   white;
+$iris-color:        green;
+
+$octo-speed: 12s;
+$bubble-speed: 1.1s;
+$bubble-difference-speed: 1.2s;
+$easeIn: cubic-bezier(0.9,0.2,1,1);
+$bubble-positions: 10 20 30 45 60 70;
+
+$bubble-width:          21px;
+$bubble-spot-width:         $bubble-width/5;
+$bubble-difference-width:     $bubble-width/5;
+$bubble-spot-difference-width: $bubble-width/5;
+
+$octo-width:            135px;
+$octo-height:             $octo-width*0.85;
+$octo-bubble-width:         $octo-width*1.1;
+$octo-bubble-height:      $octo-height*1.25;
+$tentacle-width:          $octo-width*0.15;
+$tentacle-height:         $octo-height*0.85;
+$eyes-width:            $octo-width*0.18;
+$iris-width:            $eyes-width*0.75;
+$pupil-width:             $iris-width*0.52;
+$pupil-height:          $iris-width*0.85;
+$mouth-width:             $octo-width*0.18;
+$mouth-height:          $mouth-width*0.30;
+
+
+@mixin background-gradient($v1, $v2, $v3) {
+  background:       linear-gradient($v1, $v2, $v3);
+  background:     -o-linear-gradient($v1, $v2, $v3);
+  background:   -moz-linear-gradient($v1, $v2, $v3);
+  background: -webkit-linear-gradient($v1, $v2, $v3);
+}
+@mixin transform($transforms) {
+           transform: $transforms;
+       -o-transform: $transforms;
+      -ms-transform: $transforms;
+     -moz-transform: $transforms;
+  -webkit-transform: $transforms;
+}
+@mixin rotation($deg) {
+  @include transform(rotate($deg));
+}
+@mixin keyframes($name) {
+        @keyframes #{$name} { @content };
+      @-o-keyframes #{$name} { @content };
+     @-moz-keyframes #{$name} { @content };
+  @-webkit-keyframes #{$name} { @content };
+}
+
+body {
+  .bubble, .bubble-spot,
+  .octopus, .octo-bubble,
+  .head, .head-spot, .mouth,
+  .eyes, .iris, .pupil, .eyes-spot {
+    position: absolute;
+    border-radius: 50%;
+  }
+  .octopus, .iris, .pupil {
+    left: 50%; top: 50%;
+  }
+  .background {
+    @include background-gradient(
+      top,
+      $background-color,
+      darken($background-color,90%));
+    overflow: hidden;
+    background-color: $background-color;
+    position: absolute;
+    width: 100%; height: 100%;
+    left: 0%; top: 0%;
+    .bubble {
+      background-color: $bubble-color;
+      top:-100%;
+      border: 1px solid $bubble-border-color;
+      animation-name: bubbleAnimation;
+      animation-timing-function: $easeIn;
+      animation-iteration-count: infinite;
+      .bubble-spot {
+        background-color: $bubble-spot-color;
+        top: 10%; left: 10%;
+      }
+    }
+    .octopus {
+      animation: octoAnimation infinite $octo-speed;
+      .octo-bubble {
+        background-color: $bubble-color;
+        width: $octo-bubble-width;
+        height: $octo-bubble-height;
+        margin-left: -$octo-bubble-width*0.5;
+        margin-top: -$octo-bubble-height*1.1*0.5;
+        border: 1px solid $bubble-border-color;
+        .bubble-spot {
+          background-color: $bubble-spot-color;
+          top: 10%; left: 10%;
+          width:$octo-bubble-width*0.5;
+          height: $octo-bubble-height*0.2;
+          @include rotation(-25deg);
+        }
+      }
+      .head {
+        background-color: $octo-color;
+        width: $octo-width;
+        height: $octo-height;
+        left: calc(50% - #{$octo-width/2} );
+        top: calc(50% - #{$octo-height/2} );
+        .head-spot {
+          background-color: $octo-color-2;
+        }
+        .head-spot-1 {
+          top: 34%; left: 60%;
+          width: $octo-width*0.08;
+          height: $octo-width*0.05;
+        }
+        .head-spot-2 {
+          top: 28%; left: 52%;
+          width: $octo-width*0.04;
+          height: $octo-width*0.025;
+        }
+        .eyes {
+          top: 60%;
+          background-color: white;
+          border: solid $octo-color-2;
+          border-width: 3px 6px 3px 6px;
+          width: $eyes-width;
+          height: $eyes-width;
+          margin-top: -($eyes-width)*0.8;
+          .iris {
+            background-color: $iris-color;
+            width: $iris-width;
+            height: $iris-width;
+            margin-left: -$iris-width*0.5;
+            margin-top: -$iris-width*0.5;
+            .pupil {
+              background-color: black;
+              width: $pupil-width;
+              height: $pupil-height;
+              margin-left: -$pupil-width*0.5;
+              margin-top: -$pupil-height*0.5;
+              .eyes-spot {
+                top: 0%; left: 50%;
+                background-color: rgba(white,0.65);
+                width: $pupil-width*0.75;
+                height: $pupil-width*0.75;
+              }
+            }
+          }
+        }
+        .eyes-1 {
+          left: 15%;
+        }
+        .eyes-2 {
+          left: 65%;
+        }
+        .mouth {
+          background-color: $octo-color-4;
+          top: 70%; left: 50%;
+          width: $mouth-width;
+          height: $mouth-height;
+          margin-left: -$mouth-width*0.5;
+          margin-top: -$mouth-height*0.5;
+          border-bottom: 3px solid $octo-color-3;
+        }
+      }
+      .tentacle {
+        position:absolute;
+        background: $octo-color;
+        width: $tentacle-width;
+        height: $tentacle-height;
+        border-radius: $tentacle-width;
+        margin-left: -$tentacle-width*0.5;
+      }
+      .tentacle-1 {
+        animation: tentaclesAnimation-1 infinite $octo-speed;
+        top: -$tentacle-height*0.1;
+        left: -$tentacle-width*1.2;
+      }
+      .tentacle-2 {
+        animation: tentaclesAnimation-2 infinite $octo-speed;
+        top:0px;
+      }
+      .tentacle-3 {
+        animation: tentaclesAnimation-3 infinite $octo-speed;
+        top: -$tentacle-height*0.15;
+        left: $tentacle-width*1.2;
+      }
+
+    }
+  }
+}
+
+
+@include keyframes(bubbleAnimation) {
+  0% { top: 100%; }
+  100% { top: 0%; }
+}
+@include keyframes(octoAnimation) {
+  0%    { top: 30%; }
+  25% { top: 70%; }
+  50% { top: 40%; }
+  75% { top: 60%; }
+  100%  { top: 30%; }
+}
+@include keyframes(tentaclesAnimation-1) {
+  0%    { @include rotation(0deg); }
+  25% { @include rotation(60deg); }
+  50% { @include rotation(10deg); }
+  75% { @include rotation(40deg); }
+  100%  { @include rotation(0deg); }
+}
+@include keyframes(tentaclesAnimation-2) {
+  0%    { @include rotation(0deg); }
+  25% { @include rotation(-30deg); }
+  50% { @include rotation(-5deg); }
+  75% { @include rotation(20deg); }
+  100%  { @include rotation(0deg); }
+}
+@include keyframes(tentaclesAnimation-3) {
+  0%    { @include rotation(0deg); }
+  25% { @include rotation(-60deg); }
+  50% { @include rotation(-10deg); }
+  75% { @include rotation(-40deg); }
+  100%  { @include rotation(-0deg); }
+}
+
+
+
+@each $position in $bubble-positions {
+  .bubble--#{'' + $position} {
+    left: $position*1%;
+  }
+}
+@for $i from 1 through 7 {
+  .bubble:nth-child(#{$i}) {
+    animation-delay: #{$i * 1}s;
+    animation-duration: #{ $bubble-speed + ($i*$bubble-difference-speed)};
+    width: #{ ($i*$bubble-difference-width) + $bubble-width};
+    height: #{ ($i*$bubble-difference-width) + $bubble-width};
+    .bubble-spot {
+      width: #{ ($i*$bubble-spot-difference-width) + $bubble-spot-width};
+      height: #{ ($i*$bubble-spot-difference-width) + $bubble-spot-width};
+    }
+  }
+}

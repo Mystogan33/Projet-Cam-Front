@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar color="secondary">
+
+    <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>
+      <b>Gérer les caméras</b>
+    </ion-title>
+
+    <ion-buttons right>
+      <button ion-button icon-only (click)="addCamera()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="logOut()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item-sliding class="item item-trns" *ngFor="let item of items">
+      <button ion-item class="item item-trns" (click)="itemTapped($event, item)">
+        <ion-icon [name]="item.icon" item-left></ion-icon>
+        <b>{{item.title}}</b>
+        <div class="item-note" item-right>
+          <b>{{item.note}}</b>
+        </div>
+      </button>
+
+      <ion-item-options side="right">
+        <button ion-button color="danger" (click)="removeCamera(camera)" large>
+          <ion-icon name="trash" large></ion-icon>
+        </button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

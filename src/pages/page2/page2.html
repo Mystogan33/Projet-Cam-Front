@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar color="secondary">
+
+    <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>
+      <b>Visualiser une caméra</b>
+    </ion-title>
+
+    <ion-buttons right>
+      <button ion-button icon-only (click)="logOut()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <button ion-item class="item item-trns" *ngFor="let item of items" (click)="afficherCamera($event,item)">
+      <ion-icon [name]="item.icon" item-left></ion-icon>
+      <b>{{item.title}}</b>
+      <div class="item-note" item-right>
+      <b>{{item.note}}</b>
+      </div>
+    </button>
+  </ion-list>
+</ion-content>

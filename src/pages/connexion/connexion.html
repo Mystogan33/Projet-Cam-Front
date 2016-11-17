@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-navbar full color="secondary">
+    <ion-title>
+      Connexion
+    </ion-title>
+    <ion-buttons end>
+    <button ion-button icon-only (click)="showModalInscription()"><ion-icon name="person-add"></ion-icon></button>
+  </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list no-lines>
+
+      <ion-item class="item item-trns">
+        <ion-label class="label labelConnexion" floating><b>Nom d'utilisateur ou email</b></ion-label>
+        <ion-input [(ngModel)]="identifier" type="text" secondary></ion-input>
+      </ion-item>
+
+      <ion-item class="item item-trns">
+        <ion-label class="label labelConnexion" floating><b>Mot de Passe</b></ion-label>
+        <ion-input [(ngModel)]="password" type="password" secondary></ion-input>
+      </ion-item>
+
+    </ion-list>
+
+    <button ion-button full color="secondary" (click)="connexion()">Connexion</button>
+
+</ion-content>
+
+<div class="background"></div>
+
+<div class="cloud c-l1l c11"></div>
+<div class="cloud c-l1l c12"></div>
+<div class="cloud c-l1l c13"></div>
+<div class="cloud c-l1l c14"></div>
+
+<div class="cloud c-l1r c11"></div>
+<div class="cloud c-l1r c12"></div>
+<div class="cloud c-l1r c13"></div>
+<div class="cloud c-l1r c14"></div>
+
+<div class="cloud c-l2l c21"></div>
+<div class="cloud c-l2l c22"></div>
+<div class="cloud c-l2l c23"></div>
+<div class="cloud c-l2l c24"></div>
+
+<div class="cloud c-l2r c21"></div>
+<div class="cloud c-l2r c22"></div>
+<div class="cloud c-l2r c23"></div>
+<div class="cloud c-l2r c24"></div>
+
+<div class="spaceship">
+  <div class="cloud-0"></div>
+  <div class="wing-l1"></div>
+  <div class="wing-r1"></div>
+  <div class="wing-l2"></div>
+  <div class="wing-r2"></div>
+  <div class="part-1"></div>
+  <div class="part-2"></div>
+  <div class="part-3"></div>
+</div>
+

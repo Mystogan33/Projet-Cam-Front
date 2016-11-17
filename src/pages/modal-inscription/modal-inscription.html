@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar full color="secondary">
+    <ion-title>Inscription</ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only (click)="dismissCancel()"><ion-icon name="arrow-back"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list no-lines>
+
+      <ion-item class="item item-trns">
+        <ion-label class="label labelInscription" floating><b>Nom d'utilisateur</b></ion-label>
+        <ion-input [(ngModel)]="username" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item class="item item-trns">
+        <ion-label class="label labelInscription" floating><b>Mot de Passe</b></ion-label>
+        <ion-input [(ngModel)]="password" type="password"></ion-input>
+      </ion-item>
+
+      <ion-item class="item item-trns">
+        <ion-label class="label labelInscription" floating><b>Adresse e-Mail</b></ion-label>
+        <ion-input [(ngModel)]="mail" type="mail"></ion-input>
+      </ion-item>
+
+      <ion-item class="item item-trns">
+        <ion-label class="label labelInscription" floating><b>Prénom</b></ion-label>
+        <ion-textarea [(ngModel)]="firstname"></ion-textarea>
+      </ion-item>
+
+      <ion-item class="item item-trns">
+        <ion-label class="label labelInscription" floating><b>Nom</b></ion-label>
+        <ion-input [(ngModel)]="lastname" type="text"></ion-input>
+      </ion-item>
+
+    </ion-list>
+
+    <button ion-button full color="secondary" (click)="inscription()">S'inscrire</button>
+
+</ion-content>

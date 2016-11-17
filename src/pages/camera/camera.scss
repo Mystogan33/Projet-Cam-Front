@@ -1,0 +1,49 @@
+page-camera {
+
+  button[fab].fab-map {
+  top: calc(100% - 35px);
+  z-index: 50;
+  }
+
+  ion-navbar {
+  text-align: center;
+  }
+
+  .camera-control-bar {
+
+    padding :5px;
+
+  }
+
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+  }
+
+  .video-container iframe, .video-container object, .video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  ion-card {
+    text-align: center;
+  }
+
+  .button-camera-side {
+    width: 31%;
+    background-color: map-get($colors,secondary);
+    text-align: center;
+    height:60px;
+  }
+
+  .button-camera-centre {
+    width: 100%;
+    background-color: map-get($colors,secondary);
+    height:60px;
+  }
+
+}

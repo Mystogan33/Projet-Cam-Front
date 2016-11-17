@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-navbar color="secondary">
+
+    <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>
+      <b>Gérer la {{idCamera.title}}</b>
+    </ion-title>
+
+    <ion-buttons right>
+      <button ion-button icon-only (click)="logOut()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item-group>
+      <ion-item-divider color="secondary">
+        <ion-avatar item-left>
+          <img src="assets/img/camera.jpg">
+        </ion-avatar>
+        <b>Description de la caméra</b>
+      </ion-item-divider>
+
+      <ion-item-sliding *ngFor="let info of InformationCamera">
+
+        <ion-item>
+          <ion-icon [name]="info.icon" item-left large></ion-icon>
+          <h2> <b>{{info.title}} :</b> {{info.content}} </h2>
+        </ion-item>
+
+        <ion-item-options side="right">
+          <button ion-button color="green" (click)="modifier()" large>
+            <ion-icon name="brush" large></ion-icon>
+          </button>
+        </ion-item-options>
+
+      </ion-item-sliding>
+    </ion-item-group>
+
+    <ion-item-group>
+      <ion-item ion-item color="secondary">
+        <ion-icon name="contacts" item-left></ion-icon>
+        <b>Utilisateurs de cette caméra :</b>
+        <ion-icon name="add" (click)="ajouter()" item-right></ion-icon>
+      </ion-item>
+
+      <ion-item-sliding *ngFor="let utilisateur of Utilisateurs">
+
+        <ion-item ion-item class="item item-trns">
+          <ion-avatar item-left>
+            <img [src]="utilisateur.image" item-left>
+          </ion-avatar>
+          {{utilisateur.username}}
+          <div class="utilisateur-profil" item-right>
+            {{utilisateur.profil}}
+          </div>
+        </ion-item>
+
+        <ion-item-options side="right">
+          <button ion-button color="danger" (click)="supprimer(utilisateur)" large>
+            <ion-icon name="trash" large></ion-icon>
+          </button>
+        </ion-item-options>
+
+      </ion-item-sliding>
+    </ion-item-group>
+  </ion-list>
+</ion-content>

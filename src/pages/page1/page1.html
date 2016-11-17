@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar color="secondary">
+
+    <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>
+      <b>Mon compte</b>
+    </ion-title>
+
+    <ion-buttons right>
+      <button ion-button icon-only (click)="logOut()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+
+    <ion-item color="secondary">
+      <ion-avatar item-left>
+        <img src="assets/img/avatar2.jpg">
+      </ion-avatar>
+      <h2><b>{{username}}</b></h2>
+    </ion-item>
+
+    <div style="position: relative">
+      <img src="assets/img/avatar2.jpg">
+      <ion-fab right top>
+        <button ion-fab class="fab-map">
+          <ion-icon name='brush'></ion-icon>
+        </button>
+      </ion-fab>
+    </div>
+
+    <ion-list>
+
+      <ion-item-sliding *ngFor="let item of infos">
+
+        <ion-item color>
+            <ion-icon [name]="item.icon" item-left large></ion-icon>
+            <h2> <b>{{item.title}} :</b> {{item.content}} </h2>
+        </ion-item>
+
+        <ion-item-options side="right">
+          <button ion-button color="secondary" (click)="modifier()">
+             <ion-icon name="brush" large></ion-icon>
+               Modifier
+          </button>
+        </ion-item-options>
+
+      </ion-item-sliding>
+
+    </ion-list>
+
+  </ion-card>
+</ion-content>
