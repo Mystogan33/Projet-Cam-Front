@@ -56,11 +56,15 @@ export class GestionCamera {
 
   }
 
-  addCamera(camera){
+  addCamera(){
 
-    this.serv.addCamera(camera).subscribe(
+    let camera = 'Camera #'+ Math.floor(Math.random() * 10);
+
+    this.serv.addCamera(JSON.stringify({camera : camera})).subscribe(
 
       data => {
+
+        console.log("Caméra ajouté")
 
       },
       err => {
@@ -68,16 +72,18 @@ export class GestionCamera {
         console.log("Erreur ajout camera")
 
       },
-      () => console.log("Caméra ajouté")
+      () => console.log("")
     );
 
     //Mock data
-    camera = 'Camera #'+ Math.floor(Math.random() * 10);
+
     this.items.push({
       title: camera,
       note: 'Gérer la '+ camera,
       icon: this.icons[Math.floor(Math.random() * this.icons.length)]
     });
+
+    
   }
 
   removeCamera(camera) {

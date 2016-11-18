@@ -8,6 +8,7 @@ import 'rxjs/add/operator/map';
 export class ServProvider {
 
   data: any;
+  cameras : Array<{title: string, note: string, icon: string}>;
 
   constructor(public http: Http) {
   }
@@ -26,11 +27,24 @@ export class ServProvider {
 
   Connexion(body): Observable<any> {
 
+    
+
     let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({ headers: headers});
 
    return this.http.post('http://localhost:1337/auth/signin', body , options)
     .map(res => res.json())
+
+  }
+
+  getCameras(): Observable<any> {
+
+    let headers = new Headers({'Content-Type': 'application/json'});
+    let options = new RequestOptions({headers: headers});
+
+
+    return this.http.get('http://localhost:1337/camera/get',options)
+    .map(res => res.json());
 
   }
 
@@ -40,7 +54,7 @@ export class ServProvider {
     let options = new RequestOptions({headers: headers});
 
 
-    return this.http.post('http://localhost:1337/camera/add?camera='+camera,"",options)
+    return this.http.post('http://localhost:1337/camera/add',camera,options)
     .map(res => res.json());
 
     }
@@ -51,7 +65,7 @@ export class ServProvider {
       let options = new RequestOptions({headers: headers});
 
 
-      return this.http.post('http://localhost:1337/camera/'+camera+'/move/left',"",options)
+      return this.http.get('http://localhost:1337/camera/'+camera+'/move/left',options)
       .map(res => res.json());
 
     }
@@ -62,7 +76,7 @@ export class ServProvider {
       let options = new RequestOptions({headers: headers});
 
 
-      return this.http.post('http://localhost:1337/camera/'+camera+'/move/center',"",options)
+      return this.http.get('http://localhost:1337/camera/'+camera+'/move/center', options)
       .map(res => res.json());
 
     }
@@ -73,7 +87,7 @@ export class ServProvider {
       let options = new RequestOptions({headers: headers});
 
 
-      return this.http.post('http://localhost:1337/camera/'+camera+'/move/right',"",options)
+      return this.http.get('http://localhost:1337/camera/'+camera+'/move/right',options)
       .map(res => res.json());
 
     }

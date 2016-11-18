@@ -49,10 +49,10 @@ export class ListeUtilisateurCamera {
       this.Utilisateurs.splice(index,1);
     }
 
-    ajouter(utilisateur , profil)
+    ajouter()
     {
-      utilisateur = 'Utilisateur ' + Math.floor(Math.random() * 10);
-      profil = "Utilisateur";
+      let utilisateur = 'Utilisateur ' + Math.floor(Math.random() * 10);
+      let profil = "Utilisateur";
       this.Utilisateurs.push({username: utilisateur , profil : profil , image : 'assets/img/batman.png'});
     }
 
@@ -76,7 +76,6 @@ export class ListeUtilisateurCamera {
         this.InformationCamera =  [
           {title: 'Nom de la caméra' , content : this.idCamera.title , icon: "information-circle" },
           {title: 'Localisation' , content : 'Salle G6' , icon: "locate" },
-          //{title: 'Accessible par' , content : 'Administrateur' , icon: "contacts"}
         ];
 
       }
