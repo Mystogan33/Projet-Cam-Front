@@ -11,10 +11,12 @@ import { ServProvider } from '../../providers/serv-provider';
 })
 export class Camera {
 
+  // Id de la caméra
   idCamera : any;
 
   constructor(public navCtrl: NavController , public nav:NavParams , public modalCtrl : ModalController , public serv : ServProvider) {
 
+    // Récupération de la caméra selectionnée sur la page précédente
     this.idCamera = this.nav.get('item');
   }
 

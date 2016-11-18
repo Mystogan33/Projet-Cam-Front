@@ -7,14 +7,15 @@
 
   <ion-content>
 
+    <div class="background"></div>
+
     <ion-list>
+      <!-- Menu listant toutes les pages -->
       <button color="secondary" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         <ion-icon [name]="p.icon" item-left></ion-icon>
         <b>{{p.title}}</b>
       </button>
     </ion-list>
-
-
 
   </ion-content>
 

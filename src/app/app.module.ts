@@ -11,6 +11,7 @@ import { GestionCamera } from '../pages/gestion-camera/gestion-camera';
 import { ListeUtilisateurCamera }  from '../pages/liste-utilisateur-camera/liste-utilisateur-camera';
 import { Camera } from '../pages/camera/camera';
 
+// Déclaration du module
 @NgModule({
   declarations: [
     MyApp,

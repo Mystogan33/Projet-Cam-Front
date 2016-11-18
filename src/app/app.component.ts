@@ -14,14 +14,18 @@ import { HomePage } from '../pages/home/home';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
+  //Définition de la page de lancement
   rootPage: any = HomePage;
 
+  // Définition d'une page
   pages: Array<{title: string, component: any , icon: any , droit : any}>;
 
   constructor(public platform: Platform) {
+
+    //Initialisation de l'application
     this.initializeApp();
 
-    // used for an example of ngFor and navigation
+    // Pages de l'application
     this.pages = [
       { title: 'Accueil', component: HomePage , icon: "md-home" , droit : true},
       { title: 'Mon Compte', component: Page1 , icon: "person"  , droit : true},

@@ -24,6 +24,8 @@
 </ion-header>
 
 <ion-content>
+  <div class="background"></div>
+  
   <ion-list>
     <ion-item-sliding class="item item-trns" *ngFor="let item of items">
       <button ion-item class="item item-trns" (click)="itemTapped($event, item)">

@@ -21,6 +21,9 @@
 </ion-header>
 
 <ion-content>
+
+  <div class="background"></div>
+  
   <ion-list>
     <button ion-item class="item item-trns" *ngFor="let item of items" (click)="afficherCamera($event,item)">
       <ion-icon [name]="item.icon" item-left></ion-icon>

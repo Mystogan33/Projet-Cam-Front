@@ -1,3 +1,4 @@
+<!-- Menu -->
 <ion-header>
   <ion-navbar color="secondary">
 
@@ -20,9 +21,10 @@
   </ion-navbar>
 </ion-header>
 
-
+<!-- Page de contrôle d'une caméra -->
 <ion-content>
-
+      <div class="background">
+      </div>
       <ion-card>
 
       <ion-item color="secondary">
@@ -32,12 +34,14 @@
         <h2><b>{{idCamera.title}}</b></h2>
       </ion-item>
 
+      <!--Visualisation de la caméra -->
       <div style="position: relative">
         <div class="video-container">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen="true"></iframe>
         </div>
       </div>
 
+      <!-- Barre de contrôle de la caméra -->
         <div class="camera-control-bar">
 
           <button ion-button icon-left class="button-camera-side" (click)="moveLeft()" large> Gauche </button>
