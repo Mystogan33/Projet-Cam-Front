@@ -66,7 +66,7 @@ export class Page2 {
       this.icons = ['camera'];
 
       this.items = [];
-      for (let i = 1; i < 11; i++) {
+      for (let i = 1; i < 4; i++) {
         this.items.push({
           title: 'Caméra ' + i,
           note: 'Voir la caméra #' + i,

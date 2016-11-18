@@ -51,7 +51,7 @@
       <ion-item ion-item color="secondary">
         <ion-icon name="contacts" item-left></ion-icon>
         <b>Utilisateurs de cette caméra :</b>
-        <ion-icon name="add" (click)="ajouter()" item-right></ion-icon>
+        <ion-icon name="add" (click)="ajouterUtilisateur(idCamera.title)" item-right></ion-icon>
       </ion-item>
 
       <ion-item-sliding *ngFor="let utilisateur of Utilisateurs">
