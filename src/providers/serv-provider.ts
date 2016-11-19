@@ -22,7 +22,7 @@ export class ServProvider {
     return this.http.post('http://localhost:1337/auth/signup', body , options)
     .map(res => res.json());
 
-    }
+  }
 
 
   Connexion(body): Observable<any> {
@@ -32,7 +32,7 @@ export class ServProvider {
     let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({ headers: headers});
 
-   return this.http.post('http://localhost:1337/auth/signin', body , options)
+    return this.http.post('http://localhost:1337/auth/signin', body , options)
     .map(res => res.json())
 
   }
@@ -58,39 +58,42 @@ export class ServProvider {
     return this.http.post('http://localhost:1337/camera/add',camera,options)
     .map(res => res.json());
 
-    }
+  }
 
-    moveCameraLeft(camera): Observable<any> {
+  moveCameraLeft(camera , token): Observable<any> {
 
-      let headers = new Headers({'Content-Type': 'application/json'});
-      let options = new RequestOptions({headers: headers});
-
-
-      return this.http.get('http://localhost:1337/camera/'+camera+'/move/left',options)
-      .map(res => res.json());
-
-    }
-
-    moveCameraCenter(camera): Observable<any> {
-
-      let headers = new Headers({'Content-Type': 'application/json'});
-      let options = new RequestOptions({headers: headers});
+    let headers = new Headers();
+    headers.append('Authorization', 'JWT ' + token)
+    //let options = new RequestOptions({headers: headers});
 
 
-      return this.http.get('http://localhost:1337/camera/'+camera+'/move/center', options)
-      .map(res => res.json());
-
-    }
-
-    moveCameraRight(camera): Observable<any> {
-
-      let headers = new Headers({'Content-Type': 'application/json'});
-      let options = new RequestOptions({headers: headers});
-
-
-      return this.http.get('http://localhost:1337/camera/'+camera+'/move/right',options)
-      .map(res => res.json());
-
-    }
+    return this.http.get('http://localhost:1337/camera/2/move/left',{headers: headers})
+    .map(res => res.json());
 
   }
+
+  moveCameraCenter(camera , token): Observable<any> {
+
+    let headers = new Headers();
+    headers.append('Authorization', 'JWT ' + token)
+    //let options = new RequestOptions({headers: headers});
+
+
+    return this.http.get('http://localhost:1337/camera/2/move/center',{headers: headers})
+    .map(res => res.json());
+
+  }
+
+  moveCameraRight(camera , token): Observable<any> {
+
+    let headers = new Headers();
+    headers.append('Authorization', 'JWT ' + token)
+    //let options = new RequestOptions({headers: headers});
+
+
+    return this.http.get('http://localhost:1337/camera/2/move/right',{headers: headers})
+    .map(res => res.json());
+
+  }
+
+}

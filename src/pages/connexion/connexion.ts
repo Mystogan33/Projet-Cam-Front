@@ -36,11 +36,11 @@ export class PageConnexion {
       data => {
 
       this.reponse = data;
-      window.localStorage.setItem("Token",this.reponse.token);
-      window.localStorage.setItem("username",this.reponse.user.username);
-      window.localStorage.setItem("email",this.reponse.user.email);
-      window.localStorage.setItem("firstName",this.reponse.user.firstName);
-      window.localStorage.setItem("lastName",this.reponse.user.lastName);
+      window.localStorage.setItem('Token',this.reponse.token);
+      window.localStorage.setItem('username',this.reponse.user.username);
+      window.localStorage.setItem('email',this.reponse.user.email);
+      window.localStorage.setItem('firstName',this.reponse.user.firstname);
+      window.localStorage.setItem('lastName',this.reponse.user.lastname);
 
       this.viewCtrl.dismiss();
 
@@ -86,7 +86,7 @@ export class PageConnexion {
 
     this.serv.Inscription(this.bodyRequest).subscribe(
               data => {
-                window.localStorage.setItem("Token",data.token);
+                window.localStorage.setItem('Token',data.token);
                 this.connexion();
               },
               err => {

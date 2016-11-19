@@ -32,7 +32,7 @@ export class ModalInscription {
 
   inscription()
   {
-    let data = JSON.stringify({username: this.username , password: this.password , email: this.mail , firstName: this.firstname , lastName: this.lastname});
+    let data = JSON.stringify({username: this.username , password: this.password , email: this.mail , firstname: this.firstname , lastname: this.lastname});
     this.viewCtrl.dismiss(data);
   }
 

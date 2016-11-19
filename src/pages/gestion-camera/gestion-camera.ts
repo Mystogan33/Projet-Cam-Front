@@ -31,7 +31,7 @@ export class GestionCamera {
 
     this.items = [];
     this.isConnected();
-    this.username = window.localStorage.getItem("username");
+    this.username = window.localStorage.getItem('username');
 
   }
 
@@ -116,7 +116,7 @@ export class GestionCamera {
 
   isConnected()
   {
-    if(window.localStorage.getItem("Token")== null)
+    if(window.localStorage.getItem('Token')== null)
     {
       let modal = this.modalCtrl.create(PageConnexion);
 

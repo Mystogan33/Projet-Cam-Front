@@ -38,7 +38,7 @@ export class Camera {
   }
 
   isConnected(){
-    if(window.localStorage.getItem("Token")== null)
+    if(window.localStorage.getItem('Token')== null)
     {
       let modal = this.modalCtrl.create(PageConnexion);
       modal.present();
@@ -51,15 +51,15 @@ export class Camera {
   }
 
   moveLeft(){
-    this.serv.moveCameraLeft(this.idCamera).subscribe(
+    this.serv.moveCameraLeft(this.idCamera,window.localStorage.getItem('Token')).subscribe(
 
       data => {
 
-
+        console.log(data)
       },
       err => {
 
-        console.log("Erreur Camera")
+        console.log("Erreur")
 
       },
       () => console.log("Caméra déplacé")
@@ -67,15 +67,15 @@ export class Camera {
   }
 
   moveCenter(){
-    this.serv.moveCameraCenter(this.idCamera).subscribe(
+    this.serv.moveCameraCenter(this.idCamera,window.localStorage.getItem('Token')).subscribe(
 
       data => {
 
-
+        console.log(data);
       },
       err => {
 
-        console.log("Erreur Camera")
+        console.log("Erreur")
 
       },
       () => console.log("Caméra déplacé")
@@ -83,14 +83,14 @@ export class Camera {
   }
 
   moveRight(){
-    this.serv.moveCameraRight(this.idCamera).subscribe(
+    this.serv.moveCameraRight(this.idCamera,window.localStorage.getItem('Token')).subscribe(
 
       data => {
-
+        console.log(data);
       },
       err => {
 
-        console.log("Erreur Camera")
+        console.log("Erreur")
 
       },
       () => console.log("Caméra déplacé")
