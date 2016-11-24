@@ -19,18 +19,21 @@ export class MyApp {
 
   // Définition d'une page
   pages: Array<{title: string, component: any , icon: any , droit : any}>;
+  profil : any;
 
   constructor(public platform: Platform) {
 
     //Initialisation de l'application
     this.initializeApp();
 
+    this.profil = window.localStorage.getItem('Profil');
+
     // Pages de l'application
     this.pages = [
-      { title: 'Accueil', component: HomePage , icon: "md-home" , droit : true},
-      { title: 'Mon Compte', component: Page1 , icon: "person"  , droit : true},
-      { title: 'Visualiser une caméra', component: Page2 , icon: "camera" , droit : true},
-      { title: 'Gérer les caméras', component: GestionCamera , icon : "cog" , droit : false }
+      { title: 'Accueil', component: HomePage , icon: "md-home" , droit : 'Utilisateur'},
+      { title: 'Mon Compte', component: Page1 , icon: "person"  , droit : 'Utilisateur'},
+      { title: 'Visualiser une caméra', component: Page2 , icon: "camera" , droit : 'Utilisateur'},
+      { title: 'Gérer les caméras', component: GestionCamera , icon : "cog" , droit : 'Administrateur'}
     ];
 
   }

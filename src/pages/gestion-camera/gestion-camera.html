@@ -25,14 +25,14 @@
 
 <ion-content>
   <div class="background"></div>
-  
+
   <ion-list>
-    <ion-item-sliding class="item item-trns" *ngFor="let item of items">
-      <button ion-item class="item item-trns" (click)="itemTapped($event, item)">
-        <ion-icon [name]="item.icon" item-left></ion-icon>
-        <b>{{item.title}}</b>
-        <div class="item-note" item-right>
-          <b>{{item.note}}</b>
+    <ion-item-sliding class="item item-trns" *ngFor="let camera of cameraList">
+      <button ion-item class="item item-trns" (click)="itemTapped($event,camera)">
+        <ion-icon name="camera" item-left></ion-icon>
+        <b>Caméra {{camera.camera}}</b>
+        <div class="camera-description" item-right>
+          <b>Gérer la caméra #{{camera.camera}}</b>
         </div>
       </button>
 

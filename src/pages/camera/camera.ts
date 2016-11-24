@@ -51,7 +51,7 @@ export class Camera {
   }
 
   moveLeft(){
-    this.serv.moveCameraLeft(this.idCamera,window.localStorage.getItem('Token')).subscribe(
+    this.serv.moveCameraLeft(this.idCamera).subscribe(
 
       data => {
 
@@ -67,7 +67,7 @@ export class Camera {
   }
 
   moveCenter(){
-    this.serv.moveCameraCenter(this.idCamera,window.localStorage.getItem('Token')).subscribe(
+    this.serv.moveCameraCenter(this.idCamera).subscribe(
 
       data => {
 
@@ -83,7 +83,7 @@ export class Camera {
   }
 
   moveRight(){
-    this.serv.moveCameraRight(this.idCamera,window.localStorage.getItem('Token')).subscribe(
+    this.serv.moveCameraRight(this.idCamera).subscribe(
 
       data => {
         console.log(data);

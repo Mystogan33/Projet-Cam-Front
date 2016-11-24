@@ -17,11 +17,12 @@ export class ModalDeconnexion {
   logOut()
   {
     console.log("Déconnexion");
-    window.localStorage.removeItem('Token');
-    window.localStorage.removeItem('username');
-    window.localStorage.removeItem('email');
-    window.localStorage.removeItem('firstName');
-    window.localStorage.removeItem('lastName');
+    localStorage.removeItem('Token');
+    localStorage.removeItem('username');
+    localStorage.removeItem('email');
+    localStorage.removeItem('firstName');
+    localStorage.removeItem('lastName');
+    localStorage.removeItem('Profil');
 
     this.modalCtrl.dismiss();
   }

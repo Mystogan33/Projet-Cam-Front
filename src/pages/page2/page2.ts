@@ -22,7 +22,6 @@ export class Page2 {
   constructor(public navCtrl: NavController, public navParams: NavParams , public modalCtrl : ModalController) {
 
     this.isConnected();
-    this.username = window.localStorage.getItem("username");
 
   }
 
@@ -50,7 +49,7 @@ export class Page2 {
 
   isConnected()
   {
-    if(window.localStorage.getItem("Token")== null)
+    if(localStorage.getItem('Token')== null)
     {
       let modal = this.modalCtrl.create(PageConnexion);
 
@@ -61,7 +60,6 @@ export class Page2 {
     }
     else
     {
-
       // Let's populate this page with some filler content for funzies
       this.icons = ['camera'];
 
@@ -74,6 +72,5 @@ export class Page2 {
         });
       }
     }
-
   }
 }

@@ -3,16 +3,12 @@ import { NavController, NavParams , ModalController , AlertController } from 'io
 import { ModalDeconnexion } from '../modal-deconnexion/modal-deconnexion';
 import { PageConnexion } from '../connexion/connexion';
 import { SMS } from 'ionic-native';
+import { ServProvider } from '../../providers/serv-provider';
 
-/*
-Generated class for the ListeUtilisateurCamera page.
-
-See http://ionicframework.com/docs/v2/components/#navigation for more info on
-Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-liste-utilisateur-camera',
-  templateUrl: 'liste-utilisateur-camera.html'
+  templateUrl: 'liste-utilisateur-camera.html',
+  providers: [ServProvider]
 })
 
 export class ListeUtilisateurCamera {
@@ -20,8 +16,9 @@ export class ListeUtilisateurCamera {
   idCamera : any;
   Utilisateurs: any;
   InformationCamera : any;
+  reponse : any;
 
-  constructor(public navCtrl: NavController , public nav : NavParams , public modalCtrl : ModalController , public alertCtrl : AlertController) {
+  constructor(public navCtrl: NavController , public nav : NavParams , public modalCtrl : ModalController , public alertCtrl : AlertController , public serv : ServProvider) {
 
     this.isConnected();
 
@@ -75,7 +72,6 @@ export class ListeUtilisateurCamera {
         {
           text: 'Ajouter',
           handler: data => {
-            console.log('Saved clicked');
 
             //Mock data en absence de liste des utilisateurs
             utilisateur = data.NomUtilisateur;
@@ -95,12 +91,29 @@ export class ListeUtilisateurCamera {
                 //intent: '' // Sends sms without opening default sms app
               }
             }
-            SMS.send(phone, 'Bonjour '+utilisateur+' ! Un droit vous à été accordé sur la '+camera+'. A bientôt sur notre application :)' ,options)
+
+
+            SMS.send(phone, 'Bonjour '+utilisateur+' ! Un droit vous à été accordé sur la caméra '+this.idCamera.camera+'. A bientôt sur notre application :)' ,options)
             .then(()=>{
               alert("Message envoyé");
             },()=>{
               alert("Message non envoyé");
             });
+
+            var bodyRequest = JSON.stringify({identifier : localStorage.getItem('username')});
+
+            this.serv.addRightUser(bodyRequest , this.idCamera.camera,2).subscribe(
+
+              data => {
+                console.log(data);
+              },
+              err => {
+
+                alert(err);
+
+              },
+              () => console.log("")
+            );
           }
         }
       ]
@@ -127,7 +140,7 @@ export class ListeUtilisateurCamera {
       ];
 
       this.InformationCamera =  [
-        {title: 'Nom de la caméra' , content : this.idCamera.title , icon: "information-circle" },
+        {title: 'Nom de la caméra' , content : 'Caméra '+this.idCamera.camera , icon: "information-circle" },
         {title: 'Localisation' , content : 'Salle G6' , icon: "locate" },
       ];
 

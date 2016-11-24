@@ -36,5 +36,4 @@ export class ModalInscription {
     this.viewCtrl.dismiss(data);
   }
 
-
 }

@@ -6,32 +6,22 @@ import {PageConnexion} from '../connexion/connexion';
 import {HomePage} from '../home/home';
 import {ServProvider} from '../../providers/serv-provider';
 
-
-
-/*
-  Generated class for the GestionCamera page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-gestion-camera',
   templateUrl: 'gestion-camera.html',
   providers: [ServProvider]
 })
+
 export class GestionCamera {
 
-  username : any;
-
-  selectedItem: any;
   icons: string[];
-  items: Array<{title: string, note: string, icon: string}>;
+  //items: Array<{title: string, note: string, icon: string}>;
+  cameraList : any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams , public modalCtrl : ModalController , public serv : ServProvider , public alertCtrl : AlertController) {
 
-    this.items = [];
+    this.cameraList = [];
     this.isConnected();
-    this.username = window.localStorage.getItem('username');
 
   }
 
@@ -40,6 +30,33 @@ export class GestionCamera {
     this.navCtrl.push(ListeUtilisateurCamera, {
     camera : item
     });
+  }
+
+  getMyCameras() {
+
+    this.serv.getMyCameras().subscribe(
+
+      data => {
+        
+      this.cameraList = data.content;
+
+      /*for (let i = 1; i < 11; i++) {
+        this.items.push({
+          title: 'Caméra ' + i,
+          note: 'Gérer la camera#' + i,
+          icon: this.icons[Math.floor(Math.random() * this.icons.length)]
+        });
+      }*/
+
+      },
+      err => {
+
+      alert("Erreur de la récupération des caméras");
+
+    },
+      () => console.log("Connexion établie")
+    );
+
   }
 
   logOut()
@@ -81,8 +98,8 @@ export class GestionCamera {
        handler: data => {
          console.log('Saved clicked');
          camera = data.NomCamera;
-             this.items.push({
-               title: camera,
+             this.cameraList.push({
+               camera: camera,
                note: 'Gérer la '+ camera,
                icon: this.icons[Math.floor(Math.random() * this.icons.length)]
              });
@@ -110,8 +127,8 @@ export class GestionCamera {
   }
 
   removeCamera(camera) {
-    let index = this.items.indexOf(camera);
-    this.items.splice(index,1);
+    let index = this.cameraList.indexOf(camera);
+    this.cameraList.splice(index,1);
   }
 
   isConnected()
@@ -127,17 +144,7 @@ export class GestionCamera {
     }
     else
     {
-
-      // Let's populate this page with some filler content for funzies
-      this.icons = ['camera'];
-
-      for (let i = 1; i < 11; i++) {
-        this.items.push({
-          title: 'Caméra ' + i,
-          note: 'Gérer la camera#' + i,
-          icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-        });
-      }
+      this.getMyCameras();
     }
 
   }

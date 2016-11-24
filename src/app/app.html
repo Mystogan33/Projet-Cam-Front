@@ -11,10 +11,23 @@
 
     <ion-list>
       <!-- Menu listant toutes les pages -->
-      <button color="secondary" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+
+      <!--<button color="secondary" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         <ion-icon [name]="p.icon" item-left></ion-icon>
         <b>{{p.title}}</b>
-      </button>
+      </button> -->
+
+      <template ngFor let-p [ngForOf]="pages">
+        <button color="secondary" menuClose ion-item *ngIf="p.droit=='Utilisateur'" (click)="openPage(p)">
+          <ion-icon [name]="p.icon" item-left></ion-icon>
+          <b>{{p.title}}</b>
+        </button>
+        <button color="secondary" menuClose ion-item *ngIf="p.droit=='Administrateur' && profil=='Administrateur'" (click)="openPage(p)">
+          <ion-icon [name]="p.icon" item-left></ion-icon>
+          <b>{{p.title}}</b>
+        </button>
+      </template>
+
     </ion-list>
 
   </ion-content>

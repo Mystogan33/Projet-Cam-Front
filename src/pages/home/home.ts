@@ -11,42 +11,42 @@ import { ModalDeconnexion } from '../modal-deconnexion/modal-deconnexion';
 })
 export class HomePage {
 
-  username : any;
-
-  selectedItem : any;
-  icons : string[];
-  items: Array<{title: string, note: string, icon: string}>;
+  reponse : any;
 
   constructor(public navCtrl: NavController , public navParams : NavParams , public viewCtrl: ViewController , public modalCtrl : ModalController , public serv : ServProvider , public alertCtrl : AlertController){
 
-    //Pour le dév
-    /*window.localStorage.setItem('Token',"GROSLKWKHFJEKSLJE65772");
-    window.localStorage.setItem('username',"Mystogan33");
-    window.localStorage.setItem('firstName',"Valentin");
-    window.localStorage.setItem('lastName',"GAY");
-    window.localStorage.setItem('email',"Mystogan40@gmail.com");*/
-
     this.isConnected();
-    this.username = window.localStorage.getItem("username");
 
   }
 
-  itemTapped(event, item) {
-
-    this.navCtrl.push(HomePage, {
-      item: item
-    });
-    }
-
   isConnected(){
-    if(window.localStorage.getItem("Token")== null)
+    if(localStorage.getItem('Token')== null)
     {
       let modal = this.modalCtrl.create(PageConnexion);
       modal.present();
     }
     else
     {
+      this.serv.getMyProfile().subscribe(
 
+        data => {
+
+        this.reponse = data;
+        localStorage.setItem('username',this.reponse.user.username);
+        localStorage.setItem('email',this.reponse.user.email);
+        localStorage.setItem('firstName',this.reponse.user.firstname);
+        localStorage.setItem('lastName',this.reponse.user.lastname);
+        localStorage.setItem('id',this.reponse.user.id);
+        localStorage.setItem('Profil','Administrateur');
+
+        },
+        err => {
+
+        alert("Erreur lors de la récupération de votre profil");
+
+      },
+        () => console.log("Profil récupéré")
+      );
     }
 
     }
@@ -63,8 +63,5 @@ export class HomePage {
         confirm.present();
 
     }
-
-
-
 
 }
